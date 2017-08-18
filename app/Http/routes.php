@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('family', 'FamilyController');
+Route::resource('child', 'ChildController');
+Route::resource('caregiver', 'CaregiverController');

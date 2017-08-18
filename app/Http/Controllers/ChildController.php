@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Child;
 
-class ChildrenController extends Controller
+class ChildController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class ChildrenController extends Controller
      */
     public function index()
     {
-        //
+//        return view('family.create');
     }
 
     /**
@@ -25,7 +26,7 @@ class ChildrenController extends Controller
      */
     public function create()
     {
-        //
+        return view('child.create');
     }
 
     /**
@@ -36,7 +37,12 @@ class ChildrenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data = $request->all();
+        $child = new Child();
+        $child->fill($data);
+        $child->family_id = session('family_id');
+        $child->save();
+        dd($data);
     }
 
     /**

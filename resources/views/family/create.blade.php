@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 
     <div class="well">
-        <form action="../family" method="post">
+        <form action="{{URL::to('/')}}/family" method="post">
             {{ csrf_field() }}
             <div class="row">
                 <div class="form-group col-md-6">

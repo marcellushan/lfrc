@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Caregiver;
 
 class CaregiverController extends Controller
 {
@@ -25,7 +26,7 @@ class CaregiverController extends Controller
      */
     public function create()
     {
-        //
+        return view('caregiver.create');
     }
 
     /**
@@ -36,7 +37,12 @@ class CaregiverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $caregiver = new Caregiver();
+        $caregiver->fill($data);
+        $caregiver->family_id = session('family_id');
+        $caregiver->save();
+        dd($data);
     }
 
     /**

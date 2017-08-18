@@ -21,7 +21,6 @@ class CreateFamiliesTable extends Migration
             $table->string('state');
             $table->string('zip');
             $table->integer('income_range');
-            $table->date('create_date')->nullable();
             $table->integer('referral');
             $table->date('ina_date');
             $table->date('close_date')->nullable();
@@ -54,5 +53,7 @@ class CreateFamiliesTable extends Migration
     public function down()
     {
         Schema::drop('families');
+        Schema::drop('family_income_source');
+        Schema::drop('abuse_family');
     }
 }

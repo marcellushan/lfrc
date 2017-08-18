@@ -17,7 +17,8 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        //
+        $families = Family::get();
+        dd($families);
     }
 
     /**
@@ -64,13 +65,16 @@ class FamilyController extends Controller
     public function show($id)
     {
         $family = Family::find($id);
+//        $request->session()->put('key', 'value');
+        session(['family_id' => $id]);
+        $income_sources = $family->incomeSources;
 //        dd($family->incomeSources);
-        foreach ($family->incomeSources as $incomeSource) {
-            echo $incomeSource->name;
-        }
-
+//        foreach ($family->incomeSources as $incomeSource) {
+//            echo $incomeSource->name;
+//        }
+//        echo $value = session('family_id');
 //        dd($income_sources);
-//        return view('family.show')->with(compact('family'));
+        return view('family.show')->with(compact('family','income_sources'));
     }
 
     /**
