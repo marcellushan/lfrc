@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\IncomeSource;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -38,11 +39,19 @@ class FamilyController extends Controller
     public function store(Request $request)
     {
        $data = $request->except('income_source','abuse');
-//        dd($data);
         $family = new Family();
         $family->fill($data);
-//        dd($family);
         $family->save();
+        $income_sources = $request->income_source;
+        foreach ($income_sources as $income_source) {
+            $family->incomeSources()->attach($income_source);
+        }
+        $abuses = $request->abuse;
+        foreach ($abuses as $abuse) {
+            $family->abuses()->attach($abuse);
+        }
+//        dd($request->income_source);
+//        $family->save();
 
     }
 
@@ -54,7 +63,14 @@ class FamilyController extends Controller
      */
     public function show($id)
     {
-        //
+        $family = Family::find($id);
+//        dd($family->incomeSources);
+        foreach ($family->incomeSources as $incomeSource) {
+            echo $incomeSource->name;
+        }
+
+//        dd($income_sources);
+//        return view('family.show')->with(compact('family'));
     }
 
     /**

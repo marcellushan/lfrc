@@ -27,7 +27,24 @@ class CreateFamiliesTable extends Migration
             $table->date('close_date')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('family_income_source', function (Blueprint $table) {
+        $table->integer('family_id')->unsigned()->index();
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        $table->integer('income_source_id')->unsigned()->index();
+//            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+        $table->timestamps();
+    });
+
+        Schema::create('abuse_family', function (Blueprint $table) {
+            $table->integer('abuse_id')->unsigned()->index();
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('family_id')->unsigned()->index();
+//            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
+
 
     /**
      * Reverse the migrations.
