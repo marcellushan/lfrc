@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::resource('family', 'FamilyController');
 Route::resource('child', 'ChildController');
 Route::resource('caregiver', 'CaregiverController');
+Route::resource('ncfas', 'NcfasController');
+Route::post('ncfas/new_ncfas', 'NcfasController@newNcfas');

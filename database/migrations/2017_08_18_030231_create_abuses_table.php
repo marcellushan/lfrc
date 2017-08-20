@@ -15,7 +15,7 @@ class CreateAbusesTable extends Migration
         Schema::create('abuses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 

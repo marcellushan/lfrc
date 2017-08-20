@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Ncfas;
+use App\Score;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Category;
 
 class NcfasController extends Controller
 {
@@ -15,7 +19,8 @@ class NcfasController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::get();
+        return view('ncfas.index')->with(compact('categories'));
     }
 
     /**
@@ -36,7 +41,22 @@ class NcfasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $family_id = session('family_id');
+        $submissions = $request->except('_token','category','phase');
+        foreach ($submissions as $key => $value) {
+            $ncfas = new Ncfas();
+            $ncfas->sub_category = $key;
+            $ncfas->category = $request->category;
+            $ncfas->phase = $request->phase;
+            $ncfas->score = $value;
+            $ncfas->family_id = $family_id;
+
+            $ncfas->save();
+        }
+
+            echo $value;
+        dd($submissions);
     }
 
     /**
@@ -82,5 +102,16 @@ class NcfasController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function newNcfas(Request $request)
+    {
+       $category = Category::find($request->category);
+       $phase_id = $request->phase;
+       $phase = (($request->phase == '1') ? 'Intake' : (($request->phase == '2') ? 'Interim' : 'Closure'));
+       $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
+       $scores = Score::get();
+//       dd($subCategories);
+        return view('ncfas.create')->with(compact('category','phase','phase_id','subCategories','scores'));
+        dd($request);
     }
 }

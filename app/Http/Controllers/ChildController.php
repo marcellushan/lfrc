@@ -37,12 +37,13 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request->all();
+        $family_id = session('family_id');
+        $data = $request->all();
         $child = new Child();
         $child->fill($data);
-        $child->family_id = session('family_id');
+        $child->family_id = $family_id;
         $child->save();
-        dd($data);
+        return redirect('family/' . $family_id);
     }
 
     /**

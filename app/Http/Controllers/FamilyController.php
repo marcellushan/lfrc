@@ -51,6 +51,8 @@ class FamilyController extends Controller
         foreach ($abuses as $abuse) {
             $family->abuses()->attach($abuse);
         }
+
+        return redirect('family/' . $family->id);
 //        dd($request->income_source);
 //        $family->save();
 
@@ -68,13 +70,16 @@ class FamilyController extends Controller
 //        $request->session()->put('key', 'value');
         session(['family_id' => $id]);
         $income_sources = $family->incomeSources;
-//        dd($family->incomeSources);
+        $children = $family->children;
+        $caregivers = $family->caregivers;
+        $abuses = $family->abuses;
+//        dd($abuses);
 //        foreach ($family->incomeSources as $incomeSource) {
 //            echo $incomeSource->name;
 //        }
 //        echo $value = session('family_id');
 //        dd($income_sources);
-        return view('family.show')->with(compact('family','income_sources'));
+        return view('family.show')->with(compact('family','income_sources','children','caregivers','abuses'));
     }
 
     /**

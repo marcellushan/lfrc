@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncomeSourcesTable extends Migration
+class CreateScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class CreateIncomeSourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('income_sources', function (Blueprint $table) {
+        Schema::create('scores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('score_value');
 //            $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateIncomeSourcesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('income_sources');
+        Schema::drop('scores');
     }
 }

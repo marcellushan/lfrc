@@ -37,12 +37,14 @@ class CaregiverController extends Controller
      */
     public function store(Request $request)
     {
+        $family_id = session('family_id');
         $data = $request->all();
         $caregiver = new Caregiver();
         $caregiver->fill($data);
-        $caregiver->family_id = session('family_id');
+        $caregiver->family_id = $family_id;
         $caregiver->save();
-        dd($data);
+        return redirect('family/' . $family_id);
+//        dd($data);
     }
 
     /**
