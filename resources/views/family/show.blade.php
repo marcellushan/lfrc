@@ -14,6 +14,12 @@
     </div>
 </div>
 <div class="well">
+    <h1 align="center">Measurement Tools</h1>
+    <div class="row">
+        <h3 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h3><h3 class="col-md-4">AAPI</h3>
+    </div>
+</div>
+<div class="well">
     <h1 align="center">Income</h1>
     <div class="row">
         <h3 class="col-md-6">Range: </h3><h3 class="not_bold col-md-6">{{$incomeRange->name }}</h3>

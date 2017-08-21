@@ -1,27 +1,36 @@
 @extends('layouts.app') @section('content')
 
 <div class="well">
-    <form action="{{URL::to('/')}}/ncfas/new_ncfas" method="post">
-        {{ csrf_field() }}
-        <div class="row">
-            <div class="col-md-6">
-                Select Phase<br>
-                <input type="radio" name="phase" value="1">Intake<br>
-                <input type="radio" name="phase" value="2">Interim<br>
-                <input type="radio" name="phase" value="3">Closure<br>
-            </div>
-            <div class="col-md-6">
-                Select Category<br>
 
-                <select name="category">
-                    <option>Select</option>
-                @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+<h3>Intake</h3>
+        <div class="row">
+            @foreach($intakes as $intake)
+                    <h4 class="col-md-3">
+                        @if($intake->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$intake->id}}&phase=1"> {{$intake->name}}</a>@else  {{$intake->name}} @endif
+                    </h4>
+
                 @endforeach
-                </select>
-            </div>
         </div>
-        <button type="submit">Submit</button>
-    </form>
+
+        <h3>Interim</h3>
+        <div class="row">
+            @foreach($interims as $interim)
+                <h4 class="col-md-3">
+                    @if($interim->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$interim->id}}&phase=2"> {{$interim->name}}</a>@else  {{$interim->name}} @endif
+                </h4>
+
+            @endforeach
+        </div>
+
+        <h3>Closure</h3>
+        <div class="row">
+            @foreach($closures as $closure)
+                <h4 class="col-md-3">
+                    @if($closure->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$closure->id}}&phase=3"> {{$closure->name}}</a>@else  {{$closure->name}} @endif
+                </h4>
+
+            @endforeach
+        </div>
+
 
 @endsection

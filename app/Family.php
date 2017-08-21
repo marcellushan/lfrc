@@ -37,4 +37,9 @@ class Family extends Model
     {
         return $this->belongsToMany('App\Abuse');
     }
+
+    public function ncfasStatuses()
+    {
+        return $this->hasMany('App\NcfasStatus');
+    }
 }
