@@ -1,11 +1,6 @@
 @extends('layouts.app') @section('content')
+@include('partials.family_header')
 <div class="well">
-    <h1 align="center">Family</h1>
-    <div class="row">
-
-        <h2 class="col-md-6">Name: <span class="not_bold">{{$family->name}}</span></h2>
-        <h2 class="col-md-6">Case Number: <span class="not_bold">{{$family->case_id}}</span></h2>
-    </div>
     <div class="row">
         <h3 class="col-md-6">Street Address: </h3><h3 class="not_bold col-md-6">{{$family->street }}</h3>
         <h3 class="col-md-6">City: </h3><h3 class="not_bold col-md-6">{{$family->city }}</h3>
@@ -16,7 +11,7 @@
 <div class="well">
     <h1 align="center">Measurement Tools</h1>
     <div class="row">
-        <h3 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h3><h3 class="col-md-4">AAPI</h3>
+        <h3 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h3><h3 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create">AAPI</a></h3>
     </div>
 </div>
 <div class="well">
