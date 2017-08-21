@@ -15,7 +15,7 @@ class CreateNcfasTable extends Migration
         Schema::create('ncfas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sub_category');
-            $table->integer('category');
+//            $table->integer('category');
             $table->integer('phase');
             $table->integer('score');
             $table->integer('family_id');

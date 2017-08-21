@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('content')
 <form action="{{URL::to('/')}}/ncfas" method="post">
-    <input type="hidden" name='category' value="{{$category->id}}">
+    {{--<input type="hidden" name='category' value="{{$category->id}}">--}}
     <input type="hidden" name='phase' value="{{$phase_id}}">
 {{ csrf_field() }}
     <div class="well">

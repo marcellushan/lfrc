@@ -17,12 +17,12 @@
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="street">Gender</label>
-                    <input type="radio" name="gender" value="1">Male
-                    <input type="radio" name="gender" value="2">Female
+                    <input type="radio" name="gender_id" value="1">Male
+                    <input type="radio" name="gender_id" value="2">Female
                 </div>
                 <div class="col-md-4">
                     <label>Marital Status</label>
-                    <select name="marital_status">
+                    <select name="marital_status_id">
                         <option>Select</option>
                         <option value="1">Single</option>
                         <option value="2">Married</option>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>Race</label>
-                    <select name="race">
+                    <select name="race_id">
                         <option>Select</option>
                         <option value="1">White</option>
                         <option value="2">Black</option>
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label>Education</label>
-                    <select name="education">
+                    <select name="education_id">
                         <option>Select</option>
                         <option value="1">Less than High School</option>
                         <option value="2">High School Graduate</option>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>Family Role</label>
-                    <select name="family_role">
+                    <select name="family_role_id">
                         <option>Select</option>
                         <option value="1">Biological Parent</option>
                         <option value="2">GrandParent</option>

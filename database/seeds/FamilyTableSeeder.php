@@ -24,8 +24,8 @@ class FamilyTableSeeder extends Seeder
                     'city' => $faker->city,
                     'state' => $faker->stateAbbr,
                     'zip' => rand(10000,99999),
-                    'income_range' => rand(1,7),
-                    'referral' => rand(1,7),
+                    'income_range_id' => rand(1,6),
+                    'referral_id' => rand(1,9),
                     'created_at' => $faker->date('Y-m-d')
                 ]);
                 DB::table('family_income_source')->insert([
@@ -37,40 +37,40 @@ class FamilyTableSeeder extends Seeder
                     'family_id' => $id
                 ]);
                 DB::table('children')->insert([
-                    'name' => $faker->name,
+                    'name' => $faker->firstName . ' ' . $faker->lastName,
                     'birth_date' => $faker->date,
-                    'gender' => rand(1,2),
-                    'race' => rand(1,5),
+                    'gender_id' => rand(1,2),
+                    'race_id' => rand(1,5),
                     'family_id' => $id,
                     'created_at' => $faker->date('Y-m-d')
                 ]);
                 DB::table('children')->insert([
                     'name' => $faker->name,
                     'birth_date' => $faker->date,
-                    'gender' => rand(1,2),
-                    'race' => rand(1,5),
+                    'gender_id' => rand(1,2),
+                    'race_id' => rand(1,5),
+                    'family_id' => $id,
+                    'created_at' => $faker->date('Y-m-d')
+                ]);
+                DB::table('caregivers')->insert([
+                    'name' => $faker->firstName . ' ' . $faker->lastName,
+                    'birth_date' => $faker->date,
+                    'gender_id' => rand(1,2),
+                    'marital_status_id' => rand(1,5),
+                    'race_id' => rand(1,5),
+                    'education_id' => rand(1,5),
+                    'family_role_id' => rand(1,5),
                     'family_id' => $id,
                     'created_at' => $faker->date('Y-m-d')
                 ]);
                 DB::table('caregivers')->insert([
                     'name' => $faker->name,
                     'birth_date' => $faker->date,
-                    'gender' => rand(1,2),
-                    'marital_status' => rand(1,5),
-                    'race' => rand(1,5),
-                    'education' => rand(1,5),
-                    'family_role' => rand(1,5),
-                    'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
-                ]);
-                DB::table('caregivers')->insert([
-                    'name' => $faker->name,
-                    'birth_date' => $faker->date,
-                    'gender' => rand(1,2),
-                    'marital_status' => rand(1,5),
-                    'race' => rand(1,5),
-                    'education' => rand(1,5),
-                    'family_role' => rand(1,5),
+                    'gender_id' => rand(1,2),
+                    'marital_status_id' => rand(1,5),
+                    'race_id' => rand(1,5),
+                    'education_id' => rand(1,5),
+                    'family_role_id' => rand(1,5),
                     'family_id' => $id,
                     'created_at' => $faker->date('Y-m-d')
                 ]);

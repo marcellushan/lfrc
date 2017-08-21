@@ -18,6 +18,20 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryTableSeeder::class);
         $this->call(SubCategoryTableSeeder::class);
         $this->call(ScoreTableSeeder::class);
+        $this->call(IncomeRangeTableSeeder::class);
+        $this->call(RaceTableSeeder::class);
+        $this->call(GenderTableSeeder::class);
+        $this->call(EducationTableSeeder::class);
+        $this->call(MaritalStatusTableSeeder::class);
+        $this->call(FamilyRoleTableSeeder::class);
+
+
+
+
+
+
+
+
 
 
 

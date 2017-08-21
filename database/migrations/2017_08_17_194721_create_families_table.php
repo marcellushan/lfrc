@@ -20,8 +20,8 @@ class CreateFamiliesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zip');
-            $table->integer('income_range');
-            $table->integer('referral');
+            $table->integer('income_range_id');
+            $table->integer('referral_id');
             $table->date('ina_date');
             $table->date('close_date')->nullable();
             $table->timestamps();

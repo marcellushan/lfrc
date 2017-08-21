@@ -17,12 +17,12 @@
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="street">Gender</label>
-                    <input type="radio" name="gender" value="1">Male
-                    <input type="radio" name="gender" value="2">Female
+                    <input type="radio" name="gender_id" value="1">Male
+                    <input type="radio" name="gender_id" value="2">Female
                 </div>
                 <div class="col-md-4">
                     <label>Race</label>
-                    <select name="race">
+                    <select name="race_id">
                         <option>Select</option>
                         <option value="1">White</option>
                         <option value="2">Black</option>

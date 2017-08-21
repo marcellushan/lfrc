@@ -47,7 +47,7 @@ class NcfasController extends Controller
         foreach ($submissions as $key => $value) {
             $ncfas = new Ncfas();
             $ncfas->sub_category = $key;
-            $ncfas->category = $request->category;
+//            $ncfas->category = $request->category;
             $ncfas->phase = $request->phase;
             $ncfas->score = $value;
             $ncfas->family_id = $family_id;

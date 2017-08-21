@@ -17,7 +17,8 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        $families = Family::get();
+        $families = Family::orderBy('name')->get();
+        return view('family.index')->with(compact('families'));
         dd($families);
     }
 
@@ -67,19 +68,25 @@ class FamilyController extends Controller
     public function show($id)
     {
         $family = Family::find($id);
-//        $request->session()->put('key', 'value');
         session(['family_id' => $id]);
-        $income_sources = $family->incomeSources;
-        $children = $family->children;
+        $incomeSources = $family->incomeSources;
+        $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
+        $children = $family->children;
+//        dd($children);
+//        foreach ($children as $child) {
+//            echo $child->race->name;
+//            dd($child);
+//        }
+        $referral = $family->referral;
         $abuses = $family->abuses;
-//        dd($abuses);
+//        dd($referral);
 //        foreach ($family->incomeSources as $incomeSource) {
 //            echo $incomeSource->name;
 //        }
 //        echo $value = session('family_id');
 //        dd($income_sources);
-        return view('family.show')->with(compact('family','income_sources','children','caregivers','abuses'));
+        return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers','children','caregivers','referral','abuses'));
     }
 
     /**

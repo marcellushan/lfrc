@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChildrenTable extends Migration
+class CreateIncomeRangesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,9 @@ class CreateChildrenTable extends Migration
      */
     public function up()
     {
-        Schema::create('children', function (Blueprint $table) {
+        Schema::create('income_ranges', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('birth_date');
-            $table->integer('gender_id');
-            $table->integer('race_id');
-            $table->integer('family_id');
-            $table->timestamps();
         });
     }
 
@@ -30,6 +25,6 @@ class CreateChildrenTable extends Migration
      */
     public function down()
     {
-        Schema::drop('children');
+        Schema::drop('income_ranges');
     }
 }
