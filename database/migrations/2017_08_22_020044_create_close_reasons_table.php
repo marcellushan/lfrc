@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReabusesTable extends Migration
+class CreateCloseReasonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,9 @@ class CreateReabusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reabuses', function (Blueprint $table) {
+        Schema::create('close_reasons', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
-//            $table->integer('type');
-            $table->integer('outcome_id');
-            $table->text('notes');
-            $table->integer('family_id');
-            $table->integer('abuse_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateReabusesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reabuses');
+        Schema::drop('close_reasons');
     }
 }

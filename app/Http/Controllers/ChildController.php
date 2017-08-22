@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Child;
+use App\Family;
 
 class ChildController extends Controller
 {
@@ -26,7 +27,9 @@ class ChildController extends Controller
      */
     public function create()
     {
-        return view('child.create');
+        $family_id = session('family_id');
+        $family = Family::find($family_id);
+        return view('child.create')->with(compact('family'));
     }
 
     /**

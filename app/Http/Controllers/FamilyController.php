@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Family;
+use App\Abuse;
 
 class FamilyController extends Controller
 {
@@ -68,25 +69,22 @@ class FamilyController extends Controller
     public function show($id)
     {
         $family = Family::find($id);
+        $all_abuses = Abuse::get();
         session(['family_id' => $id]);
         $incomeSources = $family->incomeSources;
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
         $children = $family->children;
-//        dd($children);
-//        foreach ($children as $child) {
-//            echo $child->race->name;
-//            dd($child);
-//        }
         $referral = $family->referral;
         $abuses = $family->abuses;
-//        dd($referral);
-//        foreach ($family->incomeSources as $incomeSource) {
-//            echo $incomeSource->name;
+        $reabuses = $family->reabuses;
+//        dd($reabuses->abuse);
+//        foreach ($reabuses as $reabuse) {
+//            dd($reabuse->abuse);
+//
 //        }
-//        echo $value = session('family_id');
-//        dd($income_sources);
-        return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers','children','caregivers','referral','abuses'));
+        return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers',
+            'children','caregivers','referral','abuses','all_abuses','reabuses'));
     }
 
     /**

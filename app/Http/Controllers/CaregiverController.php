@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Caregiver;
+use App\Family;
 
 class CaregiverController extends Controller
 {
@@ -26,7 +27,9 @@ class CaregiverController extends Controller
      */
     public function create()
     {
-        return view('caregiver.create');
+        $family_id = session('family_id');
+        $family = Family::find($family_id);
+        return view('caregiver.create')->with(compact('family'));
     }
 
     /**

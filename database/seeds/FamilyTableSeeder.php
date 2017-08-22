@@ -26,6 +26,7 @@ class FamilyTableSeeder extends Seeder
                     'zip' => rand(10000,99999),
                     'income_range_id' => rand(1,6),
                     'referral_id' => rand(1,9),
+                    'ina_date' => $faker->date('Y-m-d'),
                     'created_at' => $faker->date('Y-m-d')
                 ]);
                 DB::table('family_income_source')->insert([

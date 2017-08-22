@@ -1,5 +1,5 @@
 @extends('layouts.app') @section('content')
-
+@include('partials.family_header')
 <div class="well">
 
 <h3>Intake</h3>

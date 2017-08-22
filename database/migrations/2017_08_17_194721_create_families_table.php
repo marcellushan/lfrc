@@ -23,6 +23,8 @@ class CreateFamiliesTable extends Migration
             $table->integer('income_range_id');
             $table->integer('referral_id');
             $table->date('ina_date');
+            $table->integer('close_reason_id')->nullable();
+            $table->integer('visits')->nullable();
             $table->date('close_date')->nullable();
             $table->timestamps();
         });

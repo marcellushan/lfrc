@@ -1,5 +1,6 @@
 @extends('layouts.app') @section('content')
 @include('partials.family_header')
+
 <div class="well">
     <div class="row">
         <h3 class="col-md-6">Street Address: </h3><h3 class="not_bold col-md-6">{{$family->street }}</h3>
@@ -65,8 +66,6 @@
     </div>
 </div>
 <div class="well">
-
-
             <div class="row">
                 <h1 align="center">Type(s) of Abuse:</h1>
             </div>
@@ -77,14 +76,65 @@
             @empty
                 No abuse selected
             @endforelse
-            {{--<h4 class="col-md-12"><a href="show.blade.php">Modify Abuse types</a></h4>--}}
+        </div>
+<div class="well">
+        <h1 align="center">Re-Abuse</h1>
+        <form action="{{URL::to('/')}}/reabuse" method="post">
+        {{ csrf_field() }}
+            <h2>Reported Re-abuse</h2>
+            @forelse ($reabuses as $reabuse)
+                <div class="row">
+                    <h4 class="col-md-2"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
+                    <h4 class="col-md-2"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
+                    <h4 class="col-md-6"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
+                </div>
+            @empty
+                <h3>No re-abuse reported</h3>
+            @endforelse
+        <h3>Report Re-Abuse</h3>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" name="date"id="date">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="date">Type of Abuse</label>
+                <select class="form-control" name="abuse_id">
+                    @foreach($all_abuses as $all_abuse)
+                        <option value="{{$all_abuse->id}}">{{$all_abuse->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+    </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="outcome">Outcome</label><br>
+                    <h4><input type="radio" name="outcome_id" value="1">Confirmed
+                    <input type="radio" name="outcome_id" value="2">Unconfirmed</h4>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="date">Notes</label>
+                <textarea class="form-control" name="notes"></textarea>
+            </div>
+        </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+<div class="well">
+    <h2 align="center">Close Case</h2>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+            <input type="checkbox" name="close_reasons[]" value="1">Successful<br>
+            <input type="checkbox" name="close_reasons[]" value="2">Refused Services<br>
+            <input type="checkbox" name="close_reasons[]" value="3">Family Relocated<br>
+            <input type="checkbox" name="close_reasons[]" value="4">Unable to contact<br>
+            <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
+        </div><div class="col-md-3">
+            Number of home visits<br>
+            Close Date
+            <input type="date" name="">
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="row">
-                <h4 class="col-md-12"><a href="{{URL::to('/')}}/ncfas">Enter NCFAS Data</a></h4>
-            </div>
-       </div>
-
+    <button type="submit">Close</button>
+</div>
 @endsection

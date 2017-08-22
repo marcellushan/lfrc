@@ -33,6 +33,11 @@ class Family extends Model
         return $this->belongsTo('App\Referral');
     }
 
+    public function reabuses()
+    {
+        return $this->hasMany('App\Reabuse');
+    }
+
     public function abuses()
     {
         return $this->belongsToMany('App\Abuse');

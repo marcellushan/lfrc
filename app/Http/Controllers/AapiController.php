@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Aapi;
+use App\Family;
 
 class AapiController extends Controller
 {
@@ -26,7 +27,9 @@ class AapiController extends Controller
      */
     public function create()
     {
-        return view('aapi.create');
+        $family_id = session('family_id');
+        $family = Family::find($family_id);
+        return view('aapi.create')->with(compact('family'));
     }
 
     /**
@@ -43,6 +46,7 @@ class AapiController extends Controller
         $aapi->fill($data);
         $aapi->family_id = $family_id;
         $aapi->save();
+        return redirect('family/' . $family_id);
 
     }
 

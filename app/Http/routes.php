@@ -21,3 +21,4 @@ Route::resource('caregiver', 'CaregiverController');
 Route::resource('ncfas', 'NcfasController');
 Route::get('ncfas/new_ncfas', 'NcfasController@newNcfas');
 Route::resource('aapi', 'AapiController');
+Route::resource('reabuse', 'ReabuseController');

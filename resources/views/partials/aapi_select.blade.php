@@ -2,42 +2,50 @@
     <input type="hidden" name='cycle_id' value="{{$cycle_id}}">
     {{ csrf_field() }}
     <div class="col-md-6"><h3>{{$cycle}}</h3>
-        <h4>Expectations&nbsp;
-            <select name="expectations">
+        <div class="row">
+            <h4 class="col-md-8">Expectations</h4>
+            <h4 class="col-md-4"> <select name="expectations">
                 @for($x = 1; $x <= 10; $x++)
                     <option value="{{$x}}">{{$x}}</option>
                 @endfor
-            </select>
-        </h4>
-        <h4>Empathy&nbsp;
-            <select name="empathy">
-                @for($x = 1; $x <= 10; $x++)
-                    <option value="{{$x}}">{{$x}}</option>
-                @endfor
-            </select>
-        </h4>
-        <h4>Belief in Corporal Punishment&nbsp;
-            <select name="corporal">
-                @for($x = 1; $x <= 10; $x++)
-                    <option value="{{$x}}">{{$x}}</option>
-                @endfor
-            </select>
-        </h4>
-        <h4>Family Roles&nbsp;
-            <select name="roles">
-                @for($x = 1; $x <= 10; $x++)
-                    <option value="{{$x}}">{{$x}}</option>
-                @endfor
-            </select>
-        </h4>
-        <h4>Power-Interdepence&nbsp;
-            <select name="power">
-                @for($x = 1; $x <= 10; $x++)
-                    <option value="{{$x}}">{{$x}}</option>
-                @endfor
-            </select>
-        </h4>
+            </select></h4>
+        </div>
+        <div class="row">
+            <h4 class="col-md-8">Empathy</h4>
+            <h4 class="col-md-4"><select name="empathy">
+                    @for($x = 1; $x <= 10; $x++)
+                        <option value="{{$x}}">{{$x}}</option>
+                    @endfor
+                </select></h4>
+            </h4>
+        </div>
+        <div class="row">
+            <h4 class="col-md-8">Belief in Corporal Punishment </h4>
+            <h4 class="col-md-4"><select name="corporal">
+                    @for($x = 1; $x <= 10; $x++)
+                        <option value="{{$x}}">{{$x}}</option>
+                    @endfor
+                </select></h4>
+            </h4>
+        </div>
+        <div class="row">
+            <h4 class="col-md-8">Family Roles </h4>
+            <h4 class="col-md-4"><select name="roles">
+                    @for($x = 1; $x <= 10; $x++)
+                        <option value="{{$x}}">{{$x}}</option>
+                    @endfor
+                </select></h4>
+            </h4>
+        </div>
+        <div class="row">
+            <h4 class="col-md-8">Power-Interdepence</h4>
+            <h4 class="col-md-4"><select name="power">
+                    @for($x = 1; $x <= 10; $x++)
+                        <option value="{{$x}}">{{$x}}</option>
+                    @endfor
+                </select></h4>
+            </h4>
+        </div>
         <button type="submit">Submit</button>
-    </div>
-
+        </div>
 </form>

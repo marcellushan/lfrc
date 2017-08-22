@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
 use App\Phase;
+use App\Family;
 
 class NcfasController extends Controller
 {
@@ -22,6 +23,7 @@ class NcfasController extends Controller
     public function index()
     {
         $family_id = session('family_id');
+        $family = Family::find($family_id);
         $phase_id = 1;
         $intakes = Category::get();
         foreach ($intakes as $intake) {
@@ -55,7 +57,7 @@ class NcfasController extends Controller
             }
         }
 
-        return view('ncfas.index')->with(compact('intakes','interims','closures'));
+        return view('ncfas.index')->with(compact('intakes','interims','closures','family'));
     }
 
     /**
@@ -65,6 +67,8 @@ class NcfasController extends Controller
      */
     public function create()
     {
+        $family_id = session('family_id');
+        $family = Family::find($family_id);
         $category_id = $_GET['id'];
         $phase_id = $_GET['phase'];
         $category = Category::find($category_id);
@@ -72,7 +76,7 @@ class NcfasController extends Controller
         $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
 //        $scores = Score::get();
 //       dd($subCategories);
-        return view('ncfas.create')->with(compact('category','phase','subCategories'));
+        return view('ncfas.create')->with(compact('category','phase','subCategories','family'));
 //        dd($request);
     }
 
