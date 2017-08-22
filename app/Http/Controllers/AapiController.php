@@ -41,11 +41,16 @@ class AapiController extends Controller
     public function store(Request $request)
     {
       $family_id = session('family_id');
+        $family = Family::find($family_id);
         $data = $request->except('_token');
+//        dd($family);
         $aapi = new Aapi();
         $aapi->fill($data);
         $aapi->family_id = $family_id;
         $aapi->save();
+        ($data['cycle_id']=='1' ? $family->aapi_pre = '1' : $family->aapi_post = '1');
+        $family->save();
+//        dd($family);
         return redirect('family/' . $family_id);
 
     }
