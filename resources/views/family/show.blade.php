@@ -3,34 +3,34 @@
 
 <div class="well">
     <div class="row">
-        <h3 class="col-md-6">Street Address: </h3><h3 class="not_bold col-md-6">{{$family->street }}</h3>
-        <h3 class="col-md-6">City: </h3><h3 class="not_bold col-md-6">{{$family->city }}</h3>
-        <h3 class="col-md-3">State: </h3><h3 class="not_bold col-md-3">{{$family->state }}</h3>
-        <h3 class="col-md-3">Zip: </h3><h3 class="not_bold col-md-3">{{$family->zip }}</h3>
+        <h4 class="col-md-2">Street Address: </h4><h4 class="not_bold col-md-4">{{$family->street }}</h4>
+        <h4 class="col-md-2">City: </h4><h4 class="not_bold col-md-4">{{$family->city }}</h4>
+        <h4 class="col-md-3">State: </h4><h4 class="not_bold col-md-3">{{$family->state }}</h4>
+        <h4 class="col-md-3">Zip: </h4><h4 class="not_bold col-md-3">{{$family->zip }}</h4>
     </div>
 </div>
 <div class="well">
-    <h1 align="center">Measurement Tools</h1>
+    <h2 align="center">Measurement Tools</h2>
     <div class="row">
-        <h3 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h3><h3 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create">AAPI</a></h3>
+        <h4 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h4><h4 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create">AAPI</a></h4>
     </div>
 </div>
 <div class="well">
-    <h1 align="center">Income</h1>
+    <h2 align="center">Income</h2>
     <div class="row">
-        <h3 class="col-md-6">Range: </h3><h3 class="not_bold col-md-6">{{$incomeRange->name }}</h3>
-        <h3 class="col-md-4">Sources:</h3>
-            <h3 class="not_bold col-md-8">
+        <h4 class="col-md-2 col-md-offset-4">Range: </h4><h4 class="not_bold col-md-6">{{$incomeRange->name }}</h4>
+        <h4 class="col-md-2 col-md-offset-4">Sources:</h4>
+            <h4 class="not_bold col-md-6">
                 @forelse ($incomeSources as $incomeSource)
                     {{$incomeSource->name}},
                 @empty
                     No income Sources selected
                 @endforelse
-            </h3>
+            </h4>
     </div>
 </div>
     <div class="well">
-        <h1 align="center">Caregivers</h1>
+        <h2 align="center">Caregivers</h2>
         <div class="row">
             <h5 class="col-md-2">Name</h5><h5 class="col-md-2">Date of Birth</h5><h5 class="col-md-1">Gender</h5><h5 class="col-md-1">Status</h5>
             <h5 class="col-md-2">Race</h5><h5 class="col-md-2">Education</h5><h5 class="col-md-2">Family Role</h5>
@@ -52,7 +52,7 @@
     </div>
 <div class="well">
     <div class="row">
-        <h1 align="center">Children</h1>
+        <h2 align="center">Children</h2>
         <h5 class="col-md-3">Name</h5><h5 class="col-md-3">Date of Birth</h5><h5 class="col-md-3">Gender</h5><h5 class="col-md-3">Race</h5>
         @forelse ($children as $child)
             <h5 class="col-md-3 not_bold">{{$child->name}}</h5><h5 class="col-md-3 not_bold">{{$child->birth_date}}</h5>
@@ -67,21 +67,21 @@
 </div>
 <div class="well">
             <div class="row">
-                <h1 align="center">Type(s) of Abuse:</h1>
+                <h2 align="center">Type(s) of Abuse:</h2>
             </div>
             @forelse ($abuses as $abuse)
                 <div class="row">
-                    <h4 class="col-md-12"><span class="not_bold">{{$abuse->name}}</span></h4>
+                    <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$abuse->name}}</span></h4>
                 </div>
             @empty
                 No abuse selected
             @endforelse
         </div>
 <div class="well">
-        <h1 align="center">Re-Abuse</h1>
+        <h2 align="center">Re-Abuse</h2>
         <form action="{{URL::to('/')}}/reabuse" method="post">
         {{ csrf_field() }}
-            <h2>Reported Re-abuse</h2>
+            <h3>Reported Re-abuse</h3>
             @forelse ($reabuses as $reabuse)
                 <div class="row">
                     <h4 class="col-md-2"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
@@ -89,7 +89,7 @@
                     <h4 class="col-md-6"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
                 </div>
             @empty
-                <h3>No re-abuse reported</h3>
+                <h4>No re-abuse reported</h4>
             @endforelse
         <h3>Report Re-Abuse</h3>
         <div class="row">
