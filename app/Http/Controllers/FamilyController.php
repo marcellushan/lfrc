@@ -120,4 +120,24 @@ class FamilyController extends Controller
     {
         //
     }
+
+    public function viewAll($id)
+    {
+        $family = Family::find($id);
+        $all_abuses = Abuse::get();
+        session(['family_id' => $id]);
+        $incomeSources = $family->incomeSources;
+        $incomeRange = $family->incomeRange;
+        $caregivers = $family->caregivers;
+        $children = $family->children;
+        $referral = $family->referral;
+        $abuses = $family->abuses;
+        $reabuses = $family->reabuses;
+        $ncfases = $family->ncfases;
+//        dd($ncfases->phase);
+//        foreach ($ncfases as $ncfas)
+//            dd($ncfas->subCategory);
+        return view('family.view_all')->with(compact('family','incomeSources','incomeRange','caregivers',
+            'children','caregivers','referral','abuses','all_abuses','reabuses','ncfases'));
+    }
 }

@@ -134,7 +134,7 @@
         </h4>
             <div class="col-md-6">
             Number of home visits
-            <select name="home_visits">
+            <select name="visits">
                 @for($i = 1; $i <= 10; $i++)
                     <option>{{$i}}</option>
                 <@endfor>

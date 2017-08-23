@@ -25,7 +25,6 @@ class CreateFamiliesTable extends Migration
             $table->date('ina_date');
             $table->boolean('aapi_pre')->nullable();
             $table->boolean('aapi_post')->nullable();
-            $table->integer('close_reason_id')->nullable();
             $table->integer('visits')->nullable();
             $table->date('close_date')->nullable();
             $table->timestamps();
@@ -33,9 +32,7 @@ class CreateFamiliesTable extends Migration
 
         Schema::create('family_income_source', function (Blueprint $table) {
         $table->integer('family_id')->unsigned()->index();
-//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         $table->integer('income_source_id')->unsigned()->index();
-//            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
         $table->timestamps();
     });
 
@@ -44,6 +41,12 @@ class CreateFamiliesTable extends Migration
 //            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('family_id')->unsigned()->index();
 //            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('close_reason_family', function (Blueprint $table) {
+            $table->integer('family_id')->unsigned()->index();
+            $table->integer('close_reason_id')->unsigned()->index();
             $table->timestamps();
         });
     }
@@ -59,5 +62,6 @@ class CreateFamiliesTable extends Migration
         Schema::drop('families');
         Schema::drop('family_income_source');
         Schema::drop('abuse_family');
+        Schema::drop('close_reason_family');
     }
 }

@@ -93,17 +93,17 @@ class NcfasController extends Controller
         $submissions = $request->except('_token','category','phase');
         foreach ($submissions as $key => $value) {
             $ncfas = new Ncfas();
-            $ncfas->sub_category = $key;
-//            $ncfas->category = $request->category;
-            $ncfas->phase = $request->phase;
-            $ncfas->score = $value;
+            $ncfas->sub_category_id = $key;
+            $ncfas->category_id = $request->category_id;
+            $ncfas->phase_id = $request->phase_id;
+            $ncfas->score_id = $value;
             $ncfas->family_id = $family_id;
 
             $ncfas->save();
         }
         $ncfasStatus = new NcfasStatus();
-        $ncfasStatus->category_id = $request->category;
-        $ncfasStatus->phase_id = $request->phase;
+        $ncfasStatus->category_id = $request->category_id;
+        $ncfasStatus->phase_id = $request->phase_id;
         $ncfasStatus->family_id = $family_id;
         $ncfasStatus->save();
         return redirect('ncfas');

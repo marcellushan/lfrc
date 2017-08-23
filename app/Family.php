@@ -43,8 +43,13 @@ class Family extends Model
         return $this->belongsToMany('App\Abuse');
     }
 
-    public function ncfasStatuses()
+    public function ncfases()
     {
-        return $this->hasMany('App\NcfasStatus');
+        return $this->hasMany('App\Ncfas');
+    }
+
+    public function closeReasons()
+    {
+        return $this->belongsToMany('App\CloseReason');
     }
 }

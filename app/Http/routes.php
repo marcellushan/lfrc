@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('family', 'FamilyController');
+Route::get('family/view_all/{id}', 'FamilyController@viewAll');
 Route::resource('child', 'ChildController');
 Route::resource('caregiver', 'CaregiverController');
 Route::resource('ncfas', 'NcfasController');
