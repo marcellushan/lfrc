@@ -14,7 +14,7 @@ class CreateCloseReasonsTable extends Migration
     {
         Schema::create('close_reasons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('reason');
             $table->timestamps();
         });
     }

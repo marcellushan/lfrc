@@ -121,20 +121,29 @@
         </form>
     </div>
 <div class="well">
+    <form action="{{URL::to('/')}}/close_reason" method="post">
+        {{ csrf_field() }}
     <h2 align="center">Close Case</h2>
     <div class="row">
-        <div class="col-md-3 col-md-offset-3">
+        <h4 class="col-md-3 col-md-offset-3">
             <input type="checkbox" name="close_reasons[]" value="1">Successful<br>
             <input type="checkbox" name="close_reasons[]" value="2">Refused Services<br>
             <input type="checkbox" name="close_reasons[]" value="3">Family Relocated<br>
             <input type="checkbox" name="close_reasons[]" value="4">Unable to contact<br>
             <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
-        </div><div class="col-md-3">
-            Number of home visits<br>
+        </h4>
+            <div class="col-md-6">
+            Number of home visits
+            <select name="home_visits">
+                @for($i = 1; $i <= 10; $i++)
+                    <option>{{$i}}</option>
+                <@endfor>
+            </select><br>
             Close Date
-            <input type="date" name="">
+            <input type="date" name="close_date">
         </div>
     </div>
     <button type="submit">Close</button>
+    </form>
 </div>
 @endsection
