@@ -86,4 +86,81 @@
             @empty
                 No caregivers entered
     @endforelse
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <h4>Pre-test</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        Expectations
+                    </div>
+                    <div class="col-md-6">
+                        {{$preAapi->expectations}}
+                    </div>
+                    <div class="col-md-6">
+                        Empathy
+                    </div>
+                    <div class="col-md-6">
+                        {{$preAapi->empathy}}
+                    </div>
+                    <div class="col-md-6">
+                        Belief in Corporal Punishment
+                    </div>
+                    <div class="col-md-6">
+                        {{$preAapi->corporal}}
+                    </div>
+                    <div class="col-md-6">
+                        Family Roles
+                    </div>
+                    <div class="col-md-6">
+                        {{$preAapi->roles}}
+                    </div>
+                    <div class="col-md-6">
+                        Power-Interdepence
+                    </div>
+                    <div class="col-md-6">
+                        {{$preAapi->power}}
+                    </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-6">
+            <div class="well">
+                <h4>Post-test</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        Expectations
+                    </div>
+                    <div class="col-md-6">
+                        {{$postAapi->expectations}}
+                    </div>
+                    <div class="col-md-6">
+                        Empathy
+                    </div>
+                    <div class="col-md-6">
+                        {{$postAapi->empathy}}
+                    </div>
+                    <div class="col-md-6">
+                        Belief in Corporal Punishment
+                    </div>
+                    <div class="col-md-6">
+                        {{$postAapi->corporal}}
+                    </div>
+                    <div class="col-md-6">
+                        Family Roles
+                    </div>
+                    <div class="col-md-6">
+                        {{$postAapi->roles}}
+                    </div>
+                    <div class="col-md-6">
+                        Power-Interdepence
+                    </div>
+                    <div class="col-md-6">
+                        {{$postAapi->power}}
+                    </div>
+                </div>
+            </div>>
+
 @endsection

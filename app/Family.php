@@ -43,6 +43,16 @@ class Family extends Model
         return $this->belongsToMany('App\Abuse');
     }
 
+    public function preAapi()
+    {
+        return $this->hasOne('App\PreAapi');
+    }
+
+    public function postAapi()
+    {
+        return $this->hasOne('App\PostAapi');
+    }
+
     public function ncfases()
     {
         return $this->hasMany('App\Ncfas');

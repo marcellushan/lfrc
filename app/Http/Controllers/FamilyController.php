@@ -134,10 +134,12 @@ class FamilyController extends Controller
         $abuses = $family->abuses;
         $reabuses = $family->reabuses;
         $ncfases = $family->ncfases;
-//        dd($ncfases->phase);
+        $preAapi = $family->preAapi;
+        $postAapi = $family->postAapi;
+//        dd($postAapi);
 //        foreach ($ncfases as $ncfas)
 //            dd($ncfas->subCategory);
         return view('family.view_all')->with(compact('family','incomeSources','incomeRange','caregivers',
-            'children','caregivers','referral','abuses','all_abuses','reabuses','ncfases'));
+            'children','caregivers','referral','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
     }
 }
