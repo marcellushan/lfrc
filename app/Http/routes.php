@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('welcome');
+});
+
 Route::resource('family', 'FamilyController');
 Route::get('family/view_all/{id}', 'FamilyController@viewAll');
 Route::resource('child', 'ChildController');
@@ -24,3 +28,4 @@ Route::get('ncfas/new_ncfas', 'NcfasController@newNcfas');
 Route::resource('aapi', 'AapiController');
 Route::resource('reabuse', 'ReabuseController');
 Route::resource('close_reason', 'CloseReasonController');
+Route::get('data/ncfas/{id}', 'DataController@ncfas');

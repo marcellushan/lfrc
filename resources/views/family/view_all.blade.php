@@ -92,6 +92,7 @@
         <div class="col-md-6">
             <div class="well">
                 <h4>Pre-test</h4>
+                @if($preAapi)
                 <div class="row">
                     <div class="col-md-6">
                         Expectations
@@ -123,12 +124,15 @@
                     <div class="col-md-6">
                         {{$preAapi->power}}
                     </div>
+
             </div>
+                @endif
         </div>
     </div>
         <div class="col-md-6">
             <div class="well">
                 <h4>Post-test</h4>
+                @if($postAapi)
                 <div class="row">
                     <div class="col-md-6">
                         Expectations
@@ -160,7 +164,9 @@
                     <div class="col-md-6">
                         {{$postAapi->power}}
                     </div>
+                    @endif
                 </div>
+
             </div>>
 
 @endsection

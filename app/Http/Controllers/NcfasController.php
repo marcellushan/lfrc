@@ -74,7 +74,7 @@ class NcfasController extends Controller
         $category = Category::find($category_id);
         $phase = Phase::find($phase_id);
         $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
-//        $scores = Score::get();
+        $scores = Score::get();
 //       dd($subCategories);
         return view('ncfas.create')->with(compact('category','phase','subCategories','family'));
 //        dd($request);
@@ -90,7 +90,7 @@ class NcfasController extends Controller
     {
 //        dd($request);
         $family_id = session('family_id');
-        $submissions = $request->except('_token','category','phase');
+        $submissions = $request->except('_token','category_id','phase_id');
         foreach ($submissions as $key => $value) {
             $ncfas = new Ncfas();
             $ncfas->sub_category_id = $key;
@@ -98,7 +98,7 @@ class NcfasController extends Controller
             $ncfas->phase_id = $request->phase_id;
             $ncfas->score_id = $value;
             $ncfas->family_id = $family_id;
-
+//            echo $key;
             $ncfas->save();
         }
         $ncfasStatus = new NcfasStatus();
@@ -165,5 +165,10 @@ class NcfasController extends Controller
 //       dd($subCategories);
 //        return view('ncfas.create')->with(compact('category','phase','phase_id','subCategories','scores'));
         dd($request);
+    }
+
+    public function listNcfas()
+    {
+        echo 'here';
     }
 }
