@@ -29,3 +29,4 @@ Route::resource('aapi', 'AapiController');
 Route::resource('reabuse', 'ReabuseController');
 Route::resource('close_reason', 'CloseReasonController');
 Route::get('data/ncfas/{id}', 'DataController@ncfas');
+Route::get('data/complete', 'DataController@complete');

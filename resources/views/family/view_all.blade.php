@@ -88,7 +88,50 @@
     @endforelse
     </div>
     </div>
+    {{--</div>--}}
+    <div class="well">
+        <h3 align="center">AAPI Scores</h3>
+    </div>
     <div class="row">
+        {{--<div class="col-md-6">--}}
+            {{--<div class="well">--}}
+                {{--<h4>Pre-test</h4>--}}
+                {{--@if($preAapi)--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--Expectations--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--{{$preAapi->expectations}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--Empathy--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--{{$preAapi->empathy}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--Belief in Corporal Punishment--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--{{$preAapi->corporal}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--Family Roles--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--{{$preAapi->roles}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--Power-Interdepence--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--{{$preAapi->power}}--}}
+                    {{--</div>--}}
+            {{--</div>--}}
+                {{--@endif--}}
+        {{--</div>--}}
+    {{--</div>--}}
         <div class="col-md-6">
             <div class="well">
                 <h4>Pre-test</h4>
@@ -124,49 +167,82 @@
                     <div class="col-md-6">
                         {{$preAapi->power}}
                     </div>
-
-            </div>
-                @endif
-        </div>
-    </div>
-        <div class="col-md-6">
-            <div class="well">
-                <h4>Post-test</h4>
-                @if($postAapi)
-                <div class="row">
-                    <div class="col-md-6">
-                        Expectations
-                    </div>
-                    <div class="col-md-6">
-                        {{$postAapi->expectations}}
-                    </div>
-                    <div class="col-md-6">
-                        Empathy
-                    </div>
-                    <div class="col-md-6">
-                        {{$postAapi->empathy}}
-                    </div>
-                    <div class="col-md-6">
-                        Belief in Corporal Punishment
-                    </div>
-                    <div class="col-md-6">
-                        {{$postAapi->corporal}}
-                    </div>
-                    <div class="col-md-6">
-                        Family Roles
-                    </div>
-                    <div class="col-md-6">
-                        {{$postAapi->roles}}
-                    </div>
-                    <div class="col-md-6">
-                        Power-Interdepence
-                    </div>
-                    <div class="col-md-6">
-                        {{$postAapi->power}}
-                    </div>
+                    @else
+                        <div class="row">
+                            <div class="col-md-6">
+                                No entries
+                            </div>
                     @endif
                 </div>
+        </div>
+        </div>
+            <div class="col-md-6">
+                <div class="well">
+                    <h4>Post-test</h4>
+                    @if($postAapi)
+                        <div class="row">
+                            <div class="col-md-6">
+                                Expectations
+                            </div>
+                            <div class="col-md-6">
+                                {{$postAapi->expectations}}
+                            </div>
+                            <div class="col-md-6">
+                                Empathy
+                            </div>
+                            <div class="col-md-6">
+                                {{$postAapi->empathy}}
+                            </div>
+                            <div class="col-md-6">
+                                Belief in Corporal Punishment
+                            </div>
+                            <div class="col-md-6">
+                                {{$postAapi->corporal}}
+                            </div>
+                            <div class="col-md-6">
+                                Family Roles
+                            </div>
+                            <div class="col-md-6">
+                                {{$postAapi->roles}}
+                            </div>
+                            <div class="col-md-6">
+                                Power-Interdepence
+                            </div>
+                            <div class="col-md-6">
+                                {{$postAapi->power}}
+                            </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        No entries
+                                    </div>
+                                    @endif
+                                </div>
+                        </div>
+                </div>
 
-            </div>>
+</div>
+
+
+            <div class="well">
+                <h3 align="center">NCFAS Scores</h3>
+            </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well">
+                    <h4><a href = "{{URL::to('/')}}/data/complete?id=1">Intake</a></h4>
+                </div>
+            </div>
+
+                <div class="col-md-4">
+                    <div class="well">
+                        <h4><a href = 'complete'>Interim</a></h4>
+                    </div>
+                </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <h4><a href = 'complete'>Closure</a></h4>
+                        </div>
+            </div>
 
 @endsection

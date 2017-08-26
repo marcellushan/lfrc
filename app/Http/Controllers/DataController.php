@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Family;
 use App\Category;
+use App\SubCategory;
 use App\NcfasStatus;
+use App\Phase;
+use App\Score;
+use App\Ncfas;
 
 class DataController extends Controller
 {
@@ -50,4 +54,46 @@ class DataController extends Controller
 //        dd($intakes);
         return view('ncfas.list')->with(compact('intakes','interims','closures','family'));
     }
+
+    public function complete(Request $request)
+    {
+        $family_id = session('family_id');
+        $family_id = 6;
+        $phase_id = 1;
+        $family = Family::find($family_id);
+//        $category_id = $request->id;
+        $phase_id = $request->id;
+//         $category = Category::find($category_id);
+//        $phase = Phase::find($phase_id);
+//        $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
+        $environments = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 1)->get();
+        $parentalCapabilities = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 2)->get();
+        $familyInteractions = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 3)->get();
+        $familySafeties = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 4)->get();
+        $childWellBeings = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 5)->get();
+        $socialCommunityLifes = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 6)->get();
+        $selfSufficiencies = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 7)->get();
+        $familyHealths = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 8)->get();
+//        $scores = Score::get();
+       dd($environments);
+//        foreach ($ncfases as $ncfas) {
+//           echo '<pre>';
+//            print_r($ncfas->category);
+//            echo '</pre>';
+//        }
+
+//       }
+        return view('ncfas.complete')->with(compact('family','environments','parentalCapabilities','familyInteractions','familySafeties',
+            'childWellBeings','socialCommunityLifes','selfSufficiencies','familyHealths'));
+//        dd($request);
+    }
+
 }

@@ -32,6 +32,6 @@ class CreatePreAapisTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('pre_aapis');
     }
 }
