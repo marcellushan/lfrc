@@ -57,12 +57,13 @@ class DataController extends Controller
 
     public function complete(Request $request)
     {
-        $family_id = session('family_id');
-        $family_id = 6;
-        $phase_id = 1;
+//        $family_id = session('family_id');
+        $family_id = $request->id;
+//        dd($family_id);
+        $phase_id = $request->phase_id;
         $family = Family::find($family_id);
 //        $category_id = $request->id;
-        $phase_id = $request->id;
+//        $phase_id = $request->id;
 //         $category = Category::find($category_id);
 //        $phase = Phase::find($phase_id);
 //        $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
@@ -83,7 +84,7 @@ class DataController extends Controller
         $familyHealths = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 8)->get();
 //        $scores = Score::get();
-       dd($environments);
+//       dd($environments);
 //        foreach ($ncfases as $ncfas) {
 //           echo '<pre>';
 //            print_r($ncfas->category);

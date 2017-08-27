@@ -1,6 +1,7 @@
 @extends('layouts.app') @section('content')
 @include('partials.family_header')
 <form action="{{URL::to('/')}}/ncfas" method="post">
+    <input type="hidden" name='id' value="{{$family->id}}">
     <input type="hidden" name='category_id' value="{{$category->id}}">
     <input type="hidden" name='phase_id' value="{{$phase->id}}">
 {{ csrf_field() }}

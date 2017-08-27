@@ -9,7 +9,7 @@
                         {{$parentalCapability->score->name}}</div>
         </div>
     @empty
-                <div class="col-md-6"> No entries </div>
+                <div class="col-md-12"> No entries </div>
 
     @endforelse
 </h4>

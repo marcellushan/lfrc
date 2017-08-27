@@ -12,7 +12,8 @@
 <div class="well">
     <h2 align="center">Measurement Tools</h2>
     <div class="row">
-        <h4 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas">NCFAS</a> </h4><h4 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create">AAPI</a></h4>
+        <h4 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas?id={{$family->id}}">NCFAS</a> </h4>
+        <h4 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create?id={{$family->id}}">AAPI</a></h4>
     </div>
 </div>
 <div class="well">
@@ -47,7 +48,7 @@
                     No caregivers entered
                 @endforelse
         <div class="row">
-            <h4 class="col-md-12"><a href="{{URL::to('/')}}/caregiver/create">Add Caregiver</a></h4>
+            <h4 class="col-md-12"><a href="{{URL::to('/')}}/caregiver/create/{{$family->id}}">Add Caregiver</a></h4>
         </div>
     </div>
 <div class="well">
@@ -62,7 +63,7 @@
         @empty
             No caregivers entered
         @endforelse
-        <h4 class="col-md-12"><a href="{{URL::to('/')}}/child/create">Add Child</a></h4>
+        <h4 class="col-md-12"><a href="{{URL::to('/')}}/child/create/{{$family->id}}">Add Child</a></h4>
     </div>
 </div>
 <div class="well">

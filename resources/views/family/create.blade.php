@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <label>Income Range (annual)</label>
-                    <select name="income_range">
+                    <select name="income_range_id">
                         <option>Select Range</option>
                         <option value="1">Less than $10,000</option>
                         <option value="2">$10,000 - $19,999</option>

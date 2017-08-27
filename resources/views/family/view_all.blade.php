@@ -230,18 +230,18 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="well">
-                    <h4><a href = "{{URL::to('/')}}/data/complete?id=1">Intake</a></h4>
+                    <h4><a href = "{{URL::to('/')}}/data/complete?id={{$family->id}}&phase_id=1">Intake</a></h4>
                 </div>
             </div>
 
                 <div class="col-md-4">
                     <div class="well">
-                        <h4><a href = 'complete'>Interim</a></h4>
+                        <h4><a href = "{{URL::to('/')}}/data/complete?id={{$family->id}}&phase_id=2">Interim</a></h4>
                     </div>
                 </div>
                     <div class="col-md-4">
                         <div class="well">
-                            <h4><a href = 'complete'>Closure</a></h4>
+                            <h4><a href = "{{URL::to('/')}}/data/complete?id={{$family->id}}&phase_id=3">Closure</a></h4>
                         </div>
             </div>
 

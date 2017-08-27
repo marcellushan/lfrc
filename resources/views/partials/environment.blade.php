@@ -9,6 +9,6 @@
                         {{$environment->score->name}}</div>
         </div>
     @empty
-        none
+                <div class="col-md-12"> No entries </div>
     @endforelse
 </h4>

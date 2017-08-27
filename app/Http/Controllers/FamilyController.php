@@ -54,7 +54,7 @@ class FamilyController extends Controller
             $family->abuses()->attach($abuse);
         }
 
-        return redirect('family/' . $family->id);
+        return redirect('child/create/' . $family->id . "?status=new");
 //        dd($request->income_source);
 //        $family->save();
 
@@ -70,7 +70,7 @@ class FamilyController extends Controller
     {
         $family = Family::find($id);
         $all_abuses = Abuse::get();
-        session(['family_id' => $id]);
+//        session(['family_id' => $id]);
         $incomeSources = $family->incomeSources;
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
@@ -141,5 +141,12 @@ class FamilyController extends Controller
 //            dd($ncfas->subCategory);
         return view('family.view_all')->with(compact('family','incomeSources','incomeRange','caregivers',
             'children','caregivers','referral','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
+    }
+
+    public function question($id)
+    {
+        $family_id = $id;
+        $family = Family::find($id);
+        return view('question')->with(compact('family'));
     }
 }

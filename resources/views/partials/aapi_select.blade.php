@@ -1,5 +1,6 @@
 <form action="{{URL::to('/')}}/aapi" method="post">
     <input type="hidden" name='cycle_id' value="{{$cycle_id}}">
+    <input type="hidden" name="id" value="{{$family->id}}">
     {{ csrf_field() }}
     <div class="col-md-6"><h3>{{$cycle}}</h3>
         <div class="row">

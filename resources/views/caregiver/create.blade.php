@@ -2,6 +2,8 @@
     @include('partials.family_header')
     <div class="well">
         <form action="{{URL::to('/')}}/caregiver" method="post">
+            <input type="hidden" name="id" value="{{$family->id}}">
+
             {{ csrf_field() }}
             <h1>Add Caregiver</h1>
             <div class="row">
