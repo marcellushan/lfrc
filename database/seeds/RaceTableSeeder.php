@@ -25,10 +25,18 @@ class RaceTableSeeder extends Seeder
         ]);
         DB::table('races')->insert([
             'id' => 4,
-            'name' => 'Native American'
+            'name' => 'Asian American Indian / Alaska Native'
         ]);
         DB::table('races')->insert([
             'id' => 5,
+            'name' => 'Native Hawaiian/other Pacific Islander'
+        ]);
+        DB::table('races')->insert([
+            'id' => 6,
+            'name' => 'Multiracial'
+        ]);
+        DB::table('races')->insert([
+            'id' => 7,
             'name' => 'Other'
         ]);
     }

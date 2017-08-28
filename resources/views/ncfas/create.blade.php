@@ -23,4 +23,6 @@
     <button type="submit">Submit</button>
         </form>
 </div>
+
+@include('partials.return')
 @endsection

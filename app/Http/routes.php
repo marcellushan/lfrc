@@ -23,9 +23,7 @@ Route::resource('family', 'FamilyController');
 Route::get('family/question/{id}', 'FamilyController@question');
 Route::get('family/view_all/{id}', 'FamilyController@viewAll');
 //Route::resource('caregiver', 'CaregiverController');
-Route::resource('ncfas', 'NcfasController');
-Route::get('ncfas/new_ncfas', 'NcfasController@newNcfas');
-Route::post('ncfas/save_all', 'NcfasController@saveAll');
+
 Route::resource('aapi', 'AapiController');
 Route::resource('reabuse', 'ReabuseController');
 Route::resource('close_reason', 'CloseReasonController');
@@ -37,6 +35,8 @@ Route::get('data/complete', 'DataController@complete');
  */
 Route::get('child/create/{id}', 'ChildController@create');
 Route::post('child', 'ChildController@store');
+Route::get('child/{id}/edit', 'ChildController@edit');
+Route::post('child/update/{id}', 'ChildController@update');
 
 /*
  * Caregiver
@@ -44,6 +44,8 @@ Route::post('child', 'ChildController@store');
 
 Route::get('caregiver/create/{id}', 'CaregiverController@create');
 Route::post('caregiver', 'CaregiverController@store');
+Route::get('caregiver/{id}/edit', 'CaregiverController@edit');
+Route::post('caregiver/update/{id}', 'CaregiverController@update');
 
 /*
  * AAPI
@@ -56,5 +58,7 @@ Route::post('aapi', 'AapiController@store');
  * NCFAS
  */
 
-Route::get('ncfas/create/{id}', 'NcfasController@create');
+Route::get('ncfas/{id}', 'NcfasController@index');
+
+Route::get('ncfas/create/{id}/{category_id}/{phase_id}', 'NcfasController@create');
 Route::post('ncfas', 'NcfasController@store');

@@ -1,0 +1,1 @@
+<input type="text" value="{{$data->year}}-{{$data->month}}-{{$data->day}}">

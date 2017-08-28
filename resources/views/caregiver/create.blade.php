@@ -11,9 +11,11 @@
                     <label for="name">Name:</label>
                     <input type="text" name="name" class="form-control">
                 </div>
+                </div>
+                <div class="row">
                 <div class="form-group col-md-6">
                     <label for="name">Date of Birth:</label>
-                    <input type="date" name="birth_date" class="form-control">
+                    @include('partials.date_needed', ['name' => 'birth_date'])
                 </div>
             </div>
             <div class="row">
@@ -35,12 +37,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>Race</label>
-                    <select name="race_id">
-                        <option>Select</option>
-                        <option value="1">White</option>
-                        <option value="2">Black</option>
-                        <option value="3">Other</option>
-                    </select>
+                    @include('partials.race_select')
                 </div>
             </div>
             <div class="row">
@@ -75,4 +72,6 @@
             <button type="submit">submit</button>
 
         </form>
+        </div>
+    @include('partials.return')
 @endsection

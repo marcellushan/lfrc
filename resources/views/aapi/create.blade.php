@@ -17,4 +17,6 @@
                     <h3>Post-Test Data received</h3>
                 @endif
         </div>
+        </div>
+    @include('partials.return')
 @endsection

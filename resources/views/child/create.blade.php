@@ -4,31 +4,28 @@
         <form action="{{URL::to('/')}}/child" method="post">
             <input type="hidden" name="id" value="{{$family->id}}">
             {{ csrf_field() }}
-            <h1>Add Child</h1>
+            <h1 align="center">Add Child</h1>
             <div class="row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6 col-md-offset-3">
                     <label for="name">Name:</label>
                     <input type="text" name="name" class="form-control">
                 </div>
-                <div class="form-group col-md-6">
+                </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-md-offset-3">
                     <label for="name">Date of Birth:</label>
-                    <input type="date" name="birth_date" class="form-control">
+                    @include('partials.date_needed', ['name' => 'birth_date'])
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 col-md-offset-3">
                     <label for="street">Gender</label>
                     <input type="radio" name="gender_id" value="1">Male
                     <input type="radio" name="gender_id" value="2">Female
                 </div>
                 <div class="col-md-4">
                     <label>Race</label>
-                    <select name="race_id">
-                        <option>Select</option>
-                        <option value="1">White</option>
-                        <option value="2">Black</option>
-                        <option value="3">Other</option>
-                    </select>
+                    @include('partials.race_select')
                 </div>
             </div>
 
@@ -36,4 +33,6 @@
             <button type="submit">submit</button>
 
         </form>
+</div>
+        @include('partials.return')
 @endsection

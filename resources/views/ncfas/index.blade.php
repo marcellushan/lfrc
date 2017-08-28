@@ -6,7 +6,7 @@
         <div class="row">
             @foreach($intakes as $intake)
                     <h4 class="col-md-3">
-                        @if($intake->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$family->id}}&category_id={{$intake->id}}&phase_id=1"> {{$intake->name}}</a>@else  {{$intake->name}} @endif
+                        @if($intake->not_complete) <a href="{{URL::to('/')}}/ncfas/create/{{$family->id}}/{{$intake->id}}/1"> {{$intake->name}}</a>@else  {{$intake->name}} @endif
                     </h4>
 
                 @endforeach
@@ -31,6 +31,6 @@
 
             @endforeach
         </div>
-
-
+</div>
+@include('partials.return')
 @endsection

@@ -12,8 +12,8 @@
 <div class="well">
     <h2 align="center">Measurement Tools</h2>
     <div class="row">
-        <h4 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas?id={{$family->id}}">NCFAS</a> </h4>
-        <h4 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create?id={{$family->id}}">AAPI</a></h4>
+        <h4 class="col-md-6 col-md-offset-2"><a href="{{URL::to('/')}}/ncfas/{{$family->id}}">NCFAS</a> </h4>
+        <h4 class="col-md-4"><a href="{{URL::to('/')}}/aapi/create/{{$family->id}}">AAPI</a></h4>
     </div>
 </div>
 <div class="well">
@@ -39,7 +39,7 @@
 
             @forelse ($caregivers as $caregiver)
                 <div class="row">
-                    <h5 class="col-md-2 not_bold">{{$caregiver->name}}</h5><h5 class="col-md-2 not_bold">{{$caregiver->birth_date}}</h5>
+                    <h5 class="col-md-2 not_bold"><a href="{{URL::to('/')}}/caregiver/{{$caregiver->id}}/edit?family_id={{$family->id}}"> {{$caregiver->name}}</a></h5><h5 class="col-md-2 not_bold">{{$caregiver->birth_date}}</h5>
                     <h5 class="col-md-1 not_bold">{{$caregiver->gender->name}}</h5><h5 class="col-md-1 not_bold">{{$caregiver->maritalStatus->name}}</h5>
                     <h5 class="col-md-2 not_bold">{{$caregiver->race->name}}</h5><h5 class="col-md-2 not_bold">{{$caregiver->education->name}}</h5>
                     <h5 class="col-md-2 not_bold">{{$caregiver->familyRole->name}}</h5>
@@ -56,12 +56,12 @@
         <h2 align="center">Children</h2>
         <h5 class="col-md-3">Name</h5><h5 class="col-md-3">Date of Birth</h5><h5 class="col-md-3">Gender</h5><h5 class="col-md-3">Race</h5>
         @forelse ($children as $child)
-            <h5 class="col-md-3 not_bold">{{$child->name}}</h5><h5 class="col-md-3 not_bold">{{$child->birth_date}}</h5>
+            <h5 class="col-md-3 not_bold"><a href="{{URL::to('/')}}/child/{{$child->id}}/edit?family_id={{$family->id}}">{{$child->name}}</a></h5><h5 class="col-md-3 not_bold">{{$child->birth_date}}</h5>
             <h5 class="col-md-3 not_bold">{{$child->gender->name}}</h5>
             <h5 class="col-md-3 not_bold">{{$child->race->name}}</h5>
             {{--</div>--}}
         @empty
-            No caregivers entered
+            No children entered
         @endforelse
         <h4 class="col-md-12"><a href="{{URL::to('/')}}/child/create/{{$family->id}}">Add Child</a></h4>
     </div>
@@ -140,8 +140,8 @@
                     <option>{{$i}}</option>
                 <@endfor>
             </select><br>
-            Close Date
-            <input type="date" name="close_date">
+                <label>Close Date</label><br>
+                @include('partials.date_needed', ['name' => 'close_date'])
         </div>
     </div>
     <button type="submit">Close</button>

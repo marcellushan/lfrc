@@ -41,9 +41,12 @@ class FamilyController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request->except('income_source','abuse');
+       $data = $request->except('income_source','abuse','ina_date');
+//        dd($request->ina_date);
         $family = new Family();
         $family->fill($data);
+        $family->ina_date = implode("-", $request->ina_date);
+//        dd($family);
         $family->save();
         $income_sources = $request->income_source;
         foreach ($income_sources as $income_source) {
@@ -95,7 +98,12 @@ class FamilyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $family = Family::find($id);
+        $family->year = substr($family->ina_date, 0,4);
+        $family->month = substr($family->ina_date, 5,2);
+        $family->day = substr($family->ina_date, 8,2);
+//        dd($family->incomeSources);
+        return view('family.edit')->with(compact('family'));
     }
 
     /**

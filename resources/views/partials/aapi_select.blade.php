@@ -6,6 +6,7 @@
         <div class="row">
             <h4 class="col-md-8">Expectations</h4>
             <h4 class="col-md-4"> <select name="expectations">
+                    <option value="">Select</option>
                 @for($x = 1; $x <= 10; $x++)
                     <option value="{{$x}}">{{$x}}</option>
                 @endfor
@@ -14,6 +15,7 @@
         <div class="row">
             <h4 class="col-md-8">Empathy</h4>
             <h4 class="col-md-4"><select name="empathy">
+                    <option value="">Select</option>
                     @for($x = 1; $x <= 10; $x++)
                         <option value="{{$x}}">{{$x}}</option>
                     @endfor
@@ -23,6 +25,7 @@
         <div class="row">
             <h4 class="col-md-8">Belief in Corporal Punishment </h4>
             <h4 class="col-md-4"><select name="corporal">
+                    <option value="">Select</option>
                     @for($x = 1; $x <= 10; $x++)
                         <option value="{{$x}}">{{$x}}</option>
                     @endfor
@@ -32,6 +35,7 @@
         <div class="row">
             <h4 class="col-md-8">Family Roles </h4>
             <h4 class="col-md-4"><select name="roles">
+                    <option value="">Select</option>
                     @for($x = 1; $x <= 10; $x++)
                         <option value="{{$x}}">{{$x}}</option>
                     @endfor
@@ -41,6 +45,7 @@
         <div class="row">
             <h4 class="col-md-8">Power-Interdepence</h4>
             <h4 class="col-md-4"><select name="power">
+                    <option value="">Select</option>
                     @for($x = 1; $x <= 10; $x++)
                         <option value="{{$x}}">{{$x}}</option>
                     @endfor
