@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="well">
-            <h4>Location</h4>
+            <h4>Address</h4>
             <div class="row">
                 <div class="col-md-6">
                     Street Address
@@ -34,6 +34,16 @@
     </div>
     <div class="col-md-6">
         <div class="well">
+
+            <div class="row">
+                {{--<div class="col-md-6">--}}
+                    <h4 class="col-md-6">Referral Type</h4>
+                <h4 class="col-md-6 not_bold">{{$family->referral->name}}</h4>
+                {{--</div>--}}
+                {{--<div class="col-md-6">--}}
+                    {{--{{$family->referral->name}}--}}
+                {{--</div>--}}
+            </div>
             <h4>Income</h4>
             <div class="row">
                 <div class="col-md-6">
@@ -55,6 +65,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <div class="well">
     <h3 align="center">Caregivers</h3>

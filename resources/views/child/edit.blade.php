@@ -4,7 +4,7 @@
         <form action="{{URL::to('/')}}/child/update/{{$child->id}}" method="post">
             <input type="hidden" name="family_id" value="{{$_GET['family_id']}}">
             {{ csrf_field() }}
-            <h1 align="center">Add Child</h1>
+            <h1 align="center">Edit Child</h1>
             <div class="row">
                 <div class="form-group col-md-6 col-md-offset-3">
                     <label for="name">Name:</label>
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="form-group col-md-6 col-md-offset-3">
                     <label for="name">Date of Birth:</label>
-                    <input type="text" value="{{$child->year}}-{{$child->month}}-{{$child->day}}">
+                    <input type="text" name="birth_date" value="{{$child->year}}-{{$child->month}}-{{$child->day}}">
                 </div>
             </div>
             <div class="row">
@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-3">
                     <label>Race</label>
-                    <select name="race">
+                    <select name="race_id">
                         <option>Select</option>
                         <option value="1" @if($child->race_id == "1") selected @endif >White</option>
                         <option value="2" @if($child->race_id == "2") selected @endif>Black</option>

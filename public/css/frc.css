@@ -2,8 +2,8 @@ body {
     background-color: #1a6ecc;
 }
 
-a {
-    text-decoration: underline;
+.not_bold {
+    font-weight: normal;
 }
 
 

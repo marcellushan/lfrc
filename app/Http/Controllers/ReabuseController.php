@@ -43,6 +43,7 @@ class ReabuseController extends Controller
         $reabuse = new Reabuse();
         $reabuse->fill($data);
 //        $reabuse->family_id = $family_id;
+//        dd($data);
         $reabuse->save();
         return redirect('family/'. $family_id);
     }

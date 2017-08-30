@@ -7,6 +7,15 @@
         <h4 class="col-md-2">City: </h4><h4 class="not_bold col-md-4">{{$family->city }}</h4>
         <h4 class="col-md-2">State: </h4><h4 class="not_bold col-md-4">{{$family->state }}</h4>
         <h4 class="col-md-2">Zip: </h4><h4 class="not_bold col-md-4">{{$family->zip }}</h4>
+        <h4 class="col-md-3 col-md-offset-3">Referral Type </h4><h4 class="not_bold col-md-4">{{$family->referral->name}}</h4>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <h2 class="col-md-8 col-md-offset-4">Referral Type</h2>
+    </div>
+    <div class="row">
+        <h3 class="col-md-8 col-md-offset-4 not_bold">{{$family->referral->name}}</h3>
     </div>
 </div>
 <div class="well">
@@ -88,7 +97,9 @@
                 <div class="row">
                     <h4 class="col-md-4"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
                     <h4 class="col-md-4"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
-                    <h4 class="col-md-4"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Outcome: {{$reabuse->outcome_id}}</span></h4>
+                    <h4 class="col-md-12">Notes:</h4>
+                    <h4 class="col-md-12"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
                 </div>
             @empty
                 <h4>No re-abuse reported</h4>
@@ -102,6 +113,7 @@
             <div class="form-group col-md-6">
                 <label for="date">Type of Abuse</label>
                 <select class="form-control" name="abuse_id">
+                    <option value="">Select</option>
                     @foreach($all_abuses as $all_abuse)
                         <option value="{{$all_abuse->id}}">{{$all_abuse->name}}</option>
                     @endforeach

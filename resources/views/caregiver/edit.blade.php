@@ -5,7 +5,7 @@
             <input type="hidden" name="family_id" value="{{$_GET['family_id']}}">
 
             {{ csrf_field() }}
-            <h1>Add Caregiver</h1>
+            <h1>Edit Caregiver</h1>
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="name">Name:</label>
@@ -15,7 +15,7 @@
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="name">Date of Birth:</label>
-                    <input type="text" value="{{$caregiver->year}}-{{$caregiver->month}}-{{$caregiver->day}}">
+                    <input type="text" name="birth_date" value="{{$caregiver->year}}-{{$caregiver->month}}-{{$caregiver->day}}">
                     {{--<input type="text" value="{{$family->year}}-{{$family->month}}-{{$family->day}}">--}}
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="col-md-4">
                     <label>Race</label>
                     {{--@include('partials.race_select')--}}
-                    <select name="race">
+                    <select name="race_id">
                         <option>Select</option>
                         <option value="1" @if($caregiver->race_id == "1") selected @endif >White</option>
                         <option value="2" @if($caregiver->race_id == "2") selected @endif>Black</option>

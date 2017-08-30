@@ -73,7 +73,6 @@ class FamilyController extends Controller
     {
         $family = Family::find($id);
         $all_abuses = Abuse::get();
-//        session(['family_id' => $id]);
         $incomeSources = $family->incomeSources;
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
@@ -82,11 +81,7 @@ class FamilyController extends Controller
         $abuses = $family->abuses;
         $reabuses = $family->reabuses;
         $closeReasons = $family->closeReasons;
-//        dd($reabuses->abuse);
-//        foreach ($reabuses as $reabuse) {
-//            dd($closedReasons);
-//
-//        }
+//        dd($reabuses);
         return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers',
             'children','caregivers','referral','abuses','all_abuses','reabuses','closeReasons'));
     }
@@ -116,7 +111,11 @@ class FamilyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $family = Family::find($id);
+       $data = $request->except('_token','_method');
+       $family->fill($data);
+       echo $family->save();
+       dd($family);
     }
 
     /**
