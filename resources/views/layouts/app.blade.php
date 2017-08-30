@@ -19,7 +19,7 @@
 <div class="container">
     <div class="jumbotron">
 
-        <h1>Family Resource Center</h1>
+        <h1><a href="{{URL::to('/')}}">Family Resource Center</a></h1>
         <p>Family Tracking Database</p>
     </div>
 @yield('content')

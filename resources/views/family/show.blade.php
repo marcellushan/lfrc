@@ -5,8 +5,8 @@
     <div class="row">
         <h4 class="col-md-2">Street Address: </h4><h4 class="not_bold col-md-4">{{$family->street }}</h4>
         <h4 class="col-md-2">City: </h4><h4 class="not_bold col-md-4">{{$family->city }}</h4>
-        <h4 class="col-md-3">State: </h4><h4 class="not_bold col-md-3">{{$family->state }}</h4>
-        <h4 class="col-md-3">Zip: </h4><h4 class="not_bold col-md-3">{{$family->zip }}</h4>
+        <h4 class="col-md-2">State: </h4><h4 class="not_bold col-md-4">{{$family->state }}</h4>
+        <h4 class="col-md-2">Zip: </h4><h4 class="not_bold col-md-4">{{$family->zip }}</h4>
     </div>
 </div>
 <div class="well">
@@ -119,7 +119,7 @@
                 <textarea class="form-control" name="notes"></textarea>
             </div>
         </div>
-            <button type="submit">Submit</button>
+            <button type="submit"  class="btn-primary btn-lg" >Submit</button>
         </form>
     </div>
 <div class="well">
@@ -162,7 +162,7 @@
                     @include('partials.date_needed', ['name' => 'close_date'])
             </div>
         </div>
-        <button type="submit">Close</button>
+        <button type="submit" class="btn-primary btn-lg">Close</button>
         </form>
     @endif
 </div>

@@ -2,6 +2,11 @@ body {
     background-color: #1a6ecc;
 }
 
+a {
+    text-decoration: underline;
+}
+
+
 /*.jumbotron {*/
     /*background-color: #1a6ecc;*/
 /*}*/
