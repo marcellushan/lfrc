@@ -15,7 +15,7 @@ class FamilyTableSeeder extends Seeder
     {
         {
             $faker = Faker::create();
-            for ($x = 0; $x <= 10; $x++) {
+            for ($x = 0; $x <= 50; $x++) {
                 $id = DB::table('families')->insertGetId([
 //                   'first_name' => str_random(10),
                     'case_id' => rand(10000,99999),

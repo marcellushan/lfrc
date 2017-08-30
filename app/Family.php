@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Requests\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Family extends Model
@@ -62,4 +63,5 @@ class Family extends Model
     {
         return $this->belongsToMany('App\CloseReason');
     }
+
 }

@@ -1,4 +1,4 @@
-<select name="race">
+<select name="race_id">
     <option>Select</option>
     <option value="1">White</option>
     <option value="2">Black</option>

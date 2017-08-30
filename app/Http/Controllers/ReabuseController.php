@@ -37,11 +37,12 @@ class ReabuseController extends Controller
      */
     public function store(Request $request)
     {
-        $family_id = session('family_id');
+//        $family_id = session('family_id');
+        $family_id = $request->family_id;
         $data = $request->except('_token');
         $reabuse = new Reabuse();
         $reabuse->fill($data);
-        $reabuse->family_id = $family_id;
+//        $reabuse->family_id = $family_id;
         $reabuse->save();
         return redirect('family/'. $family_id);
     }

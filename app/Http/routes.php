@@ -22,6 +22,7 @@ Route::get('/test', function () {
 Route::resource('family', 'FamilyController');
 Route::get('family/question/{id}', 'FamilyController@question');
 Route::get('family/view_all/{id}', 'FamilyController@viewAll');
+Route::post('family/close', 'FamilyController@close');
 //Route::resource('caregiver', 'CaregiverController');
 
 Route::resource('aapi', 'AapiController');

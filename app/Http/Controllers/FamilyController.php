@@ -81,13 +81,14 @@ class FamilyController extends Controller
         $referral = $family->referral;
         $abuses = $family->abuses;
         $reabuses = $family->reabuses;
+        $closeReasons = $family->closeReasons;
 //        dd($reabuses->abuse);
 //        foreach ($reabuses as $reabuse) {
-//            dd($reabuse->abuse);
+//            dd($closedReasons);
 //
 //        }
         return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers',
-            'children','caregivers','referral','abuses','all_abuses','reabuses'));
+            'children','caregivers','referral','abuses','all_abuses','reabuses','closeReasons'));
     }
 
     /**
@@ -156,5 +157,23 @@ class FamilyController extends Controller
         $family_id = $id;
         $family = Family::find($id);
         return view('question')->with(compact('family'));
+    }
+
+    public function close(Request $request)
+    {
+        $family_id = $request->id;
+        $closeReasons = $request->close_reasons;
+        $family = Family::find($family_id);
+        $family->visits = $request->visits;
+        $family->close_date = implode("-", $request->close_date);
+        $family->closed = 1;
+        $family->save();
+        foreach ($closeReasons as $closeReason) {
+            $family->closeReasons()->attach($closeReason);
+        }
+//        $family->fill($data);
+
+//        dd($closeReasons);
+        return redirect('family/'. $family_id);
     }
 }
