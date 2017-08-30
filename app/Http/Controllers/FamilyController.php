@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Family;
 use App\Abuse;
+use App\State;
 
 class FamilyController extends Controller
 {
@@ -30,7 +31,8 @@ class FamilyController extends Controller
      */
     public function create()
     {
-        return view('family.create');
+        $states = State::get();
+        return view('family.create')->with(compact('states'));
     }
 
     /**

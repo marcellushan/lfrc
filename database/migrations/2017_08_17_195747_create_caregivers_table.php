@@ -20,7 +20,9 @@ class CreateCaregiversTable extends Migration
             $table->integer('marital_status_id');
             $table->integer('race_id');
             $table->integer('education_id');
+            $table->string('education_other');
             $table->integer('family_role_id');
+            $table->string('family_role_other');
             $table->integer('family_id');
             $table->timestamps();
         });

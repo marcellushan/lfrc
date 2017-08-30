@@ -52,6 +52,6 @@
                 </select></h4>
             </h4>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn-primary btn-lg">Submit</button>
         </div>
 </form>

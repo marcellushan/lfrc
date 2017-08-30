@@ -24,7 +24,15 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="state">State:</label>
-                    <input type="text" name="state" class="form-control">
+                    {{--<input type="text" name="state" class="form-control">--}}
+                    <select name="state">
+                        <option>Georgia</option>
+                    @foreach($states as $state)
+                        <option>{{ucfirst(strtolower($state->State))}}</option>
+                        @endforeach
+                    </select>
+
+
                 </div>
                 <div class="form-group col-md-2">
                     <label for="zip">Zip Code:</label>

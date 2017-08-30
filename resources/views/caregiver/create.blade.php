@@ -7,7 +7,7 @@
             {{ csrf_field() }}
             <h1>Add Caregiver</h1>
             <div class="row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6 form-inline">
                     <label for="name">Name:</label>
                     <input type="text" name="name" class="form-control">
                 </div>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="street">Gender</label>
                     <input type="radio" name="gender_id" value="1">Male
                     <input type="radio" name="gender_id" value="2">Female
@@ -35,7 +35,7 @@
                         <option value="5">Widow</option>
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <label>Race</label>
                     @include('partials.race_select')
                 </div>
@@ -55,6 +55,12 @@
                     </select>
                 </div>
                 <div class="col-md-4">
+                    <label>Other Education</label>
+                    <input type="text" name="education_other">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
                     <label>Family Role</label>
                     <select name="family_role_id">
                         <option>Select</option>
@@ -66,6 +72,10 @@
                         <option value="6">Adoptive Parent</option>
                         <option value="7">Other</option>
                     </select>
+                </div>
+                <div class="col-md-4">
+                    <label>Other Relative</label>
+                    <input type="text" name="family_role_other">
                 </div>
             </div>
             <br>

@@ -3,7 +3,7 @@
     </div>
 
     <select name="{{$subCategory->id}}">
-        {{--<option value="">Select</option>--}}
+        <option value="">Select</option>
         <option value="1">Not Applicable</option>
         <option value="2">Clear Strength</option>
         <option value="3">Mild Strength</option>

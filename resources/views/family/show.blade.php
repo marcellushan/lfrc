@@ -7,7 +7,7 @@
         <h4 class="col-md-2">City: </h4><h4 class="not_bold col-md-4">{{$family->city }}</h4>
         <h4 class="col-md-2">State: </h4><h4 class="not_bold col-md-4">{{$family->state }}</h4>
         <h4 class="col-md-2">Zip: </h4><h4 class="not_bold col-md-4">{{$family->zip }}</h4>
-        <h4 class="col-md-3 col-md-offset-3">Referral Type </h4><h4 class="not_bold col-md-4">{{$family->referral->name}}</h4>
+        {{--<h4 class="col-md-3 col-md-offset-3">Referral Type </h4><h4 class="not_bold col-md-4">{{$family->referral->name}}</h4>--}}
     </div>
 </div>
 <div class="well">

@@ -22,7 +22,7 @@ class FamilyTableSeeder extends Seeder
                     'name' => $faker->lastName,
                     'street' => $faker->streetAddress,
                     'city' => $faker->city,
-                    'state' => $faker->stateAbbr,
+                    'state' => $faker->state,
                     'zip' => rand(10000,99999),
                     'income_range_id' => rand(1,6),
                     'referral_id' => rand(1,9),

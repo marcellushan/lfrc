@@ -77,14 +77,14 @@ class DataController extends Controller
             ->where('category_id', '=', 4)->get();
         $childWellBeings = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 5)->get();
-        $socialCommunityLifes = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+        $socialCommunityLives = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 6)->get();
         $selfSufficiencies = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 7)->get();
         $familyHealths = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 8)->get();
 //        $scores = Score::get();
-//       dd($environments);
+//       dd($familyHealths);
 //        foreach ($ncfases as $ncfas) {
 //           echo '<pre>';
 //            print_r($ncfas->category);
@@ -93,7 +93,7 @@ class DataController extends Controller
 
 //       }
         return view('ncfas.complete')->with(compact('family','environments','parentalCapabilities','familyInteractions','familySafeties',
-            'childWellBeings','socialCommunityLifes','selfSufficiencies','familyHealths'));
+            'childWellBeings','socialCommunityLives','selfSufficiencies','familyHealths'));
 //        dd($request);
     }
 
