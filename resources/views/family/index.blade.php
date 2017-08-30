@@ -12,6 +12,12 @@
             <th>
                 Case ID
             </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
         </tr>
         @foreach($families as $family)
             <tr>
@@ -22,7 +28,10 @@
                     {{$family->case_id}}
                 </td>
                 <td>
-                    <a href="{{URL::to('/')}}/family/{{$family->id}}">Details</a>
+                    <a href="{{URL::to('/')}}/family/{{$family->id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/family/view_all/{{$family->id}}">View</a>
                 </td>
             </tr>
         @endforeach

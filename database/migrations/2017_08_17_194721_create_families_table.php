@@ -26,6 +26,7 @@ class CreateFamiliesTable extends Migration
             $table->boolean('aapi_pre')->nullable();
             $table->boolean('aapi_post')->nullable();
             $table->integer('visits')->nullable();
+            $table->boolean('closed')->nullable();
             $table->date('close_date')->nullable();
             $table->timestamps();
         });

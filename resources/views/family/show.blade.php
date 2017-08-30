@@ -82,12 +82,13 @@
         <h2 align="center">Re-Abuse</h2>
         <form action="{{URL::to('/')}}/reabuse" method="post">
         {{ csrf_field() }}
+            <input type="hidden" name="family_id" value="{{$family->id}}">
             <h3>Reported Re-abuse</h3>
             @forelse ($reabuses as $reabuse)
                 <div class="row">
-                    <h4 class="col-md-2"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
-                    <h4 class="col-md-2"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
-                    <h4 class="col-md-6"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
                 </div>
             @empty
                 <h4>No re-abuse reported</h4>
@@ -122,29 +123,47 @@
         </form>
     </div>
 <div class="well">
-    <form action="{{URL::to('/')}}/close_reason" method="post">
-        {{ csrf_field() }}
-    <h2 align="center">Close Case</h2>
-    <div class="row">
-        <h4 class="col-md-3 col-md-offset-3">
-            <input type="checkbox" name="close_reasons[]" value="1">Successful<br>
-            <input type="checkbox" name="close_reasons[]" value="2">Refused Services<br>
-            <input type="checkbox" name="close_reasons[]" value="3">Family Relocated<br>
-            <input type="checkbox" name="close_reasons[]" value="4">Unable to contact<br>
-            <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
-        </h4>
-            <div class="col-md-6">
-            Number of home visits
-            <select name="visits">
-                @for($i = 1; $i <= 10; $i++)
-                    <option>{{$i}}</option>
-                <@endfor>
-            </select><br>
-                <label>Close Date</label><br>
-                @include('partials.date_needed', ['name' => 'close_date'])
+    @if($family->closed)
+        <h2 align="center">Case Closed</h2>
+        <h3 align="center">Close Date</h3>
+        <div class="row">
+            <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$family->close_date}}</span></h4>
         </div>
-    </div>
-    <button type="submit">Close</button>
-    </form>
+        <h3 align="center">Reason for Close</h3>
+        @forelse ($closeReasons as $closeReason)
+
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$closeReason->name}}</span></h4>
+            </div>
+        @empty
+            No Close Reasons
+        @endforelse
+    @else
+        <form action="{{URL::to('/')}}/family/close" method="post">
+            <input type="hidden" name="id" value="{{$family->id}}">
+            {{ csrf_field() }}
+        <h2 align="center">Close Case</h2>
+        <div class="row">
+            <h4 class="col-md-3 col-md-offset-3">
+                <input type="checkbox" name="close_reasons[]" value="1">Successful<br>
+                <input type="checkbox" name="close_reasons[]" value="2">Refused Services<br>
+                <input type="checkbox" name="close_reasons[]" value="3">Family Relocated<br>
+                <input type="checkbox" name="close_reasons[]" value="4">Unable to contact<br>
+                <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
+            </h4>
+                <div class="col-md-6">
+                Number of home visits
+                <select name="visits">
+                    @for($i = 1; $i <= 10; $i++)
+                        <option>{{$i}}</option>
+                    <@endfor>
+                </select><br>
+                    <label>Close Date</label><br>
+                    @include('partials.date_needed', ['name' => 'close_date'])
+            </div>
+        </div>
+        <button type="submit">Close</button>
+        </form>
+    @endif
 </div>
 @endsection

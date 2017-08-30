@@ -9,7 +9,7 @@
                     <input type="text" name="case_id" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="name">Name:</label>
+                    <label for="name">Family Name:</label>
                     <input type="text" name="name" class="form-control">
                 </div>
             </div>

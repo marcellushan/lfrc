@@ -11,7 +11,7 @@
 
 
 
-<select name="{{$name}}[]"required>
+<select name="{{$name}}[]">
     <option value="">Month</option>
     <option value="01">January</option>
     <option value="02">February</option>
@@ -27,7 +27,7 @@
     <option value="12">December</option>
 </select>
 
-<select name="{{$name}}[]"required>
+<select name="{{$name}}[]">
     <option value="">Day</option>
     <option value="01">01</option>
     <option value="02">02</option>
