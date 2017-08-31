@@ -27,7 +27,7 @@ class CaregiverController extends Controller
         $caregiver->fill($data);
         $caregiver->family_id = $family_id;
         $caregiver->birth_date = implode("-", $request->birth_date);
-//        dd($caregiver);
+//        dd($data);
         $caregiver->save();
         return redirect(('family/question/' . $family_id));
     }
@@ -64,7 +64,7 @@ class CaregiverController extends Controller
         $caregiver = Caregiver::find($id);
         $data = $request->except('_token');
         $caregiver->fill($data);
-//        dd($caregiver);
+//        dd($data);
         $caregiver->save();
         return redirect(('family/' . $family_id));
     }

@@ -59,9 +59,11 @@ class DataController extends Controller
     {
 //        $family_id = session('family_id');
         $family_id = $request->id;
-//        dd($family_id);
+
         $phase_id = $request->phase_id;
         $family = Family::find($family_id);
+
+//        dd($family);
 //        $category_id = $request->id;
 //        $phase_id = $request->id;
 //         $category = Category::find($category_id);

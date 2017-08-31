@@ -59,7 +59,7 @@ class FamilyController extends Controller
             $family->abuses()->attach($abuse);
         }
 
-        return redirect('child/create/' . $family->id . "?status=new");
+        return redirect('family/question/' . $family->id);
 //        dd($request->income_source);
 //        $family->save();
 
@@ -157,7 +157,7 @@ class FamilyController extends Controller
     {
         $family_id = $id;
         $family = Family::find($id);
-        return view('question')->with(compact('family'));
+        return view('family.question')->with(compact('family'));
     }
 
     public function close(Request $request)

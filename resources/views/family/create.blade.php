@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-md-6">
                     <label>Referral Source</label>
-                    <select name="referral">
+                    <select name="referral_id">
                         <option value="1">Select Referral</option>
                         <option value="1">DFCS</option>
                         <option value="2">Court</option>
@@ -138,7 +138,8 @@
             </div>
             <label>Date of INA</label><br>
             @include('partials.date_needed', ['name' => 'ina_date'])
-            <button type="submit">submit</button>
+            <br><br>
+            <button type="submit" class="btn-primary btn-lg">submit</button>
 
         </form>
 

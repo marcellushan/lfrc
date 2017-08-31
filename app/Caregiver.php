@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Caregiver extends Model
 {
-    protected $fillable = ['name','birth_date','gender_id','marital_status_id','race_id','education_id','family_role_id','family_id'];
+    protected $fillable = ['name','birth_date','gender_id','marital_status_id','race_id','education_id',
+        'family_role_id','family_id','education_other','family_role_other'];
 
     public function gender()
     {
