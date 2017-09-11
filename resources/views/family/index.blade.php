@@ -18,6 +18,9 @@
             <th>
 
             </th>
+            <th>
+
+            </th>
         </tr>
         @foreach($families as $family)
             <tr>
@@ -32,6 +35,9 @@
                 </td>
                 <td>
                     <a href="{{URL::to('/')}}/family/view_all/{{$family->id}}">View</a>
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/family/delete/{{$family->id}}">Delete</a>
                 </td>
             </tr>
         @endforeach

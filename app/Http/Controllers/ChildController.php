@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Family;
 use App\Child;
+use Carbon\Carbon;
 
 class ChildController extends Controller
 {
     public function create($id)
     {
+        $current_date = Carbon::now();
+        $current_year = $current_date->year;
         $family_id = $id;
         $family = Family::find($family_id);
-        return view('child.create')->with(compact('family'));
+        return view('child.create')->with(compact('family','current_year'));
     }
 
     public function store(Request $request)
@@ -62,5 +65,13 @@ class ChildController extends Controller
 //        dd($request);
         $child->save();
         return redirect(('family/' . $family_id));
+    }
+
+    public function destroy($id)
+    {
+        $deleted = Child::destroy($id);
+
+//        dd($_POST['family_id']);
+        return redirect ('family/' . $_POST['family_id']);
     }
 }

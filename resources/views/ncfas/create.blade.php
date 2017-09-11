@@ -19,6 +19,15 @@
                     none
         @endforelse
         </h4>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea class="form-control" rows="5" name="comments" id="comments"></textarea>
+            </div>
+        </div>
+
+        </div>
 
     <button type="submit">Submit</button>
         </form>

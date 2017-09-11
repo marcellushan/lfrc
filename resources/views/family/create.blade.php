@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 
     <div class="well">
-        <form action="{{URL::to('/')}}/family" method="post">
+        <form action="{{URL::to('/')}}/family" name="family" id="new_family" method="post">
             {{ csrf_field() }}
             <div class="row">
                 <div class="form-group col-md-6">
@@ -76,6 +76,9 @@
                     <div class="col-md-3">
                         <input type="checkbox" name="income_source[]" value="10">Other
                     </div>
+                    <div class="col-md-6">
+                        Other Details <input type="text" name="income_source_other">
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -94,7 +97,7 @@
                 <div class="col-md-6">
                     <label>Referral Source</label>
                     <select name="referral_id">
-                        <option value="1">Select Referral</option>
+                        <option>Select Referral</option>
                         <option value="1">DFCS</option>
                         <option value="2">Court</option>
                         <option value="3">Self</option>
@@ -105,8 +108,10 @@
                         <option value="8">School</option>
                         <option value="9">Other Human Resource provider</option>
                         <option value="10">Other</option>
-                    </select>
+                    </select><br>
+                    Other Details <input type="text" name="abuses_other">
                 </div>
+
             </div>
             <br>
             <div class="row">
@@ -133,6 +138,9 @@
                     </div>
                     <div class="col-md-3">
                         <input type="checkbox" name="abuse[]" value="6">Other
+                    </div>
+                    <div class="col-md-6">
+                        Other Details <input type="text" name="abuses_other">
                     </div>
                 </div>
             </div>

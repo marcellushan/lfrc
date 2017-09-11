@@ -6,7 +6,7 @@
 {{--{{ csrf_field() }}--}}
     <div class="well">
         <h1> Environment</h1>
-        @include('partials.environment')
+        @include('partials.ncfas_details', ['names' => '$environments'])
         <h1> Parental Capabilities</h1>
         @include('partials.parental_capabilities')
         <h1> Family Interactions</h1>

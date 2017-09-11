@@ -85,5 +85,14 @@
 
         </form>
         </div>
+    <div class="well">
+        <form action="{{URL::to('/')}}/caregiver/{{$caregiver->id}}" method="post">
+            <input name="_method" type="hidden" value="DELETE">
+            <input name="family_id" type="hidden" value="{{$family->id}}">
+            {{ csrf_field() }}
+            <h1 align="center">Delete Caregiver</h1>
+            <h2>Click button below to permanently delete this caregiver!!</h2>
+            <button type="submit">Delete Caregiver</button>
+    </div>
     @include('partials.return')
 @endsection

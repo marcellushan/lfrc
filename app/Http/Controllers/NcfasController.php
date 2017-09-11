@@ -91,7 +91,7 @@ class NcfasController extends Controller
     {
 //        dd($request);
         $family_id = $request->id;
-        $submissions = $request->except('id','_token','category_id','phase_id');
+        $submissions = $request->except('id','_token','category_id','phase_id','comments');
         foreach ($submissions as $key => $value) {
             $ncfas = new Ncfas();
             $ncfas->sub_category_id = $key;
@@ -106,6 +106,7 @@ class NcfasController extends Controller
         $ncfasStatus->category_id = $request->category_id;
         $ncfasStatus->phase_id = $request->phase_id;
         $ncfasStatus->family_id = $family_id;
+        $ncfasStatus->comments = $request->comments;
         $ncfasStatus->save();
         return redirect('ncfas/' . $family_id);
 //        dd($submissions);

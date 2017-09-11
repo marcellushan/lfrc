@@ -20,8 +20,14 @@ class CreatePreAapisTable extends Migration
             $table->integer('corporal');
             $table->integer('roles');
             $table->integer('power');
-            $table->integer('family_id');
+            $table->unsignedInteger('family_id');
             $table->timestamps();
+        });
+
+        Schema::table('pre_aapis', function(Blueprint $table){
+            $table->foreign('family_id')
+                ->references('id')->on('families')
+                ->onDelete('cascade');
         });
     }
 

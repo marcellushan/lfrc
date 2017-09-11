@@ -18,8 +18,14 @@ class CreateChildrenTable extends Migration
             $table->date('birth_date');
             $table->integer('gender_id');
             $table->integer('race_id');
-            $table->integer('family_id');
+            $table->unsignedInteger('family_id');
             $table->timestamps();
+        });
+
+        Schema::table('children', function(Blueprint $table){
+            $table->foreign('family_id')
+                ->references('id')->on('families')
+                ->onDelete('cascade');
         });
     }
 

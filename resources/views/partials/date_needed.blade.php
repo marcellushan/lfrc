@@ -7,7 +7,13 @@
     {{--<option value="2019">2019</option>--}}
 {{--</select>--}}
 
-<input type="text" name="{{$name}}[]" placeholder="Year">
+
+<select name="{{$name}}[]">
+    <option value="">Year</option>
+    @for($year = $current_year; $year > 1980; $year--)
+        <option value="{{$year}}">{{$year}}</option>
+    @endfor
+</select>
 
 
 
@@ -40,7 +46,7 @@
     <option value="09">09</option>
     <option value="10">10</option>
     <option value="11">11</option>
-    <option value="12">1</option>
+    <option value="12">12</option>
     <option value="13">13</option>
     <option value="14">14</option>
     <option value="15">15</option>
