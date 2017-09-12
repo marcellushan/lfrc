@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="form-group col-md-4 col-md-offset-2">
                         <label>Education</label>
-                        <select name="education_id">
+                        <select name="education_id" id="education">
                             <option>Select</option>
                             <option value="1">Less than High School</option>
                             <option value="2">High School Graduate</option>
@@ -53,7 +53,7 @@
                             <option value="7">Other</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-4" id="education_other">
                         <label>Other Education</label>
                         <input type="text" name="education_other">
                     </div>
@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="form-group col-md-4 col-md-offset-2">
                         <label>Family Role</label>
-                        <select name="family_role_id">
+                        <select name="family_role_id" id="family_role">
                             <option>Select</option>
                             <option value="1">Biological Parent</option>
                             <option value="2">GrandParent</option>
@@ -72,7 +72,7 @@
                             <option value="7">Other</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-4" id="family_role_other">
                         <label>Other Relative</label>
                         <input type="text" name="family_role_other">
                     </div>

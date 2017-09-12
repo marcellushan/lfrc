@@ -43,4 +43,5 @@
         @endforeach
     </table>
 </div>
+                            {{$families->links()}}
 @endsection

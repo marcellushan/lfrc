@@ -39,9 +39,11 @@ class ReabuseController extends Controller
     {
 //        $family_id = session('family_id');
         $family_id = $request->family_id;
-        $data = $request->except('_token');
+        $data = $request->except('_token','date');
         $reabuse = new Reabuse();
         $reabuse->fill($data);
+        $reabuse->date = implode("-", $request->date);
+
 //        $reabuse->family_id = $family_id;
 //        dd($data);
         $reabuse->save();

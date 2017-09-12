@@ -2,11 +2,27 @@ body {
     background-color: #1a6ecc;
 }
 
-.not_bold {
-    font-weight: normal;
+#education_other {
+    display: none;
+
 }
 
+#family_role_other {
+    display: none;
 
-/*.jumbotron {*/
-    /*background-color: #1a6ecc;*/
-/*}*/
+}
+
+#referral_other {
+    display: none;
+
+}
+
+#income_source_other_details {
+    display: none;
+
+}
+
+#abuse_other_details {
+    display: none;
+
+}

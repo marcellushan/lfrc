@@ -35,15 +35,10 @@
     <div class="col-md-6">
         <div class="well">
 
-            <div class="row">
-                {{--<div class="col-md-6">--}}
-                    <h4 class="col-md-6">Referral Type</h4>
-                <h4 class="col-md-6 not_bold">{{$family->referral->name}}</h4>
-                {{--</div>--}}
-                {{--<div class="col-md-6">--}}
-                    {{--{{$family->referral->name}}--}}
-                {{--</div>--}}
-            </div>
+            {{--<div class="row">--}}
+                    {{--<h4 class="col-md-6">Referral Type</h4>--}}
+                {{--<h4 class="col-md-6 not_bold">{{$family->referral->name}}</h4>--}}
+            {{--</div>--}}
             <h4>Income</h4>
             <div class="row">
                 <div class="col-md-6">
@@ -99,7 +94,38 @@
     @endforelse
     </div>
     </div>
-    {{--</div>--}}
+    <div class="well">
+        <div class="row">
+            <h2 align="center">Type(s) of Abuse:</h2>
+        </div>
+        @forelse ($abuses as $abuse)
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$abuse->name}}</span></h4>
+            </div>
+        @empty
+            No abuse selected
+        @endforelse
+    </div>
+    @if(count($reabuses) > 0)
+        <div class="well">
+            <h3 align="center">Re-abuse</h3>
+            @foreach($reabuses as $reabuse)
+                <div class="row">
+                    <h4 class="col-md-4"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Outcome:
+                            @if($reabuse->outcome_id==1)
+                                Confirmed
+                            @else
+                                Unconfirmed
+                            @endif
+                        </span></h4>
+                    <h4 class="col-md-12">Notes:</h4>
+                    <h4 class="col-md-12"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
+                </div>
+            @endforeach
+        </div>
+    @endif
     <div class="well">
         <h3 align="center">AAPI Scores</h3>
     </div>

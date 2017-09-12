@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{{URL::to('/')}}/css/bootswatch.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/css/frc.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/ajaxlivesearch.css">
     <script src="{{URL::to('/')}}/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
@@ -21,6 +22,8 @@
         webshims.polyfill('forms');
         webshims.cfg.no$Switch = true;
     </script>
+    <script src="{{URL::to('/')}}/js/ajaxlivesearch.js"></script>
+    <script src="{{URL::to('/')}}/js/js_functions.js"></script>
     <script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>
 
 </head>

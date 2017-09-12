@@ -25,7 +25,7 @@ class FamilyTableSeeder extends Seeder
                     'state' => $faker->state,
                     'zip' => rand(10000,99999),
                     'income_range_id' => rand(1,6),
-                    'referral_id' => rand(1,9),
+//                    'referral_id' => rand(1,9),
                     'ina_date' => $faker->date('Y-m-d'),
                     'created_at' => $faker->date('Y-m-d')
                 ]);

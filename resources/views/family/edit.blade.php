@@ -138,4 +138,15 @@
 
     </div>
 
+    <div class="well">
+        <form action="{{URL::to('/')}}/family/{{$family->id}}" method="post">
+            <input name="_method" type="hidden" value="DELETE">
+            <input name="family_id" type="hidden" value="{{$family->id}}">
+            {{ csrf_field() }}
+            <h1 align="center">Delete Family</h1>
+            <h2>Click button below to permanently delete this family!!</h2>
+            <button type="submit">Delete Family</button>
+    </div>
+    @include('partials.return')
+
 @endsection

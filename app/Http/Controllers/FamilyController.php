@@ -20,7 +20,7 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        $families = Family::orderBy('name')->get();
+        $families = Family::orderBy('name')->paginate(30);
         return view('family.index')->with(compact('families'));
 
     }
@@ -137,7 +137,8 @@ class FamilyController extends Controller
     public function destroy($id)
     {
         $deleted = Family::destroy($id);
-        dd($deleted);
+//        dd($deleted);
+        return redirect('family');
     }
 
     public function viewAll($id)
@@ -155,7 +156,7 @@ class FamilyController extends Controller
         $ncfases = $family->ncfases;
         $preAapi = $family->preAapi;
         $postAapi = $family->postAapi;
-//        dd($postAapi);
+//        dd($reabuses);
 //        foreach ($ncfases as $ncfas)
 //            dd($ncfas->subCategory);
         return view('family.view_all')->with(compact('family','incomeSources','incomeRange','caregivers',
@@ -197,6 +198,7 @@ class FamilyController extends Controller
         $closeReasons = $request->close_reasons;
         $family = Family::find($family_id);
         $family->visits = $request->visits;
+        $family->closed_notes = $request->closed_notes;
         $family->close_date = implode("-", $request->close_date);
         $family->closed = 1;
         $family->save();
