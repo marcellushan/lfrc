@@ -2,6 +2,11 @@ body {
     background-color: #1a6ecc;
 }
 
+.not_bold {
+    font-weight: normal;
+}
+
+
 #education_other {
     display: none;
 

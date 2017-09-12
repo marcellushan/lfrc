@@ -1,6 +1,8 @@
 @extends('layouts.app') @section('content')
 
 <div class="well">
+    @include('partials.ajax_name')
+    @include('partials.ajax_case_id')
    <h2>Families</h2>
 
 
@@ -11,9 +13,6 @@
             </th>
             <th>
                 Case ID
-            </th>
-            <th>
-
             </th>
             <th>
 
@@ -35,9 +34,6 @@
                 </td>
                 <td>
                     <a href="{{URL::to('/')}}/family/view_all/{{$family->id}}">View</a>
-                </td>
-                <td>
-                    <a href="{{URL::to('/')}}/family/delete/{{$family->id}}">Delete</a>
                 </td>
             </tr>
         @endforeach

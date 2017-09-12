@@ -48,10 +48,11 @@
              ,
              messages: {
 
-                 zip: {
-                     required: "Please enter your zip code",
-                     range: "Please enter a valid zip code"
-                     },
+                 zip: "Please enter a valid zip code",
+                     // {
+                     // required: "Please enter your zip code"
+                     // range: "Please enter a valid zip code"
+                     // },
                  'income_source[]': "Please select at least one income source.",
                  income_range_id: "Please select an income range.",
                  referral_id: "Please select a referral source.",

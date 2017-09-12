@@ -46,7 +46,7 @@ class FamilyController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request->except('income_source','abuse','ina_date');
+       $data = $request->except('income_source','abuse','ina_date','referral_id');
 //        dd($request->ina_date);
         $family = new Family();
         $family->fill($data);
@@ -209,5 +209,27 @@ class FamilyController extends Controller
 
 //        dd($closeReasons);
         return redirect('family/'. $family_id);
+    }
+
+    public function printFamily($id)
+    {
+        $family = Family::find($id);
+        $all_abuses = Abuse::get();
+        session(['family_id' => $id]);
+        $incomeSources = $family->incomeSources;
+        $incomeRange = $family->incomeRange;
+        $caregivers = $family->caregivers;
+        $children = $family->children;
+        $referral = $family->referral;
+        $abuses = $family->abuses;
+        $reabuses = $family->reabuses;
+        $ncfases = $family->ncfases;
+        $preAapi = $family->preAapi;
+        $postAapi = $family->postAapi;
+//        dd($reabuses);
+//        foreach ($ncfases as $ncfas)
+//            dd($ncfas->subCategory);
+        return view('family.print')->with(compact('family','incomeSources','incomeRange','caregivers',
+            'children','caregivers','referral','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
     }
 }

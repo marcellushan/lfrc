@@ -24,6 +24,7 @@ Route::get('family/question/{id}', 'FamilyController@question');
 Route::get('family/view_all/{id}', 'FamilyController@viewAll');
 Route::get('family/delete/{id}', 'FamilyController@delete');
 Route::post('family/close', 'FamilyController@close');
+Route::get('family/print/{id}', 'FamilyController@printFamily');
 //Route::resource('caregiver', 'CaregiverController');
 
 Route::resource('aapi', 'AapiController');
