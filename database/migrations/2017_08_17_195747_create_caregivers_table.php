@@ -23,8 +23,14 @@ class CreateCaregiversTable extends Migration
             $table->string('education_other');
             $table->integer('family_role_id');
             $table->string('family_role_other');
-            $table->integer('family_id');
+            $table->unsignedinteger('family_id');
             $table->timestamps();
+        });
+
+        Schema::table('caregivers', function(Blueprint $table){
+            $table->foreign('family_id')
+                ->references('id')->on('families')
+                ->onDelete('cascade');
         });
     }
 

@@ -44,6 +44,11 @@ class Family extends Model
         return $this->belongsToMany('App\Abuse');
     }
 
+    public function referrals()
+    {
+        return $this->belongsToMany('App\Referral');
+    }
+
     public function preAapi()
     {
         return $this->hasOne('App\PreAapi');

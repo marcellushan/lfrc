@@ -18,9 +18,15 @@ class CreateReabusesTable extends Migration
 //            $table->integer('type');
             $table->integer('outcome_id');
             $table->text('notes');
-            $table->integer('family_id');
+            $table->unsignedInteger('family_id');
             $table->integer('abuse_id');
             $table->timestamps();
+        });
+
+        Schema::table('reabuses', function(Blueprint $table){
+            $table->foreign('family_id')
+                ->references('id')->on('families')
+                ->onDelete('cascade');
         });
     }
 

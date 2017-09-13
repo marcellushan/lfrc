@@ -16,13 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('welcome');
+    return view('test');
 });
 
 Route::resource('family', 'FamilyController');
 Route::get('family/question/{id}', 'FamilyController@question');
 Route::get('family/view_all/{id}', 'FamilyController@viewAll');
+Route::get('family/delete/{id}', 'FamilyController@delete');
 Route::post('family/close', 'FamilyController@close');
+Route::get('family/print/{id}', 'FamilyController@printFamily');
 //Route::resource('caregiver', 'CaregiverController');
 
 Route::resource('aapi', 'AapiController');
@@ -38,6 +40,7 @@ Route::get('child/create/{id}', 'ChildController@create');
 Route::post('child', 'ChildController@store');
 Route::get('child/{id}/edit', 'ChildController@edit');
 Route::post('child/update/{id}', 'ChildController@update');
+Route::delete('child/{id}', 'ChildController@destroy');
 
 /*
  * Caregiver
@@ -47,6 +50,8 @@ Route::get('caregiver/create/{id}', 'CaregiverController@create');
 Route::post('caregiver', 'CaregiverController@store');
 Route::get('caregiver/{id}/edit', 'CaregiverController@edit');
 Route::post('caregiver/update/{id}', 'CaregiverController@update');
+Route::delete('caregiver/{id}', 'CaregiverController@destroy');
+
 
 /*
  * AAPI

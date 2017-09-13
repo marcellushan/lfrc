@@ -10,14 +10,14 @@
         {{--<h4 class="col-md-3 col-md-offset-3">Referral Type </h4><h4 class="not_bold col-md-4">{{$family->referral->name}}</h4>--}}
     </div>
 </div>
-<div class="well">
-    <div class="row">
-        <h2 class="col-md-8 col-md-offset-4">Referral Type</h2>
-    </div>
-    <div class="row">
-        <h3 class="col-md-8 col-md-offset-4 not_bold">{{$family->referral->name}}</h3>
-    </div>
-</div>
+{{--<div class="well">--}}
+    {{--<div class="row">--}}
+        {{--<h2 class="col-md-8 col-md-offset-4">Referral Type</h2>--}}
+    {{--</div>--}}
+    {{--<div class="row">--}}
+        {{--<h3 class="col-md-8 col-md-offset-4 not_bold">{{$family->referral->name}}</h3>--}}
+    {{--</div>--}}
+{{--</div>--}}
 <div class="well">
     <h2 align="center">Measurement Tools</h2>
     <div class="row">
@@ -89,15 +89,18 @@
         </div>
 <div class="well">
         <h2 align="center">Re-Abuse</h2>
-        <form action="{{URL::to('/')}}/reabuse" method="post">
-        {{ csrf_field() }}
-            <input type="hidden" name="family_id" value="{{$family->id}}">
             <h3>Reported Re-abuse</h3>
             @forelse ($reabuses as $reabuse)
                 <div class="row">
                     <h4 class="col-md-4"><span class="not_bold">Date: {{$reabuse->date}}</span></h4>
                     <h4 class="col-md-4"><span class="not_bold">Type: {{$reabuse->abuse->name}}</span></h4>
-                    <h4 class="col-md-4"><span class="not_bold">Outcome: {{$reabuse->outcome_id}}</span></h4>
+                    <h4 class="col-md-4"><span class="not_bold">Outcome:
+                            @if($reabuse->outcome_id==1)
+                                Confirmed
+                            @else
+                                Unconfirmed
+                            @endif
+                        </span></h4>
                     <h4 class="col-md-12">Notes:</h4>
                     <h4 class="col-md-12"><span class="not_bold">Notes: {{$reabuse->notes}}</span></h4>
                 </div>
@@ -105,10 +108,16 @@
                 <h4>No re-abuse reported</h4>
             @endforelse
         <h3>Report Re-Abuse</h3>
+    <form action="{{URL::to('/')}}/reabuse" method="post" id="reabuse">
+        {{ csrf_field() }}
+        <input type="hidden" name="family_id" value="{{$family->id}}">
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="date">Date</label>
-                <input type="date" class="form-control" name="date"id="date">
+                {{--<label for="date">Date</label>--}}
+                {{--<input type="date" class="form-control" name="date"id="date">--}}
+                <h4>Re-Abuse Date<br>
+                    @include('partials.date_needed', ['name' => 'date'])
+                </h4>
             </div>
             <div class="form-group col-md-6">
                 <label for="date">Type of Abuse</label>
@@ -150,8 +159,12 @@
         @empty
             No Close Reasons
         @endforelse
+        <h3 align="center">Closed Notes</h3>
+        <div class="row">
+            <h4 class="col-md-12"><span class="not_bold">{{$family->closed_notes}}</span></h4>
+        </div>
     @else
-        <form action="{{URL::to('/')}}/family/close" method="post">
+        <form action="{{URL::to('/')}}/family/close" method="post" id="close_case">
             <input type="hidden" name="id" value="{{$family->id}}">
             {{ csrf_field() }}
         <h2 align="center">Close Case</h2>
@@ -164,16 +177,24 @@
                 <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
             </h4>
                 <div class="col-md-6">
-                Number of home visits
+                    <h4>Number of home visits<br>
                 <select name="visits">
+                    <option value="">Select</option>
                     @for($i = 1; $i <= 10; $i++)
                         <option>{{$i}}</option>
                     <@endfor>
-                </select><br>
-                    <label>Close Date</label><br>
+                </select></h4>
+                    <h4>Close Date<br>
                     @include('partials.date_needed', ['name' => 'close_date'])
+                    </h4>
             </div>
         </div>
+            <div class="row">
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <label for="date">Close Notes</label>
+                        <textarea class="form-control" name="closed_notes"></textarea>
+                    </div>
+            </div>
         <button type="submit" class="btn-primary btn-lg">Close</button>
         </form>
     @endif

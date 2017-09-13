@@ -7,6 +7,27 @@ body {
 }
 
 
-/*.jumbotron {*/
-    /*background-color: #1a6ecc;*/
-/*}*/
+#education_other {
+    display: none;
+
+}
+
+#family_role_other {
+    display: none;
+
+}
+
+#referral_other {
+    display: none;
+
+}
+
+#income_source_other_details {
+    display: none;
+
+}
+
+#abuse_other_details {
+    display: none;
+
+}

@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Family;
 use App\Caregiver;
+use Carbon\Carbon;
 
 class CaregiverController extends Controller
 {
     public function create($id)
     {
+        $current_date = Carbon::now();
+        $current_year = $current_date->year;
         $family_id = $id;
         $family = Family::find($family_id);
-        return view('caregiver.create')->with(compact('family'));
+        return view('caregiver.create')->with(compact('family','current_year'));
     }
 
     public function store(Request $request)
@@ -67,5 +70,13 @@ class CaregiverController extends Controller
 //        dd($data);
         $caregiver->save();
         return redirect(('family/' . $family_id));
+    }
+
+    public function destroy($id)
+    {
+        $deleted = Caregiver::destroy($id);
+
+//        dd($_POST['family_id']);
+        return redirect ('family/' . $_POST['family_id']);
     }
 }

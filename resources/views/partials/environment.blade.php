@@ -11,4 +11,9 @@
     @empty
                 <div class="col-md-12"> No entries </div>
     @endforelse
+
+        @if(@$environmentComments)
+                <h4>Comments:</h4>
+                {{@$environmentComments->comments}}
+        @endif
 </h4>

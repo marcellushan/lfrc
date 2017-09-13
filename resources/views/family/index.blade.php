@@ -1,6 +1,8 @@
 @extends('layouts.app') @section('content')
 
 <div class="well">
+    @include('partials.ajax_name')
+    @include('partials.ajax_case_id')
    <h2>Families</h2>
 
 
@@ -37,4 +39,5 @@
         @endforeach
     </table>
 </div>
+                            {{$families->links()}}
 @endsection

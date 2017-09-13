@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
     @include('partials.family_header')
     <div class="well">
-        <form action="{{URL::to('/')}}/child" method="post">
+        <form action="{{URL::to('/')}}/child" id="new_child" method="post">
             <input type="hidden" name="id" value="{{$family->id}}">
             {{ csrf_field() }}
             <h1 align="center">Add Child</h1>
@@ -23,7 +23,9 @@
                     <input type="radio" name="gender_id" value="1">Male
                     <input type="radio" name="gender_id" value="2">Female
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4 col-md-offset-3">
                     <label>Race</label>
                     @include('partials.race_select')
                 </div>

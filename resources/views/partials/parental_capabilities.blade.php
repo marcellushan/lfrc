@@ -12,4 +12,8 @@
                 <div class="col-md-12"> No entries </div>
 
     @endforelse
+        @if(@$parentalCapabilitiesComments)
+                <h4>Comments:</h4>
+                {{@$parentalCapabilitiesComments->comments}}
+        @endif
 </h4>

@@ -71,8 +71,12 @@ class DataController extends Controller
 //        $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
         $environments = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 1)->get();
+        $environmentComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 1)->first();
         $parentalCapabilities = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 2)->get();
+        $parentalCapabilitiesComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 2)->first();
         $familyInteractions = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 3)->get();
         $familySafeties = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
@@ -86,7 +90,7 @@ class DataController extends Controller
         $familyHealths = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
             ->where('category_id', '=', 8)->get();
 //        $scores = Score::get();
-//       dd($familyHealths);
+//       dd($environments);
 //        foreach ($ncfases as $ncfas) {
 //           echo '<pre>';
 //            print_r($ncfas->category);
@@ -94,7 +98,8 @@ class DataController extends Controller
 //        }
 
 //       }
-        return view('ncfas.complete')->with(compact('family','environments','parentalCapabilities','familyInteractions','familySafeties',
+        return view('ncfas.complete')->with(compact('family','environments','environmentComments','parentalCapabilities',
+            'parentalCapabilitiesComments','familyInteractions','familySafeties',
             'childWellBeings','socialCommunityLives','selfSufficiencies','familyHealths'));
 //        dd($request);
     }

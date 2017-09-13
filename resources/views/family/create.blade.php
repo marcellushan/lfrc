@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 
     <div class="well">
-        <form action="{{URL::to('/')}}/family" method="post">
+        <form action="{{URL::to('/')}}/family" name="family" id="new_family" method="post">
             {{ csrf_field() }}
             <div class="row">
                 <div class="form-group col-md-6">
@@ -74,7 +74,10 @@
                         <input type="checkbox" name="income_source[]" value="9">Retirement/Pension
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="10">Other
+                        <input type="checkbox" name="income_source[]" value="10" id="income_source_other">Other
+                    </div>
+                    <div class="col-md-6" id="income_source_other_details">
+                        Other Details <input type="text" name="income_source_other">
                     </div>
                 </div>
             </div>
@@ -91,10 +94,10 @@
                         <option value="6">$50,000+</option>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label>Referral Source</label>
-                    <select name="referral_id">
-                        <option value="1">Select Referral</option>
+                    <select name="referral_id" id="referral">
+                        <option>Select Referral</option>
                         <option value="1">DFCS</option>
                         <option value="2">Court</option>
                         <option value="3">Self</option>
@@ -107,7 +110,10 @@
                         <option value="10">Other</option>
                     </select>
                 </div>
-            </div>
+                <div class="col-md-3" id="referral_other">
+                        <label>Other referral</label> <input type="text" name="abuses_other">
+                </div>
+                </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
@@ -132,7 +138,10 @@
                         <input type="checkbox" name="abuse[]" value="5">High Risk
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="6">Other
+                        <input type="checkbox" name="abuse[]" value="6" id="abuse_other">Other
+                    </div>
+                    <div class="col-md-6" id="abuse_other_details">
+                        Other Details <input type="text" name="abuses_other">
                     </div>
                 </div>
             </div>

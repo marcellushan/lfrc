@@ -16,8 +16,15 @@ class CreateNcfasStatusesTable extends Migration
             $table->increments('id');
             $table->integer('category_id');
             $table->integer('phase_id');
-            $table->integer('family_id');
+            $table->unsignedInteger('family_id');
+            $table->text('comments');
             $table->timestamps();
+        });
+
+        Schema::table('ncfas_statuses', function(Blueprint $table){
+            $table->foreign('family_id')
+                ->references('id')->on('families')
+                ->onDelete('cascade');
         });
     }
 
