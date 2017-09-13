@@ -32,7 +32,7 @@
         <h4 class="col-md-2 col-md-offset-4">Sources:</h4>
             <h4 class="not_bold col-md-6">
                 @forelse ($incomeSources as $incomeSource)
-                    {{$incomeSource->name}},
+                    {{$incomeSource->name}}<br>
                 @empty
                     No income Sources selected
                 @endforelse

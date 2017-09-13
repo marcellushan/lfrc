@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\IncomeSource;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Family;
@@ -45,7 +46,7 @@ class FamilyController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request->except('income_source','abuse','ina_date','referral_id');
+       $data = $request->except('income_source','abuse','ina_date','referral_id','referral_date');
 //        dd($request->ina_date);
         $family = new Family();
         $family->fill($data);
@@ -60,6 +61,11 @@ class FamilyController extends Controller
         foreach ($abuses as $abuse) {
             $family->abuses()->attach($abuse);
         }
+        $referral_date = implode("-", $request->referral_date);
+        DB::table('family_referral')->insert(array('family_id' => $family->id , 'referral_id' => $request->referral_id, 'referral_date' => $referral_date));
+//        $my_list = DB::table('family_referral')->get();
+//        dd($referral_date);
+
 
         return redirect('family/question/' . $family->id);
 //        dd($request->income_source);

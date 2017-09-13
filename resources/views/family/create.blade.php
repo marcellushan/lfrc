@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <label>Income Range (annual)</label>
                     <select name="income_range_id">
                         <option>Select Range</option>
@@ -94,7 +94,9 @@
                         <option value="6">$50,000+</option>
                     </select>
                 </div>
-                <div class="col-md-3">
+                </div>
+            <div class="row">
+                <div class="col-md-4">
                     <label>Referral Source</label>
                     <select name="referral_id" id="referral">
                         <option>Select Referral</option>
@@ -112,6 +114,10 @@
                 </div>
                 <div class="col-md-3" id="referral_other">
                         <label>Other referral</label> <input type="text" name="abuses_other">
+                </div>
+                <div class="col-md-4">
+                    <label>Referral Date</label><br>
+                    @include('partials.date_needed', ['name' => 'referral_date'])
                 </div>
                 </div>
             <br>
