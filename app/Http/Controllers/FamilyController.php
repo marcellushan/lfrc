@@ -22,7 +22,7 @@ class FamilyController extends Controller
     {
         $families = Family::orderBy('name')->paginate(30);
         return view('family.index')->with(compact('families'));
-
+//        dd($families);
     }
 
     /**
