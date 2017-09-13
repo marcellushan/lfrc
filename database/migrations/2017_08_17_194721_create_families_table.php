@@ -51,6 +51,7 @@ class CreateFamiliesTable extends Migration
         Schema::create('family_referral', function (Blueprint $table) {
             $table->integer('family_id')->unsigned()->index();
             $table->integer('referral_id')->unsigned()->index();
+            $table->date('referral_date');
             $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
             $table->timestamps();
         });
