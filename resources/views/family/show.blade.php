@@ -1,6 +1,14 @@
 @extends('layouts.app') @section('content')
 @include('partials.family_header')
-
+<div class="well">
+    <h2 align="center">Referral(s)</h2>
+    <div class="row">
+        @foreach($referrals as $referral)
+            <h4 class="col-md-2">Date: </h4><h4 class="not_bold col-md-4">{{$referral->referral_date}}</h4>
+            <h4 class="col-md-2">Source: </h4><h4 class="not_bold col-md-4">{{$referral->referral_type->name}}</h4>
+        @endforeach
+    </div>
+</div>
 <div class="well">
     <div class="row">
         <h4 class="col-md-2">Street Address: </h4><h4 class="not_bold col-md-4">{{$family->street }}</h4>
@@ -30,13 +38,26 @@
     <div class="row">
         <h4 class="col-md-2 col-md-offset-4">Range: </h4><h4 class="not_bold col-md-6">{{$incomeRange->name }}</h4>
         <h4 class="col-md-2 col-md-offset-4">Sources:</h4>
-            <h4 class="not_bold col-md-6">
-                @forelse ($incomeSources as $incomeSource)
-                    {{$incomeSource->name}}<br>
-                @empty
-                    No income Sources selected
-                @endforelse
-            </h4>
+        <h4 class="not_bold col-md-6">
+            @if($family->full_time)Full-Time,@endif
+            @if($family->part_time)Part-Time,@endif
+            @if($family->ss)SS,@endif
+            @if($family->ssi)SSI,@endif
+            @if($family->child_support)Child Support,@endif
+            @if($family->food_stamps)Food Stamps,@endif
+            @if($family->tanf)TANF,@endif
+            @if($family->family_members)Family Members,@endif
+            @if($family->retirement)Retirement/Pension,@endif
+            @if($family->income_source_other)Other - {{$family->income_source_other_text}}@endif
+
+
+        </h4>
+                {{--@forelse ($incomeSources as $incomeSource)--}}
+                    {{--{{$incomeSource->name}}<br>--}}
+                {{--@empty--}}
+                    {{--No income Sources selected--}}
+                {{--@endforelse--}}
+            {{--</h4>--}}
     </div>
 </div>
     <div class="well">
@@ -79,13 +100,16 @@
             <div class="row">
                 <h2 align="center">Type(s) of Abuse:</h2>
             </div>
-            @forelse ($abuses as $abuse)
-                <div class="row">
-                    <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$abuse->name}}</span></h4>
-                </div>
-            @empty
-                No abuse selected
-            @endforelse
+    <div class="row">
+    <h4 class="not_bold col-md-6 col-md-offset-5">
+                @if($family->physical)Physical Abuse<br> @endif
+                @if($family->emotional)Emotional Abuse<br> @endif
+                @if($family->sexual)Sexual Abuse<br> @endif
+                @if($family->neglect)Neglect<br> @endif
+                @if($family->high_risk)High Risk<br> @endif
+                @if($family->abuse_other)Other - {{$family->abuse_other_text}}@endif
+    </h4>
+    </div>
         </div>
 <div class="well">
         <h2 align="center">Re-Abuse</h2>

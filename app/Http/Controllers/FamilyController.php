@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\IncomeSource;
+use App\Referral;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,16 +54,23 @@ class FamilyController extends Controller
         $family->ina_date = implode("-", $request->ina_date);
 //        dd($family);
         $family->save();
-        $income_sources = $request->income_source;
-        foreach ($income_sources as $income_source) {
-            $family->incomeSources()->attach($income_source);
-        }
-        $abuses = $request->abuse;
-        foreach ($abuses as $abuse) {
-            $family->abuses()->attach($abuse);
-        }
-        $referral_date = implode("-", $request->referral_date);
-        DB::table('family_referral')->insert(array('family_id' => $family->id , 'referral_id' => $request->referral_id, 'referral_date' => $referral_date));
+        $referral = new Referral();
+        $referral->referral_type_id = $request->referral_type_id;
+        $referral->referral_date = implode("-", $request->referral_date);
+        $referral->family_id = $family->id;
+        $referral->save();
+
+//        $income_sources = $request->income_source;
+//        foreach ($income_sources as $income_source) {
+//            $family->incomeSources()->attach($income_source);
+//        }
+//        $abuses = $request->abuse;
+//        foreach ($abuses as $abuse) {
+//            $family->abuses()->attach($abuse);
+//        }
+//        $referral_date = implode("-", $request->referral_date);
+//        DB::table('family_referral')->insert(array('family_id' => $family->id ,
+//            'referral_id' => $request->referral_id, 'referral_date' => $referral_date));
 //        $my_list = DB::table('family_referral')->get();
 //        dd($referral_date);
 
@@ -84,18 +92,19 @@ class FamilyController extends Controller
         $current_date = Carbon::now();
         $current_year = $current_date->year;
         $family = Family::find($id);
+        $referrals = Referral::where('family_id', '=', $family->id)->get();
         $all_abuses = Abuse::get();
-        $incomeSources = $family->incomeSources;
+//        $incomeSources = $family->incomeSources;
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
         $children = $family->children;
-        $referral = $family->referral;
-        $abuses = $family->abuses;
+//        $referral = $family->referral;
+//        $abuses = $family->abuses;
         $reabuses = $family->reabuses;
         $closeReasons = $family->closeReasons;
-//        dd($reabuses);
-        return view('family.show')->with(compact('family','incomeSources','incomeRange','caregivers',
-            'children','caregivers','referral','abuses','all_abuses','reabuses','closeReasons','current_year'));
+//        dd($referrals);
+        return view('family.show')->with(compact('family','incomeRange','caregivers',
+            'children','caregivers','referrals','all_abuses','reabuses','closeReasons','current_year'));
     }
 
     /**

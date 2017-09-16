@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferralsTable extends Migration
+class CreateReferralTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreateReferralsTable extends Migration
      */
     public function up()
     {
-        Schema::create('referrals', function (Blueprint $table) {
+        Schema::create('referral_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('referral_date');
-            $table->integer('referral_type_id');
-            $table->unsignedInteger('family_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateReferralsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('referrals');
+        Schema::drop('referral_types');
     }
 }

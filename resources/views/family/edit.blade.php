@@ -32,45 +32,45 @@
                     <input type="text" name="zip" value="{{$family->zip}}" class="form-control">
                 </div>
             </div>
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<label>Income Source (select all that apply)</label>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="form-group">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="1">Full-time Employment--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="2">Part-time Employment--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="3">SS--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="4">SSI--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="5">Child Support--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="6">Food Stamps--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="7">TANF--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="8">Family Members--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="9">Retirement/Pension--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="income_source[]" value="10">Other--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Income Source (select all that apply)</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="full_time" value="1" @if($family->full_time) checked @endif>Full-time Employment
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="full_time" value="1" @if($family->part_time) checked @endif>Part-time Employment
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="ss" value="1" @if($family->ss) checked @endif>SS
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="ssi" value="1" @if($family->ssi) checked @endif>SSI
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="child_support" value="1" @if($family->child_support) checked @endif>Child Support
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="food_stamps" value="1" @if($family->food_stamps) checked @endif>Food Stamps
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="tanf" value="1" @if($family->tanf) checked @endif>TANF
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="family_members" value="1" @if($family->family_members) checked @endif>Family Members
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="retirement" value="1" @if($family->retirement) checked @endif>Retirement/Pension
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="income_source_other" value="1" @if($family->income_source_other) checked @endif>Other
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <label>Income Range (annual)</label>
@@ -102,33 +102,33 @@
                 </div>
             </div>
             <br>
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<label>Type of Abuse (select all that apply)</label>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="form-group">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="1">Physical Abuse--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="2">Emotional Abuse--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="3">Sexual Abuse--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="4">Neglect--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="5">High Risk--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-3">--}}
-                        {{--<input type="checkbox" name="abuse[]" value="6">Other--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Type of Abuse (select all that apply)</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="physical" value="1" @if($family->physical) checked @endif>Physical Abuse
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="emotional" value="1" @if($family->emotional) checked @endif>Emotional Abuse
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="sexual" value="1" @if($family->sexual) checked @endif>Sexual Abuse
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="neglect" value="1" @if($family->neglect) checked @endif>Neglect
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="high_risk" value="1" @if($family->high_risk) checked @endif>High Risk
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="abuse_other" value="1" @if($family->abuse_other) checked @endif>Other
+                    </div>
+                </div>
+            </div>
             <label>Date of INA</label><br>
             {{--@include('partials.date_needed', ['name' => 'ina_date'])--}}
             <input type="text" name="ina_date" value="{{$family->year}}-{{$family->month}}-{{$family->day}}">

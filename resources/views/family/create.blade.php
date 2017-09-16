@@ -47,34 +47,34 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="1">Full-time Employment
+                        <input type="checkbox" name="full_time" value="1">Full-time Employment
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="2">Part-time Employment
+                        <input type="checkbox" name="part_time" value="1">Part-time Employment
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="3">SS
+                        <input type="checkbox" name="ss" value="1">SS
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="4">SSI
+                        <input type="checkbox" name="ssi" value="1">SSI
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="5">Child Support
+                        <input type="checkbox" name="child_support" value="1">Child Support
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="6">Food Stamps
+                        <input type="checkbox" name="food_stamps" value="1">Food Stamps
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="7">TANF
+                        <input type="checkbox" name="tanf" value="1">TANF
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="8">Family Members
+                        <input type="checkbox" name="family_members" value="1">Family Members
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="9">Retirement/Pension
+                        <input type="checkbox" name="retirement" value="1">Retirement/Pension
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="income_source[]" value="10" id="income_source_other">Other
+                        <input type="checkbox" name="other" value="1" id="income_source_other">Other
                     </div>
                     <div class="col-md-6" id="income_source_other_details">
                         Other Details <input type="text" name="income_source_other">
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label>Referral Source</label>
-                    <select name="referral_id" id="referral">
+                    <select name="referral_type_id" id="referral">
                         <option>Select Referral</option>
                         <option value="1">DFCS</option>
                         <option value="2">Court</option>
@@ -129,25 +129,25 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="1">Physical Abuse
+                        <input type="checkbox" name="physical" value="1">Physical Abuse
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="2">Emotional Abuse
+                        <input type="checkbox" name="emotional" value="1">Emotional Abuse
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="3">Sexual Abuse
+                        <input type="checkbox" name="sexual" value="1">Sexual Abuse
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="4">Neglect
+                        <input type="checkbox" name="neglect" value="1">Neglect
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="5">High Risk
+                        <input type="checkbox" name="high_risk" value="1">High Risk
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="abuse[]" value="6" id="abuse_other">Other
+                        <input type="checkbox" name="abuse_other" value="1" id="abuse_other">Other
                     </div>
                     <div class="col-md-6" id="abuse_other_details">
-                        Other Details <input type="text" name="abuses_other">
+                        Other Details <input type="text" name="abuse_other_text">
                     </div>
                 </div>
             </div>

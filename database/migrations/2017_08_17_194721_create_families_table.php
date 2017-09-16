@@ -21,9 +21,25 @@ class CreateFamiliesTable extends Migration
             $table->string('state');
             $table->string('zip');
             $table->integer('income_range_id');
-            $table->string('income_source_other')->nullable();
+            $table->boolean('full_time')->nullable();
+            $table->boolean('part_time')->nullable();
+            $table->boolean('ss')->nullable();
+            $table->boolean('ssi')->nullable();
+            $table->boolean('child_support')->nullable();
+            $table->boolean('food_stamps')->nullable();
+            $table->boolean('tanf')->nullable();
+            $table->boolean('family_members')->nullable();
+            $table->boolean('retirement')->nullable();
+            $table->boolean('income_source_other')->nullable();
+            $table->string('income_source_other_text')->nullable();
+            $table->boolean('physical')->nullable();
+            $table->boolean('emotional')->nullable();
+            $table->boolean('sexual')->nullable();
+            $table->boolean('neglect')->nullable();
+            $table->boolean('high_risk')->nullable();
+            $table->boolean('abuse_other')->nullable();
 //            $table->integer('referral_id');
-            $table->string('abuses_other')->nullable();
+            $table->string('abuse_other_text')->nullable();
             $table->date('ina_date');
             $table->boolean('aapi_pre')->nullable();
             $table->boolean('aapi_post')->nullable();
@@ -34,19 +50,19 @@ class CreateFamiliesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('family_income_source', function (Blueprint $table) {
-        $table->integer('family_id')->unsigned()->index();
-        $table->integer('income_source_id')->unsigned()->index();
-        $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
-        $table->timestamps();
-    });
+//        Schema::create('family_income_source', function (Blueprint $table) {
+//        $table->integer('family_id')->unsigned()->index();
+//        $table->integer('income_source_id')->unsigned()->index();
+//        $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
+//        $table->timestamps();
+//    });
 
-        Schema::create('abuse_family', function (Blueprint $table) {
-            $table->integer('abuse_id')->unsigned()->index();
-            $table->integer('family_id')->unsigned()->index();
-            $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
-            $table->timestamps();
-        });
+//        Schema::create('abuse_family', function (Blueprint $table) {
+//            $table->integer('abuse_id')->unsigned()->index();
+//            $table->integer('family_id')->unsigned()->index();
+//            $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
+//            $table->timestamps();
+//        });
 
         Schema::create('family_referral', function (Blueprint $table) {
             $table->integer('family_id')->unsigned()->index();
@@ -73,8 +89,8 @@ class CreateFamiliesTable extends Migration
     public function down()
     {
 
-        Schema::drop('family_income_source');
-        Schema::drop('abuse_family');
+//        Schema::drop('family_income_source');
+//        Schema::drop('abuse_family');
         Schema::drop('family_referral');
         Schema::drop('close_reason_family');
         Schema::drop('families');

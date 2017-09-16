@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(IncomeSourceTableSeeder::class);
          $this->call(FamilyTableSeeder::class);
-         $this->call(ReferralTableSeeder::class);
+         $this->call(ReferralTypeTableSeeder::class);
         $this->call(AbuseTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(SubCategoryTableSeeder::class);

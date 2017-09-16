@@ -15,7 +15,7 @@ class FamilyTableSeeder extends Seeder
     {
         {
             $faker = Faker::create();
-            for ($x = 0; $x <= 500; $x++) {
+            for ($x = 0; $x <= 10; $x++) {
                 $id = DB::table('families')->insertGetId([
 //                   'first_name' => str_random(10),
                     'case_id' => rand(10000,99999),
@@ -29,14 +29,14 @@ class FamilyTableSeeder extends Seeder
                     'ina_date' => $faker->date('Y-m-d'),
                     'created_at' => $faker->date('Y-m-d')
                 ]);
-                DB::table('family_income_source')->insert([
-                    'income_source_id' => rand(1,10),
-                    'family_id' => $id
-                ]);
-                DB::table('family_income_source')->insert([
-                    'income_source_id' => rand(1,10),
-                    'family_id' => $id
-                ]);
+//                DB::table('family_income_source')->insert([
+//                    'income_source_id' => rand(1,10),
+//                    'family_id' => $id
+//                ]);
+//                DB::table('family_income_source')->insert([
+//                    'income_source_id' => rand(1,10),
+//                    'family_id' => $id
+//                ]);
                 DB::table('children')->insert([
                     'name' => $faker->firstName . ' ' . $faker->lastName,
                     'birth_date' => $faker->date,
@@ -75,15 +75,15 @@ class FamilyTableSeeder extends Seeder
                     'family_id' => $id,
                     'created_at' => $faker->date('Y-m-d')
                 ]);
-                DB::table('abuse_family')->insert([
-                    'abuse_id' => rand(1,6),
-                    'family_id' => $id
-                ]);
-
-                DB::table('abuse_family')->insert([
-                    'abuse_id' => rand(1,6),
-                    'family_id' => $id
-                ]);
+//                DB::table('abuse_family')->insert([
+//                    'abuse_id' => rand(1,6),
+//                    'family_id' => $id
+//                ]);
+//
+//                DB::table('abuse_family')->insert([
+//                    'abuse_id' => rand(1,6),
+//                    'family_id' => $id
+//                ]);
 
             }
         }
