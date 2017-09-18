@@ -16,7 +16,9 @@
         <div class="row">
             @foreach($interims as $interim)
                 <h4 class="col-md-3">
-                    @if($interim->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$family->id}}&category_id={{$interim->id}}&phase_id=2"> {{$interim->name}}</a>@else  {{$interim->name}} @endif
+{{--                    @if($interim->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$family->id}}&category_id={{$interim->id}}&phase_id=2"> {{$interim->name}}</a>@else  {{$interim->name}} @endif--}}
+                    @if($interim->not_complete) <a href="{{URL::to('/')}}/ncfas/create/{{$family->id}}/{{$interim->id}}/2"> {{$interim->name}}</a>@else  {{$interim->name}} @endif
+
                 </h4>
 
             @endforeach
@@ -26,7 +28,9 @@
         <div class="row">
             @foreach($closures as $closure)
                 <h4 class="col-md-3">
-                    @if($closure->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$family->id}}&category_id={{$closure->id}}&phase_id=3"> {{$closure->name}}</a>@else  {{$closure->name}} @endif
+{{--                    @if($closure->not_complete) <a href="{{URL::to('/')}}/ncfas/create?id={{$family->id}}&category_id={{$closure->id}}&phase_id=3"> {{$closure->name}}</a>@else  {{$closure->name}} @endif--}}
+                    @if($closure->not_complete) <a href="{{URL::to('/')}}/ncfas/create/{{$family->id}}/{{$closure->id}}/3"> {{$closure->name}}</a>@else  {{$closure->name}} @endif
+
                 </h4>
 
             @endforeach

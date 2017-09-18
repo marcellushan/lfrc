@@ -103,7 +103,7 @@ class FamilyController extends Controller
         $reabuses = $family->reabuses;
         $closeReasons = $family->closeReasons;
 //        dd($referrals);
-        return view('family.show')->with(compact('family','incomeRange','caregivers',
+        return view('family.home')->with(compact('family','incomeRange','caregivers',
             'children','caregivers','referrals','all_abuses','reabuses','closeReasons','current_year'));
     }
 
@@ -118,11 +118,13 @@ class FamilyController extends Controller
         $current_date = Carbon::now();
         $current_year = $current_date->year;
         $family = Family::find($id);
+        $referrals = $family->referrals;
+//        dd($referral);
         $family->year = substr($family->ina_date, 0,4);
         $family->month = substr($family->ina_date, 5,2);
         $family->day = substr($family->ina_date, 8,2);
 //        dd($family->incomeSources);
-        return view('family.edit')->with(compact('family'));
+        return view('family.edit')->with(compact('family','referrals'));
     }
 
     /**
@@ -164,7 +166,7 @@ class FamilyController extends Controller
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
         $children = $family->children;
-        $referral = $family->referral;
+        $referrals = $family->referrals;
         $abuses = $family->abuses;
         $reabuses = $family->reabuses;
         $ncfases = $family->ncfases;
@@ -174,7 +176,7 @@ class FamilyController extends Controller
 //        foreach ($ncfases as $ncfas)
 //            dd($ncfas->subCategory);
         return view('family.view_all')->with(compact('family','incomeSources','incomeRange','caregivers',
-            'children','caregivers','referral','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
+            'children','caregivers','referrals','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
     }
 
     public function delete($id)
@@ -230,11 +232,11 @@ class FamilyController extends Controller
         $family = Family::find($id);
         $all_abuses = Abuse::get();
         session(['family_id' => $id]);
-        $incomeSources = $family->incomeSources;
+//        $incomeSources = $family->incomeSources;
         $incomeRange = $family->incomeRange;
         $caregivers = $family->caregivers;
         $children = $family->children;
-        $referral = $family->referral;
+        $referrals = $family->referrals;
         $abuses = $family->abuses;
         $reabuses = $family->reabuses;
         $ncfases = $family->ncfases;
@@ -244,6 +246,6 @@ class FamilyController extends Controller
 //        foreach ($ncfases as $ncfas)
 //            dd($ncfas->subCategory);
         return view('family.print')->with(compact('family','incomeSources','incomeRange','caregivers',
-            'children','caregivers','referral','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
+            'children','caregivers','referrals','abuses','all_abuses','reabuses','preAapi','postAapi','ncfases'));
     }
 }

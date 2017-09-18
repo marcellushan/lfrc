@@ -85,20 +85,10 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label>Referral Source</label>
-                    <select name="referral">
-                        <option value="">Select Referral</option>
-                        <option value="1" @if($family->referral_id == '1') selected @endif>DFCS</option>
-                        <option value="2" @if($family->referral_id == '2') selected @endif>Court</option>
-                        <option value="3" @if($family->referral_id == '3') selected @endif>Self</option>
-                        <option value="4" @if($family->referral_id == '4') selected @endif>Mental Health Agency</option>
-                        <option value="5" @if($family->referral_id == '5') selected @endif>Mental Health Private</option>
-                        <option value="6" @if($family->referral_id == '6') selected @endif>Hospital/Physician</option>
-                        <option value="7" @if($family->referral_id == '7') selected @endif>Family</option>
-                        <option value="8" @if($family->referral_id == '8') selected @endif>School</option>
-                        <option value="9" @if($family->referral_id == '9') selected @endif>Other Human Resource provider</option>
-                        <option value="10" @if($family->referral_id == '10') selected @endif>Other</option>
-                    </select>
+                    <label>Referral(s)</label>
+                @foreach($referrals as $referral)
+                Source: {{$referral->referral_type->name}}&nbsp;Date: {{$referral->referral_date}}
+                @endforeach
                 </div>
             </div>
             <br>

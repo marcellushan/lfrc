@@ -6,7 +6,7 @@
                 <div class="col-md-6">
             {{$parentalCapability->subCategory->name}}</div>
                 <div class="col-md-6">
-                        {{$parentalCapability->score->name}}</div>
+                        {{$parentalCapability->score->name}} - {{$parentalCapability->score->score_value}}</div>
         </div>
     @empty
                 <div class="col-md-12"> No entries </div>

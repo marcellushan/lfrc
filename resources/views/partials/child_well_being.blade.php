@@ -6,10 +6,15 @@
                 <div class="col-md-6">
             {{$childWellBeing->subCategory->name}}</div>
                 <div class="col-md-6">
-                        {{$childWellBeing->score->name}}</div>
+                        {{$childWellBeing->score->name}} - {{$childWellBeing->score->score_value}}</div>
         </div>
     @empty
                 <div class="col-md-12"> No entries </div>
 
     @endforelse
+
+        @if(@$childWellBeingsComments)
+                <h4>Comments:</h4>
+                {{@$childWellBeingsComments->comments}}
+        @endif
 </h4>

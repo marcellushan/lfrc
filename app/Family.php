@@ -31,7 +31,7 @@ class Family extends Model
         return $this->hasMany('App\Child');
     }
 
-    public function referral()
+    public function referrals()
     {
         return $this->hasMany('App\Referral');
     }
@@ -46,10 +46,10 @@ class Family extends Model
 //        return $this->belongsToMany('App\Abuse');
 //    }
 
-    public function referrals()
-    {
-        return $this->belongsToMany('App\Referral');
-    }
+//    public function referrals()
+//    {
+//        return $this->belongsToMany('App\Referral');
+//    }
 
     public function preAapi()
     {

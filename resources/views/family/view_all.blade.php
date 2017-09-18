@@ -3,33 +3,45 @@
 <div class="row">
     <div class="col-md-6">
         <div class="well">
-            <h4>Address</h4>
+            <h4>Address:</h4>
+            <h5>
             <div class="row">
                 <div class="col-md-6">
                     Street Address
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 not_bold">
                    {{$family->street}}
                 </div>
                 <div class="col-md-6">
                     City
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 not_bold">
                     {{$family->city}}
                 </div>
                 <div class="col-md-6">
                     State
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 not_bold">
                     {{$family->state}}
                 </div>
                 <div class="col-md-6">
                     Zip Code
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 not_bold">
                     {{$family->zip}}
                 </div>
             </div>
+            </h5>
+            <div class="row">
+            <h4 class="col-md-12">
+                Referral(s):
+            </h4>
+
+                @foreach($referrals as $referral)
+                    <h5 class="col-md-6 not_bold">
+                        Source: {{$referral->referral_type->name}}</h5> <h5 class="col-md-6 not_bold">Date: {{$referral->referral_date}}</h5>
+                @endforeach
+        </div>
         </div>
     </div>
     <div class="col-md-6">
@@ -39,24 +51,30 @@
                     {{--<h4 class="col-md-6">Referral Type</h4>--}}
                 {{--<h4 class="col-md-6 not_bold">{{$family->referral->name}}</h4>--}}
             {{--</div>--}}
-            <h4>Income</h4>
+            <h4>Income:</h4>
             <div class="row">
-                <div class="col-md-6">
+                <h5 class="col-md-4">
                     Range
-                </div>
-                <div class="col-md-6">
+                </h5>
+                <h5 class="col-md-8 not_bold">
                     {{$incomeRange->name}}
-                </div>
-                <div class="col-md-6">
+                </h5>
+                <h5 class="col-md-4">
                     Source(s)
-                </div>
-                <div class="col-md-6">
-                    @forelse($incomeSources as $incomeSource)
-                        {{$incomeSource->name}}<br>
-                    @empty
-                        No income source
-                    @endforelse
-                </div>
+                </h5>
+                <h5 class="col-md-8 not_bold">
+                    @if($family->full_time)Full-Time Employment, @endif
+                    @if($family->part_time)Part-Time Employment, @endif
+                    @if($family->ss)SS, @endif
+                    @if($family->ssi)SSI, @endif
+                    @if($family->child_support)Child Support, @endif
+                    @if($family->food_stamps)Food Stamps, @endif
+                    @if($family->tanf)TANF, @endif
+                    @if($family->family_members)Family Members, @endif
+                    @if($family->retirement)Retirement/Pension, @endif
+                    @if($family->income_source_other)Other - {{$family->income_source_other_text}} @endif
+                </h5>
+
             </div>
         </div>
     </div>
@@ -97,14 +115,16 @@
     <div class="well">
         <div class="row">
             <h2 align="center">Type(s) of Abuse:</h2>
-        </div>
-        @forelse ($abuses as $abuse)
-            <div class="row">
-                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$abuse->name}}</span></h4>
-            </div>
-        @empty
-            No abuse selected
-        @endforelse
+        {{--</div>--}}
+        <h4 class="col-md-2 col-md-offset-5">
+        @if($family->physical)Physical Abuse, @endif
+        @if($family->emotional)Emotional Abuse, @endif
+        @if($family->sexual)Sexual Abuse, @endif
+        @if($family->neglect)Neglect, @endif
+        @if($family->high_risk)High Risk, @endif
+        @if($family->abuse_other)Other - {{$family->abuse_other_text}} @endif
+        </h4>
+    </div>
     </div>
     @if(count($reabuses) > 0)
         <div class="well">
@@ -174,34 +194,34 @@
                 <h4>Pre-test</h4>
                 @if($preAapi)
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         Expectations
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         {{$preAapi->expectations}}
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         Empathy
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         {{$preAapi->empathy}}
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         Belief in Corporal Punishment
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         {{$preAapi->corporal}}
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         Family Roles
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         {{$preAapi->roles}}
                     </div>
-                    <div class="col-md-6">
-                        Power-Interdepence
+                    <div class="col-md-9">
+                        Power-Interdependence
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         {{$preAapi->power}}
                     </div>
                     @else
@@ -218,34 +238,34 @@
                     <h4>Post-test</h4>
                     @if($postAapi)
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 Expectations
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{$postAapi->expectations}}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 Empathy
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{$postAapi->empathy}}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 Belief in Corporal Punishment
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{$postAapi->corporal}}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 Family Roles
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{$postAapi->roles}}
                             </div>
-                            <div class="col-md-6">
-                                Power-Interdepence
+                            <div class="col-md-9">
+                                Power-Interdependence
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{$postAapi->power}}
                             </div>
                             @else

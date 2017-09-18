@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Carbon\Carbon;
 
 
 class FamilyTableSeeder extends Seeder
@@ -16,6 +17,12 @@ class FamilyTableSeeder extends Seeder
         {
             $faker = Faker::create();
             for ($x = 0; $x <= 10; $x++) {
+                $startDate = Carbon::create(2017, 1, 1);
+                $endDate   = Carbon::now();
+                $childstartDate = Carbon::create(2000, 1, 1);
+                $childendDate   = Carbon::now();
+                $caregiverstartDate = Carbon::create(1940, 1, 1);
+                $caregiverendDate   = Carbon::create(2001,1,1);
                 $id = DB::table('families')->insertGetId([
 //                   'first_name' => str_random(10),
                     'case_id' => rand(10000,99999),
@@ -26,7 +33,9 @@ class FamilyTableSeeder extends Seeder
                     'zip' => rand(10000,99999),
                     'income_range_id' => rand(1,6),
 //                    'referral_id' => rand(1,9),
-                    'ina_date' => $faker->date('Y-m-d'),
+//                    'ina_date' => $faker->date('Y-m-d')->between(2017-01-01, 2017-12-31),
+                    'ina_date' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d'),
+
                     'created_at' => $faker->date('Y-m-d')
                 ]);
 //                DB::table('family_income_source')->insert([
@@ -39,7 +48,7 @@ class FamilyTableSeeder extends Seeder
 //                ]);
                 DB::table('children')->insert([
                     'name' => $faker->firstName . ' ' . $faker->lastName,
-                    'birth_date' => $faker->date,
+                    'birth_date' => Carbon::createFromTimestamp(rand($childendDate->timestamp, $childstartDate->timestamp))->format('Y-m-d'),
                     'gender_id' => rand(1,2),
                     'race_id' => rand(1,5),
                     'family_id' => $id,
@@ -47,7 +56,7 @@ class FamilyTableSeeder extends Seeder
                 ]);
                 DB::table('children')->insert([
                     'name' => $faker->name,
-                    'birth_date' => $faker->date,
+                    'birth_date' => Carbon::createFromTimestamp(rand($childendDate->timestamp, $childstartDate->timestamp))->format('Y-m-d'),
                     'gender_id' => rand(1,2),
                     'race_id' => rand(1,5),
                     'family_id' => $id,
@@ -55,7 +64,7 @@ class FamilyTableSeeder extends Seeder
                 ]);
                 DB::table('caregivers')->insert([
                     'name' => $faker->firstName . ' ' . $faker->lastName,
-                    'birth_date' => $faker->date,
+                    'birth_date' => Carbon::createFromTimestamp(rand($caregiverendDate->timestamp, $caregiverstartDate->timestamp))->format('Y-m-d'),
                     'gender_id' => rand(1,2),
                     'marital_status_id' => rand(1,5),
                     'race_id' => rand(1,5),
@@ -66,12 +75,18 @@ class FamilyTableSeeder extends Seeder
                 ]);
                 DB::table('caregivers')->insert([
                     'name' => $faker->name,
-                    'birth_date' => $faker->date,
+                    'birth_date' => Carbon::createFromTimestamp(rand($caregiverendDate->timestamp, $caregiverstartDate->timestamp))->format('Y-m-d'),
                     'gender_id' => rand(1,2),
                     'marital_status_id' => rand(1,5),
                     'race_id' => rand(1,5),
                     'education_id' => rand(1,5),
                     'family_role_id' => rand(1,5),
+                    'family_id' => $id,
+                    'created_at' => $faker->date('Y-m-d')
+                ]);
+                DB::table('referrals')->insert([
+                    'referral_date' => Carbon::createFromTimestamp(rand($caregiverendDate->timestamp, $caregiverstartDate->timestamp))->format('Y-m-d'),
+                    'referral_type_id' => rand(1,9),
                     'family_id' => $id,
                     'created_at' => $faker->date('Y-m-d')
                 ]);

@@ -6,10 +6,15 @@
                 <div class="col-md-6">
             {{$selfSufficiency->subCategory->name}}</div>
                 <div class="col-md-6">
-                        {{$selfSufficiency->score->name}}</div>
+                        {{$selfSufficiency->score->name}} - {{$selfSufficiency->score->score_value}}</div>
         </div>
     @empty
                 <div class="col-md-12"> No entries </div>
 
     @endforelse
+
+        @if(@$selfSufficienciesComments)
+                <h4>Comments:</h4>
+                {{@$selfSufficienciesComments->comments}}
+        @endif
 </h4>

@@ -6,7 +6,7 @@
                 <div class="col-md-6">
             {{$environment->subCategory->name}}</div>
                 <div class="col-md-6">
-                        {{$environment->score->name}}</div>
+                        {{$environment->score->name}} - {{$environment->score->score_value}}</div>
         </div>
     @empty
                 <div class="col-md-12"> No entries </div>

@@ -77,7 +77,7 @@ class NcfasController extends Controller
         $subCategories = SubCategory::where('category_id','=',  $category->id)->get();
         $scores = Score::get();
 //       dd($subCategories);
-        return view('ncfas.create')->with(compact('category','phase','subCategories','family'));
+        return view('ncfas.create')->with(compact('category','phase','subCategories','family','scores'));
 //        dd($request);
     }
 
