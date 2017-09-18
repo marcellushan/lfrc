@@ -110,31 +110,101 @@
     <h3>AAPI:</h3>
     <table>
         <tr>
-            @forelse($children as $child)
-                <td>
-                    <table>
-                        <tr>
-                            <td>Name:</td>
-                            <td>{{$child->name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Date of Birth:</td>
-                            <td>{{$child->birth_date}}</td>
-                        </tr>
-                        <tr>
-                            <td>Gender:</td>
-                            <td>{{$child->gender->name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Race:</td>
-                            <td>{{$caregiver->race->name}}</td>
-                        </tr>
-                    </table>
-                </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            @empty
-                No Children provided
-            @endforelse
+          <td>
+              @if($family->aapi_pre)
+              Pre
+              <table>
+                  <tr>
+                      <td>
+                          Expectations
+                      </td>
+                      <td>
+                          {{$preAapi->expectations}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Empathy
+                      </td>
+                      <td>
+                          {{$preAapi->empathy}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Belief in Corporal Punishment
+                      </td>
+                      <td>
+                          {{$preAapi->corporal}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Family Roles
+                      </td>
+                      <td>
+                          {{$preAapi->roles}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Power-Interdependence
+                      </td>
+                      <td>
+                          {{$preAapi->power}}
+                      </td>
+                  </tr>
+              </table>
+                  @endif
+          </td>
+            <td>
+                @if($family->aapi_post)
+                Post
+                <table>
+                    <tr>
+                        <td>
+                            Expectations
+                        </td>
+                        <td>
+                            {{$postAapi->expectations}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Empathy
+                        </td>
+                        <td>
+                            {{$postAapi->empathy}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Belief in Corporal Punishment
+                        </td>
+                        <td>
+                            {{$postAapi->corporal}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Family Roles
+                        </td>
+                        <td>
+                            {{$postAapi->roles}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Power-Interdependence
+                        </td>
+                        <td>
+                            {{$postAapi->power}}
+                        </td>
+                    </tr>
+                </table>
+                    @endif
+            </td>
         </tr>
     </table>
+    <h3>NCFAS:</h3>
 </body>

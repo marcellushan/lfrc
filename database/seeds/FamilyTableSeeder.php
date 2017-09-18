@@ -16,7 +16,7 @@ class FamilyTableSeeder extends Seeder
     {
         {
             $faker = Faker::create();
-            for ($x = 0; $x <= 10; $x++) {
+            for ($x = 0; $x <= 500; $x++) {
                 $startDate = Carbon::create(2017, 1, 1);
                 $endDate   = Carbon::now();
                 $childstartDate = Carbon::create(2000, 1, 1);
@@ -32,8 +32,12 @@ class FamilyTableSeeder extends Seeder
                     'state' => $faker->state,
                     'zip' => rand(10000,99999),
                     'income_range_id' => rand(1,6),
-//                    'referral_id' => rand(1,9),
-//                    'ina_date' => $faker->date('Y-m-d')->between(2017-01-01, 2017-12-31),
+                    'full_time' => 1,
+                    'income_source_other' => 1,
+                    'income_source_other_text' => $faker->word,
+                    'sexual' => 1,
+                    'abuse_other' => 1,
+                    'abuse_other_text' => $faker->word,
                     'ina_date' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d'),
 
                     'created_at' => $faker->date('Y-m-d')
