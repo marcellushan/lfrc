@@ -8,6 +8,9 @@
             <h4 class="col-md-2">Source: </h4><h4 class="not_bold col-md-4">{{$referral->referral_type->name}}</h4>
         @endforeach
     </div>
+    <div class="row">
+        <h4 class="col-md-12"><a href="{{URL::to('/')}}/referral/create/{{$family->id}}">Add Referral</a></h4>
+    </div>
 </div>
 <div class="well">
     <div class="row">

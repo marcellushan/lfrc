@@ -68,3 +68,6 @@ Route::get('ncfas/{id}', 'NcfasController@index');
 
 Route::get('ncfas/create/{id}/{category_id}/{phase_id}', 'NcfasController@create');
 Route::post('ncfas', 'NcfasController@store');
+
+Route::get('referral/create/{id}', 'ReferralController@create');
+Route::post('referral', 'ReferralController@store');

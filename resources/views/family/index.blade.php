@@ -3,41 +3,27 @@
 <div class="well">
     @include('partials.ajax_name')
     @include('partials.ajax_case_id')
-   <h2>Families</h2>
+   <h2 align="center">Families</h2>
 
-
-    <table class="table">
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Case ID
-            </th>
-            <th>
-
-            </th>
-            <th>
-
-            </th>
-        </tr>
-        @foreach($families as $family)
-            <tr>
-                <td>
-                    {{$family->name}}
-                </td>
-                <td>
-                    {{$family->case_id}}
-                </td>
-                <td>
-                    <a href="{{URL::to('/')}}/family/{{$family->id}}">Edit</a>
-                </td>
-                <td>
-                    <a href="{{URL::to('/')}}/family/view_all/{{$family->id}}">View</a>
-                </td>
-            </tr>
-        @endforeach
-    </table>
+<div class="row">
+    <h3 class="col-sm-6 col-sm-offset-2">
+            Name
+    </h3>
+    <h3 class="col-sm-4">
+            Case ID
+</h3>
 </div>
-                            {{$families->links()}}
+    @foreach($families as $family)
+        <div class="row">
+            <h3 class="col-sm-6 col-sm-offset-2 not_bold">
+                <a href="{{URL::to('/')}}/family/{{$family->id}}">{{$family->name}}</a>
+            </h3>
+            <h3 class="col-sm-4 not_bold">
+                {{$family->case_id}}
+            </h3>
+        </div>
+    @endforeach
+</table>
+</div>
+                        {{$families->links()}}
 @endsection

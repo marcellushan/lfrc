@@ -16,6 +16,7 @@ class CreateReferralsTable extends Migration
             $table->increments('id');
             $table->date('referral_date');
             $table->integer('referral_type_id');
+            $table->string('referral_other')->nullable;
             $table->unsignedInteger('family_id');
             $table->timestamps();
         });

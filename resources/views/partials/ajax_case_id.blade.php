@@ -28,7 +28,7 @@
 {{--</div>--}}
 <h2 class="col-md-6">
     <div class="search-box">
-        <input type="text" autocomplete="off" placeholder="Search by Case ID..." />
+        <input type="text" autocomplete="off" class="form-control" placeholder="Search by Case ID..." />
         <div class="result"></div>
     </div>
 </h2>

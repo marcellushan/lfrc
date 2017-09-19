@@ -25,7 +25,7 @@
 <div class="row">
     <h2 class="col-md-6">
         <div class="search-box">
-            <input type="text" autocomplete="off" placeholder="Search by name..." />
+            <input type="text" autocomplete="off" class="form-control" placeholder="Search by name..." />
             <div class="result"></div>
         </div>
     </h2>
