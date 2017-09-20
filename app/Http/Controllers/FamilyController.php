@@ -211,16 +211,19 @@ class FamilyController extends Controller
     public function close(Request $request)
     {
         $family_id = $request->id;
-        $closeReasons = $request->close_reasons;
+//        $closeReasons = $request->close_reasons;
         $family = Family::find($family_id);
-        $family->visits = $request->visits;
-        $family->closed_notes = $request->closed_notes;
+        $data = $request->except('id','_token','close_date');
+//        dd($data);
+        $family->fill($data);
+//        $family->closed_notes = $request->closed_notes;
         $family->close_date = implode("-", $request->close_date);
         $family->closed = 1;
+//        dd($family);
         $family->save();
-        foreach ($closeReasons as $closeReason) {
-            $family->closeReasons()->attach($closeReason);
-        }
+//        foreach ($closeReasons as $closeReason) {
+//            $family->closeReasons()->attach($closeReason);
+//        }
 //        $family->fill($data);
 
 //        dd($closeReasons);

@@ -28,6 +28,6 @@ class ReferralController extends Controller
        if($request->referral_type_id == 10)
            $referral->referral_other = $request->referral_other;
         $referral->save();
-       dd($referral);
+       return redirect('family/'. $request->id);
    }
 }

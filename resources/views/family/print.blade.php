@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/css/print.css">
 </head>
 <body>
-<h2>Family:</h2>
+<h1>Family Resource Center</h1>
+<h2>Family: <span class="not_bold">{{$family->name}}</span></h2>
+@if($family->closed)
+    <h3 class="note_this">Case Closed {{$family->close_date}}</h3>
+    @endif
+<h3></h3>
 <h3>Case ID: <span class="not_bold">{{$family->case_id}}</span></h3>
-<h3>Family/Case Name:  <span class="not_bold">{{$family->name}}</span></h3>
 <h3>Address:  <span class="not_bold">{{$family->street}}, {{$family->city}}, {{$family->state}}, {{$family->zip}}</span></h3>
 <h3>Referrals(s):    @foreach($referrals as $referral)
         <h3 class="col-md-6 not_bold">
@@ -112,7 +116,7 @@
         <tr>
           <td>
               @if($family->aapi_pre)
-              Pre
+              <h4>Pre</h4>
               <table>
                   <tr>
                       <td>
@@ -159,7 +163,7 @@
           </td>
             <td>
                 @if($family->aapi_post)
-                Post
+               <h4> Post</h4>
                 <table>
                     <tr>
                         <td>
@@ -206,5 +210,51 @@
             </td>
         </tr>
     </table>
-    <h3>NCFAS:</h3>
+</h3>
+@if(count($reabuses) >0)
+    <h3>Re-Abuses</h3>
+    <table>
+    @foreach($reabuses as $reabuse)
+        <tr>
+            <td width="5%">
+        Date: {{$reabuse->date}}
+            </td>
+            <td width="5%">
+                Type: {{$reabuse->abuse->name}}
+            </td>
+            <td width="40%">
+                Notes: {{$reabuse->notes}}
+            </td>
+        </tr>
+    @endforeach
+    </table>
+@endif
+@if($family->closed)
+        <h2>Case Closed</h2>
+        <h3>Closed Date: {{$family->close_date}}</h3>
+        @foreach($reabuses as $reabuse)
+        @endforeach
+        <h3>Closed Notes: </h3>
+        {{$family->close_notes}}
+        <h3>Visits: {{$family->visits}}</h3>
+
+    <h3>Reason for Close</h3>
+    @if($family->close_successful)
+            Successful
+    @endif
+    @if($family->close_refused)
+            Refused Services
+    @endif
+    @if($family->close_relocated)
+        <div class="row">
+    Family Relocated
+        </div>
+    @endif
+    @if($family->close_no_contact)
+        Unable to Contact
+    @endif
+    @if($family->close_inappropriate)
+           Inappropriate Case
+    @endif
+@endif
 </body>

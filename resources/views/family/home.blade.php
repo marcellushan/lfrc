@@ -178,17 +178,35 @@
             <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$family->close_date}}</span></h4>
         </div>
         <h3 align="center">Reason for Close</h3>
-        @forelse ($closeReasons as $closeReason)
-
+        @if($family->close_successful)
             <div class="row">
-                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">{{$closeReason->name}}</span></h4>
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">Successful,</span></h4>
             </div>
-        @empty
-            No Close Reasons
-        @endforelse
+        @endif
+        @if($family->close_refused)
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">Refused Services</span></h4>
+            </div>
+        @endif
+        @if($family->close_relocated)
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">Family Relocated</span></h4>
+            </div>
+        @endif
+        @if($family->close_no_contact)
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">Unable to Contact</span></h4>
+            </div>
+        @endif
+        @if($family->close_inappropriate)
+            <div class="row">
+                <h4 class="col-md-5 col-md-offset-5"><span class="not_bold">Inappropriate Case</span></h4>
+            </div>
+        @endif
+
         <h3 align="center">Closed Notes</h3>
         <div class="row">
-            <h4 class="col-md-12"><span class="not_bold">{{$family->closed_notes}}</span></h4>
+            <h4 class="col-md-12"><span class="not_bold">{{$family->close_notes}}</span></h4>
         </div>
     @else
         <form action="{{URL::to('/')}}/family/close" method="post" id="close_case">
@@ -197,11 +215,11 @@
         <h2 align="center">Close Case</h2>
         <div class="row">
             <h4 class="col-md-3 col-md-offset-3">
-                <input type="checkbox" name="close_reasons[]" value="1">Successful<br>
-                <input type="checkbox" name="close_reasons[]" value="2">Refused Services<br>
-                <input type="checkbox" name="close_reasons[]" value="3">Family Relocated<br>
-                <input type="checkbox" name="close_reasons[]" value="4">Unable to contact<br>
-                <input type="checkbox" name="close_reasons[]" value="5">Inappropriate case
+                <input type="checkbox" name="close_successful" value="1">Successful<br>
+                <input type="checkbox" name="close_refused" value="1">Refused Services<br>
+                <input type="checkbox" name="close_relocated" value="1">Family Relocated<br>
+                <input type="checkbox" name="close_no_contact" value="1">Unable to contact<br>
+                <input type="checkbox" name="close_inappropriate" value="1">Inappropriate Case
             </h4>
                 <div class="col-md-6">
                     <h4>Number of home visits<br>
@@ -219,7 +237,7 @@
             <div class="row">
                     <div class="form-group col-md-8 col-md-offset-2">
                         <label for="date">Close Notes</label>
-                        <textarea class="form-control" name="closed_notes"></textarea>
+                        <textarea class="form-control" name="close_notes"></textarea>
                     </div>
             </div>
         <button type="submit" class="btn-primary btn-lg">Close</button>

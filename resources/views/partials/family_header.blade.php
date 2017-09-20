@@ -8,15 +8,26 @@
         <h2 class="col-md-6 col-md-offset-4">Case Number: <span class="not_bold">{{$family->case_id}}</span></h2>
     </div>
     <div class="row">
-        <h3 class="col-md-3 col-md-offset-2"><a href="{{URL::to('/')}}/family/{{$family->id}}/edit"> <span class="not_bold">
+        <h3 class="col-md-3 col-md-offset-4"><a href="{{URL::to('/')}}/family/{{$family->id}}/edit"> <span class="not_bold">
                     Edit</span></a></h3>
         <h3 class="col-md-3"><a href="{{URL::to('/')}}/family/view_all/{{$family->id}}"> <span class="not_bold">
                     View</span></a></h3>
-        <h3 class="col-md-3"><a href="{{URL::to('/')}}/family/print/{{$family->id}}"> <span class="not_bold">
-                    Print</span></a></h3>
-
-
-
-
+        {{--<h3 class="col-md-3"><a href="{{URL::to('/')}}/family/print/{{$family->id}}"> <span class="not_bold">--}}
+                    {{--Print</span></a></h3>--}}
     </div>
+        <div class="row">
+            <h2 class="col-md-3 col-md-offset-5">Print:</h2>
+        </div>
+        <div class="row">
+            {{--<h3 class="col-md-3 col-md-offset-2">Print:</h3>--}}
+            <h3 class="col-md-6 col-md-offset-5"><a href="{{URL::to('/')}}/family/print/{{$family->id}}"> <span class="not_bold">
+                    Family Profile</span></a></h3>
+            <h3 class="col-md-2 col-md-offset-2"> <span class="not_bold">NCFAS:</span></h3>
+            <h3 class="col-md-2"><a href="{{URL::to('/')}}/data/print?id={{$family->id}}&phase_id=1"> <span class="not_bold">
+                    Intake</span></a></h3>
+            <h3 class="col-md-2"><a href="{{URL::to('/')}}/data/print?id={{$family->id}}&phase_id=2"> <span class="not_bold">
+                    Interim</span></a></h3>
+            <h3 class="col-md-2"><a href="{{URL::to('/')}}/data/print?id={{$family->id}}&phase_id=3"> <span class="not_bold">
+                    Closure</span></a></h3>
+        </div>
 </div>

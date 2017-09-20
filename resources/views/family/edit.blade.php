@@ -69,6 +69,12 @@
                     <div class="col-md-3">
                         <input type="checkbox" name="income_source_other" value="1" @if($family->income_source_other) checked @endif>Other
                     </div>
+
+                    <div class="col-md-3">
+                        <div  id="income_source_other_details">
+                            Other <input type="text" name="income_source_other_text">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">

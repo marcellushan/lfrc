@@ -27,6 +27,11 @@ body {
 
 }
 
+#income_source_other_edit {
+    display: none;
+
+}
+
 #abuse_other_details {
     display: none;
 

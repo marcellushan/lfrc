@@ -108,4 +108,51 @@ class DataController extends Controller
 //        dd($request);
     }
 
+    public function printNcfas(Request $request)
+    {
+//        $family_id = session('family_id');
+        $family_id = $request->id;
+
+        $phase_id = $request->phase_id;
+        $family = Family::find($family_id);
+        ($phase_id == 1)? $phase = 'Intake': ($phase_id ==2)? $phase = 'Interim': $phase = 'Closure';
+        $environments = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 1)->get();
+        $environmentComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 1)->first();
+        $parentalCapabilities = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 2)->get();
+        $parentalCapabilitiesComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 2)->first();
+        $familyInteractions = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 3)->get();
+        $familyInteractionsComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 3)->first();
+        $familySafeties = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 4)->get();
+        $familySafetiesComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 4)->first();
+        $childWellBeings = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 5)->get();
+        $childWellBeingsComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 5)->first();
+        $socialCommunityLives = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 6)->get();
+        $socialCommunityLivesComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 6)->first();
+        $selfSufficiencies = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 7)->get();
+        $selfSufficienciesComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 7)->first();
+        $familyHealths = Ncfas::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 8)->get();
+        $familyHealthsComments = NcfasStatus::where('family_id', '=', $family->id)->where('phase_id', '=', $phase_id)
+            ->where('category_id', '=', 8)->first();
+        return view('ncfas.print')->with(compact('family','environments','environmentComments','parentalCapabilities',
+            'parentalCapabilitiesComments','familyInteractions','familyInteractionsComments','familySafeties','familySafetiesComments',
+            'childWellBeings','childWellBeingsComments','socialCommunityLives','socialCommunityLivesComments',
+            'selfSufficiencies','selfSufficienciesComments','familyHealths','familyHealthsComments','phase'));
+//        dd($request);
+    }
+
 }

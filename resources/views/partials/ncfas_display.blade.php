@@ -1,20 +1,19 @@
 <h4>
         {{--<h1>Category: {{$category->name}}</h1>--}}
         {{--<h2>Phase: {{$phase->name}}</h2>--}}
-    @forelse($socialCommunityLives as $socialCommunityLive)
+    @forelse($$names as $$name)
         <div class="row">
                 <div class="col-md-6">
-            {{$socialCommunityLive->subCategory->name}}</div>
+            {{$$name->subCategory->name}}</div>
                 <div class="col-md-6">
-                        {{$socialCommunityLive->score->name}} - {{$socialCommunityLive->score->score_value}}</div>
+                        {{$$name->score->name}} - {{$$name->score->score_value}}</div>
         </div>
     @empty
                 <div class="col-md-12"> No entries </div>
-
     @endforelse
 
-        @if(@$socialCommunityLivesComments)
+        @if(@$$nameComments)
                 <h4>Comments:</h4>
-                {{@$socialCommunityLivesComments->comments}}
+                {{@$$nameComments->comments}}
         @endif
 </h4>

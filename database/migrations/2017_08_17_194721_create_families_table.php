@@ -45,7 +45,12 @@ class CreateFamiliesTable extends Migration
             $table->boolean('aapi_post')->nullable();
             $table->integer('visits')->nullable();
             $table->boolean('closed')->nullable();
-            $table->text('closed_notes')->nullable();
+            $table->boolean('close_successful')->nullable();
+            $table->boolean('close_refused')->nullable();
+            $table->boolean('close_relocated')->nullable();
+            $table->boolean('close_no_contact')->nullable();
+            $table->boolean('close_inappropriate')->nullable();
+            $table->text('close_notes')->nullable();
             $table->date('close_date')->nullable();
             $table->timestamps();
         });
