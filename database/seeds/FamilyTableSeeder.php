@@ -16,7 +16,7 @@ class FamilyTableSeeder extends Seeder
     {
         {
             $faker = Faker::create();
-            for ($x = 0; $x <= 10; $x++) {
+            for ($x = 0; $x <= 100; $x++) {
                 $startDate = Carbon::create(2017, 1, 1);
                 $endDate   = Carbon::now();
                 $childstartDate = Carbon::create(2000, 1, 1);
