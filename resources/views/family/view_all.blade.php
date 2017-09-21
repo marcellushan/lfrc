@@ -30,6 +30,18 @@
                 <div class="col-md-6 not_bold">
                     {{$family->zip}}
                 </div>
+                <div class="col-md-6">
+                    Email
+                </div>
+                <div class="col-md-6 not_bold">
+                    {{$family->email}}
+                </div>
+                <div class="col-md-6">
+                    Phone
+                </div>
+                <div class="col-md-6 not_bold">
+                    {{$family->phone}}
+                </div>
             </div>
             </h5>
             <div class="row">
