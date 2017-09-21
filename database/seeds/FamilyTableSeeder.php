@@ -31,6 +31,8 @@ class FamilyTableSeeder extends Seeder
                     'city' => $faker->city,
                     'state' => $faker->state,
                     'zip' => rand(10000,99999),
+                    'email' => $faker->email,
+                    'phone' =>rand(2000000000,9999999999),
                     'income_range_id' => rand(1,6),
                     'full_time' => 1,
                     'income_source_other' => 1,

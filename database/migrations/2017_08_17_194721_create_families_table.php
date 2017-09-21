@@ -20,6 +20,8 @@ class CreateFamiliesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zip');
+            $table->string('email');
+            $table->string('phone');
             $table->integer('income_range_id');
             $table->boolean('full_time')->nullable();
             $table->boolean('part_time')->nullable();

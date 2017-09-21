@@ -33,6 +33,16 @@
                 </div>
             </div>
             <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="street">Email:</label>
+                    <input type="email" name="email" value="{{$family->email}}"class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="city">Phone:</label>
+                    <input type="text" name="phone" value="{{$family->phone}}" class="form-control">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <label>Income Source (select all that apply)</label>
                 </div>

@@ -31,12 +31,20 @@
                         <option>{{ucfirst(strtolower($state->State))}}</option>
                         @endforeach
                     </select>
-
-
                 </div>
                 <div class="form-group col-md-2">
                     <label for="zip">Zip Code:</label>
                     <input type="text" name="zip" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="street">Email:</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="city">Phone:</label>
+                    <input type="text" name="phone" class="form-control">
                 </div>
             </div>
             <div class="row">

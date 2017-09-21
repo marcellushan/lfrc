@@ -48,37 +48,16 @@ class FamilyController extends Controller
     public function store(Request $request)
     {
        $data = $request->except('income_source','abuse','ina_date','referral_id','referral_date');
-//        dd($request->ina_date);
         $family = new Family();
         $family->fill($data);
         $family->ina_date = implode("-", $request->ina_date);
-//        dd($family);
         $family->save();
         $referral = new Referral();
         $referral->referral_type_id = $request->referral_type_id;
         $referral->referral_date = implode("-", $request->referral_date);
         $referral->family_id = $family->id;
         $referral->save();
-
-//        $income_sources = $request->income_source;
-//        foreach ($income_sources as $income_source) {
-//            $family->incomeSources()->attach($income_source);
-//        }
-//        $abuses = $request->abuse;
-//        foreach ($abuses as $abuse) {
-//            $family->abuses()->attach($abuse);
-//        }
-//        $referral_date = implode("-", $request->referral_date);
-//        DB::table('family_referral')->insert(array('family_id' => $family->id ,
-//            'referral_id' => $request->referral_id, 'referral_date' => $referral_date));
-//        $my_list = DB::table('family_referral')->get();
-//        dd($referral_date);
-
-
         return redirect('family/question/' . $family->id);
-//        dd($request->income_source);
-//        $family->save();
-
     }
 
     /**

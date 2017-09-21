@@ -15,6 +15,8 @@
 <h3></h3>
 <h3>Case ID: <span class="not_bold">{{$family->case_id}}</span></h3>
 <h3>Address:  <span class="not_bold">{{$family->street}}, {{$family->city}}, {{$family->state}}, {{$family->zip}}</span></h3>
+<h3>Email:  <span class="not_bold">{{$family->email}}</h3>
+<h3>Phone:  <span class="not_bold">{{$family->phone}}</h3>
 <h3>Referrals(s):    @foreach($referrals as $referral)
         <h3 class="col-md-6 not_bold">
             Source: {{$referral->referral_type->name}} &nbsp; Date: {{$referral->referral_date}}</h3>
