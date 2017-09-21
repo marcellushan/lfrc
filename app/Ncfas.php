@@ -20,7 +20,7 @@ class Ncfas extends Model
 
     public function subCategory()
     {
-        return $this->belongsTo('App\subCategory');
+        return $this->belongsTo('App\SubCategory');
     }
 
     public function score()
