@@ -7,3 +7,5 @@ Homestead.json
 /.idea/
 *.iml
 /public/uploads
+.DS_Store
+database/.DS_Store
