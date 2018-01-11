@@ -11,7 +11,8 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $families = Family::orderBy('name')->paginate(30);
+        $families = Family::where('created_at', '>','2017-10-01')->where('created_at', '<','2017-11-01')->get();
+        dd($families);
         return view('family.index')->with(compact('families'));
     }
 }

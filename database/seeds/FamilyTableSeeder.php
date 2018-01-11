@@ -59,7 +59,7 @@ class FamilyTableSeeder extends Seeder
                     'gender_id' => rand(1,2),
                     'race_id' => rand(1,5),
                     'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
                 DB::table('children')->insert([
                     'name' => $faker->name,
@@ -67,7 +67,7 @@ class FamilyTableSeeder extends Seeder
                     'gender_id' => rand(1,2),
                     'race_id' => rand(1,5),
                     'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
                 DB::table('caregivers')->insert([
                     'name' => $faker->firstName . ' ' . $faker->lastName,
@@ -78,7 +78,7 @@ class FamilyTableSeeder extends Seeder
                     'education_id' => rand(1,5),
                     'family_role_id' => rand(1,5),
                     'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
                 DB::table('caregivers')->insert([
                     'name' => $faker->name,
@@ -89,13 +89,13 @@ class FamilyTableSeeder extends Seeder
                     'education_id' => rand(1,5),
                     'family_role_id' => rand(1,5),
                     'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
                 DB::table('referrals')->insert([
                     'referral_date' => Carbon::createFromTimestamp(rand($caregiverendDate->timestamp, $caregiverstartDate->timestamp))->format('Y-m-d'),
                     'referral_type_id' => rand(1,9),
                     'family_id' => $id,
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
 //                DB::table('abuse_family')->insert([
 //                    'abuse_id' => rand(1,6),
