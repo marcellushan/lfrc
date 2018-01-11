@@ -20,6 +20,8 @@ class FamilyTableSeeder extends Seeder
                 $startDate = Carbon::create(2017, 1, 1);
                 $endDate   = Carbon::now();
                 $childstartDate = Carbon::create(2000, 1, 1);
+//                $createStartDate = Carbon::create(2000, 1, 1);
+//                $childendDate   = Carbon::now();
                 $childendDate   = Carbon::now();
                 $caregiverstartDate = Carbon::create(1940, 1, 1);
                 $caregiverendDate   = Carbon::create(2001,1,1);
@@ -41,8 +43,7 @@ class FamilyTableSeeder extends Seeder
                     'abuse_other' => 1,
                     'abuse_other_text' => $faker->word,
                     'ina_date' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d'),
-
-                    'created_at' => $faker->date('Y-m-d')
+                    'created_at' => Carbon::createFromTimestamp(rand($endDate->timestamp, $startDate->timestamp))->format('Y-m-d')
                 ]);
 //                DB::table('family_income_source')->insert([
 //                    'income_source_id' => rand(1,10),

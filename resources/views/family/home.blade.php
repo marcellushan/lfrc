@@ -220,13 +220,15 @@
                 <input type="checkbox" name="close_refused" value="1">Refused Services<br>
                 <input type="checkbox" name="close_relocated" value="1">Family Relocated<br>
                 <input type="checkbox" name="close_no_contact" value="1">Unable to contact<br>
-                <input type="checkbox" name="close_inappropriate" value="1">Inappropriate Case
+                <input type="checkbox" name="close_lack_of_participation" value="1">Lack of Participation<br>
+                <input type="checkbox" name="close_inappropriate" value="1">Inappropriate Case<br>
+                <input type="checkbox" name="close_other" value="1">Other
             </h4>
                 <div class="col-md-6">
                     <h4>Number of home visits<br>
                 <select name="visits">
                     <option value="">Select</option>
-                    @for($i = 1; $i <= 10; $i++)
+                    @for($i = 1; $i <= 20; $i++)
                         <option>{{$i}}</option>
                     <@endfor>
                 </select></h4>

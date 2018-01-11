@@ -6,6 +6,7 @@
         <h2 class="col-md-6 col-md-offset-4">Family: <span class="not_bold">
                 <a href="{{URL::to('/')}}/family/{{$family->id}}">{{$family->name}}</a></span></h2>
         <h2 class="col-md-6 col-md-offset-4">Case Number: <span class="not_bold">{{$family->case_id}}</span></h2>
+        <h2 class="col-md-6 col-md-offset-4">INA Date: <span class="not_bold">{{$family->ina_date}}</span></h2>
     </div>
     <div class="row">
         <h3 class="col-md-3 col-md-offset-4"><a href="{{URL::to('/')}}/family/{{$family->id}}/edit"> <span class="not_bold">

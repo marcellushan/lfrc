@@ -72,3 +72,5 @@ Route::post('ncfas', 'NcfasController@store');
 
 Route::get('referral/create/{id}', 'ReferralController@create');
 Route::post('referral', 'ReferralController@store');
+
+Route::get('report', 'ReportController@index');
