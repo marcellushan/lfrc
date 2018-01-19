@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Family;
+use App\ParentAide;
 use App\Abuse;
 use App\State;
 
@@ -33,10 +34,11 @@ class FamilyController extends Controller
      */
     public function create()
     {
+        $parent_aides = ParentAide::get();
         $states = State::get();
         $current_date = Carbon::now();
         $current_year = $current_date->year;
-        return view('family.create')->with(compact('states','current_year'));
+        return view('family.create')->with(compact('parent_aides','states','current_year'));
     }
 
     /**
@@ -82,7 +84,7 @@ class FamilyController extends Controller
         $reabuses = $family->reabuses;
         $closeReasons = $family->closeReasons;
 //        dd($referrals);
-        return view('family.home')->with(compact('family','incomeRange','caregivers',
+        return view('family.show')->with(compact('family','incomeRange','caregivers',
             'children','caregivers','referrals','all_abuses','reabuses','closeReasons','current_year'));
     }
 
@@ -94,6 +96,7 @@ class FamilyController extends Controller
      */
     public function edit($id)
     {
+        $parent_aides = ParentAide::get();
         $current_date = Carbon::now();
         $current_year = $current_date->year;
         $family = Family::find($id);
@@ -103,7 +106,7 @@ class FamilyController extends Controller
         $family->month = substr($family->ina_date, 5,2);
         $family->day = substr($family->ina_date, 8,2);
 //        dd($family->incomeSources);
-        return view('family.edit')->with(compact('family','referrals'));
+        return view('family.edit')->with(compact('parent_aides','family','referrals'));
     }
 
     /**

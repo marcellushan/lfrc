@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FamilyRoleTableSeeder::class);
         $this->call(PhaseTableSeeder::class);
         $this->call(CloseReasonTableSeeder::class);
+        $this->call(ParentAideTableSeeder::class);
 
 
 

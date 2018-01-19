@@ -74,3 +74,5 @@ Route::get('referral/create/{id}', 'ReferralController@create');
 Route::post('referral', 'ReferralController@store');
 
 Route::get('report', 'ReportController@index');
+Route::post('report/show', 'ReportController@show');
+Route::resource('parent_aide', 'ParentAideController');

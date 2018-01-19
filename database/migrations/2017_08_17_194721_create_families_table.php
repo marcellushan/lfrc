@@ -22,6 +22,7 @@ class CreateFamiliesTable extends Migration
             $table->string('zip');
             $table->string('email');
             $table->string('phone');
+            $table->integer('parent_aide_id');
             $table->integer('income_range_id');
             $table->boolean('full_time')->nullable();
             $table->boolean('part_time')->nullable();
@@ -57,19 +58,6 @@ class CreateFamiliesTable extends Migration
             $table->timestamps();
         });
 
-//        Schema::create('family_income_source', function (Blueprint $table) {
-//        $table->integer('family_id')->unsigned()->index();
-//        $table->integer('income_source_id')->unsigned()->index();
-//        $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
-//        $table->timestamps();
-//    });
-
-//        Schema::create('abuse_family', function (Blueprint $table) {
-//            $table->integer('abuse_id')->unsigned()->index();
-//            $table->integer('family_id')->unsigned()->index();
-//            $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
-//            $table->timestamps();
-//        });
 
         Schema::create('family_referral', function (Blueprint $table) {
             $table->integer('family_id')->unsigned()->index();

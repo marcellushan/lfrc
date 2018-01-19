@@ -48,6 +48,17 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-5">
+                    <label>Parent Aide</label>
+                    <select name="parent_aide_id">
+                        <option>Select</option>
+                        @foreach($parent_aides as $parent_aide)
+                            <option value="{{$parent_aide->id}}">{{$parent_aide->last_name}}, {{$parent_aide->first_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <label>Income Source (select all that apply)</label>
                 </div>

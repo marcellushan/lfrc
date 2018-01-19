@@ -22,14 +22,6 @@
         <h4 class="col-md-2">Phone: </h4><h4 class="not_bold col-md-4">{{$family->phone }}</h4>
     </div>
 </div>
-{{--<div class="well">--}}
-    {{--<div class="row">--}}
-        {{--<h2 class="col-md-8 col-md-offset-4">Referral Type</h2>--}}
-    {{--</div>--}}
-    {{--<div class="row">--}}
-        {{--<h3 class="col-md-8 col-md-offset-4 not_bold">{{$family->referral->name}}</h3>--}}
-    {{--</div>--}}
-{{--</div>--}}
 <div class="well">
     <h2 align="center">Measurement Tools</h2>
     <div class="row">

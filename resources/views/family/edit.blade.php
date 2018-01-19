@@ -43,6 +43,19 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-5">
+                    <label>Parent Aide</label>
+                    <select name="parent_aide_id">
+                        <option>Select</option>
+                        @foreach($parent_aides as $parent_aide)
+                            <option value="{{$parent_aide->id}}" @if($family->parent_aide_id == $parent_aide->id) selected @endif> {{$parent_aide->last_name}}, {{$parent_aide->first_name}}</option>
+                            {{--<option value="1" @if($family->income_range_id == '1') selected @endif>Less than $10,000</option>--}}
+
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <label>Income Source (select all that apply)</label>
                 </div>
