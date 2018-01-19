@@ -1,12 +1,44 @@
 @extends('layouts.app') @section('content')
 
+
+
 <div class="well">
-    <form action="{{URL::to('/')}}/report/show" name="report" id="report" method="post">
-    {{ csrf_field() }}
-    @include('partials.date_needed', ['name' => 'start_date'])
-    <br>
-        @include('partials.date_needed', ['name' => 'end_date'])
-        <button type="submit" class="btn-primary btn-lg">submit</button>
+<div class="row">
+    <div class="col-md-6">
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Overall</th>
+            <th>This Year</th>
+            <th>This Month</th>
+        </tr>
+        <tr>
+            <td>Created</td>
+            <td>{{$created_total}}</td>
+            <td>{{$created_this_year}}</td>
+            <td>{{$created_this_month}}</td>
+        </tr>
+        <tr>
+            <td>Open</td>
+            <td>{{$open_total}}</td>
+            <td>{{$open_this_year}}</td>
+            <td>{{$open_this_month}}</td>
+        </tr>
+        <tr>
+            <td>Closed</td>
+            <td>{{$closed_total}}</td>
+            <td>{{$closed_this_year}}</td>
+            <td>{{$closed_this_month}}</td>
+        </tr>
+    </table>
+    </div>
+</div>
+    {{--<form action="{{URL::to('/')}}/report/show" name="report" id="report" method="post">--}}
+    {{--{{ csrf_field() }}--}}
+    {{--@include('partials.date_needed', ['name' => 'start_date'])--}}
+    {{--<br>--}}
+        {{--@include('partials.date_needed', ['name' => 'end_date'])--}}
+        {{--<button type="submit" class="btn-primary btn-lg">submit</button>--}}
 
     </form>
 
