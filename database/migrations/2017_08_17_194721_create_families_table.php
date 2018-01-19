@@ -53,6 +53,8 @@ class CreateFamiliesTable extends Migration
             $table->boolean('close_relocated')->nullable();
             $table->boolean('close_no_contact')->nullable();
             $table->boolean('close_inappropriate')->nullable();
+            $table->boolean('close_lack_of_participation')->nullable();
+            $table->boolean('close_other')->nullable();
             $table->text('close_notes')->nullable();
             $table->date('close_date')->nullable();
             $table->timestamps();

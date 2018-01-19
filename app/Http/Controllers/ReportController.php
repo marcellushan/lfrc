@@ -26,5 +26,6 @@ class ReportController extends Controller
         $families = Family::where('created_at', '>', $start_date)->where('created_at', '<', $end_date)->count();
 
         dd($families);
+
     }
 }
