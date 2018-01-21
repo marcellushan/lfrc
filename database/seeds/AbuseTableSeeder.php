@@ -13,27 +13,38 @@ class AbuseTableSeeder extends Seeder
     {
         DB::table('abuses')->insert([
             'id' => 1,
-            'name' => 'Physical Abuse'
+            'name' => 'Physical Abuse',
+            'short_name' => 'physical'
         ]);
         DB::table('abuses')->insert([
             'id' => 2,
-            'name' => 'Emotional Abuse'
+            'name' => 'Emotional Abuse',
+            'short_name' => 'emotional'
+
         ]);
         DB::table('abuses')->insert([
             'id' => 3,
-            'name' => 'Sexual Abuse'
+            'name' => 'Sexual Abuse',
+            'short_name' => 'sexual'
+
         ]);
         DB::table('abuses')->insert([
             'id' => 4,
-            'name' => 'Neglect'
+            'name' => 'Neglect',
+            'short_name' => 'neglect'
+
         ]);
         DB::table('abuses')->insert([
             'id' => 5,
-            'name' => 'High Risk'
+            'name' => 'High Risk',
+            'short_name' => 'high_risk'
+
         ]);
         DB::table('abuses')->insert([
             'id' => 6,
-            'name' => 'Other'
+            'name' => 'Other',
+            'short_name' => 'other'
+
         ]);
 
     }

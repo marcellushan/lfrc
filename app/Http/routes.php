@@ -76,3 +76,5 @@ Route::post('referral', 'ReferralController@store');
 Route::get('report', 'ReportController@index');
 Route::post('report/show', 'ReportController@show');
 Route::resource('parent_aide', 'ParentAideController');
+Route::get('report/list', 'ReportController@familyList');
+
