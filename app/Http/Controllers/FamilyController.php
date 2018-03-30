@@ -23,6 +23,7 @@ class FamilyController extends Controller
      */
     public function index()
     {
+
         $families = Family::orderBy('name')->paginate(30);
         return view('family.index')->with(compact('families'));
     }
