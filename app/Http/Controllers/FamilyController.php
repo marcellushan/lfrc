@@ -25,7 +25,11 @@ class FamilyController extends Controller
     {
 
         $families = Family::orderBy('name')->paginate(30);
-        return view('family.index')->with(compact('families'));
+        $list_families =Family::orderBy('name')->get();
+        $case_ids =Family::orderBy('case_id')->get();
+//        foreach ($families as $family)
+//        dd($family->name);
+        return view('family.index')->with(compact('families','list_families','case_ids'));
     }
 
     /**

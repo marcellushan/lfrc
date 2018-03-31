@@ -48,10 +48,13 @@ class ReportController extends Controller
         $abuse = "";
 
         ($request->status==2 ? $closed = 1 : ($request->status==1 ? $open = 1 : ""));
-        ($request->start_date ? $start_date = implode("-", $request->start_date):"");
-        ($request->end_date ? $end_date = implode("-", $request->end_date):"");
+//        ($request->start_date ? $start_date = implode("-", $request->start_date):"2000-01-01");
+        $start_date = implode("-", $request->start_date);
+        ($start_date == '--' ? $start_date = '2000-01-01' :"");
+        $end_date = implode("-", $request->end_date);
+        ($end_date == '--' ? $end_date = '2100-01-01' :"");
         ($request->abuse ? $abuse = $request->abuse : $abuse = "");
-
+//dd($request);
 
         if($request->parent_aide_id)
         {
@@ -81,8 +84,8 @@ class ReportController extends Controller
 //            ->where('closed','=', 1)
 //            ->orderBy('created_at')
         ->get();
-        $sql = $families->getSqlQuery();
-        dd($families);
+//        $sql = $families->getSqlQuery();
+//        dd($families);
         return view('report.list')->with(compact('families','parent_aide'));
 
     }

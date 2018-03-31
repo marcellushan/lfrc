@@ -3,10 +3,13 @@
 <div class="well">
     {{--@include('partials.ajax_name')--}}
     {{--@include('partials.ajax_case_id')--}}
-   <h2 align="center">Parent Aides</h2>
+    <div class="row">
+        <h2 class="col-sm-4 col-sm-offset-4">Parent Aides</h2>
+        </div>
+
 
 <div class="row">
-    <h3 class="col-sm-6 col-sm-offset-2">
+    <h3 class="col-sm-4 col-sm-offset-2">
             Last Name
     </h3>
     <h3 class="col-sm-4">

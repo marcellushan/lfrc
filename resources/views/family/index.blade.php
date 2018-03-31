@@ -1,8 +1,8 @@
 @extends('layouts.app') @section('content')
 
 <div class="well">
-    @include('partials.ajax_name')
-    @include('partials.ajax_case_id')
+    @include('partials.families_list')
+    @include('partials.case_ID')
    <h2 align="center">Families</h2>
 
 <div class="row">

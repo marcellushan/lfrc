@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-md-3">
                 <h3>Types of Abuse</h3>
-                <select name="abuse" value="">
+                <select name="abuse">
                     <option value="">Select</option>
                     @foreach($abuses as $abuse)
                         <option value="{{$abuse->short_name}}">{{$abuse->name}}</option>
