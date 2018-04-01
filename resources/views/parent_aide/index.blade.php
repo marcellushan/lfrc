@@ -7,6 +7,10 @@
         <h2 class="col-sm-4 col-sm-offset-4">Parent Aides</h2>
         </div>
 
+    <div class="row">
+        <h2 class="col-sm-4 col-sm-offset-4"><a href="parent_aide/create">Add Parent Aides</a></h2>
+    </div>
+
 
 <div class="row">
     <h3 class="col-sm-4 col-sm-offset-2">

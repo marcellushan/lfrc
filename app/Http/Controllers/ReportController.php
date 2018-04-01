@@ -63,6 +63,7 @@ class ReportController extends Controller
         }
         $families = DB::table('families')
             ->join('parent_aides', 'families.parent_aide_id', '=', 'parent_aides.id')
+            ->select('families.*', 'parent_aides.last_name','parent_aides.first_name')
             ->when($start_date, function ($query) use ($start_date) {
                     return $query->where('families.created_at','>', $start_date);
                 })

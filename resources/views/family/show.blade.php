@@ -65,7 +65,8 @@
 
             @forelse ($caregivers as $caregiver)
                 <div class="row">
-                    <h5 class="col-md-2 not_bold"><a href="{{URL::to('/')}}/caregiver/{{$caregiver->id}}/edit?family_id={{$family->id}}"> {{$caregiver->name}}</a></h5><h5 class="col-md-2 not_bold">{{$caregiver->birth_date}}</h5>
+                    <h5 class="col-md-2 not_bold"><a href="{{URL::to('/')}}/caregiver/{{$caregiver->id}}/edit?family_id={{$family->id}}"> {{$caregiver->name}}</a></h5>
+                    <h5 class="col-md-2 not_bold">{{$caregiver->birth_date}}</h5>
                     <h5 class="col-md-1 not_bold">{{$caregiver->gender->name}}</h5><h5 class="col-md-1 not_bold">{{$caregiver->maritalStatus->name}}</h5>
                     <h5 class="col-md-2 not_bold">{{$caregiver->race->name}}</h5><h5 class="col-md-2 not_bold">{{$caregiver->education->name}}</h5>
                     <h5 class="col-md-2 not_bold">{{$caregiver->familyRole->name}}</h5>

@@ -16,8 +16,7 @@ class ParentAideController extends Controller
      */
     public function index()
     {
-        $parent_aides = ParentAide::get();
-//        dd($parent_aides);
+        $parent_aides = ParentAide::orderBy('last_name')->get();
         return view('parent_aide.index')->with(compact('parent_aides'));
     }
 
@@ -43,8 +42,8 @@ class ParentAideController extends Controller
         $data = $request->except('_token');
         $parent_aide->fill($data);
         $parent_aide->save();
-//        return redirect(('family/question/' . $family_id));
-        dd($parent_aide);
+        return redirect('parent_aide');
+//        dd($parent_aide);
     }
 
     /**
@@ -55,7 +54,7 @@ class ParentAideController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('parent_aide.show');
     }
 
     /**
