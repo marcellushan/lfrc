@@ -40,7 +40,7 @@
         </h5>
 
     </div>
-    @foreach($families as $family)
+    @forelse($families as $family)
         <div class="row">
             <h5 class="col-sm-2 not_bold">
                 <a href="{{URL::to('/')}}/family/{{$family->id}}">{{$family->name}}</a>
@@ -57,19 +57,24 @@
             <h5 class="col-sm-2 not_bold">
                 <div class="row">
                     <div class="col-sm-2">
-                        {{$family->physical}}
+                        {{--{{$family->physical}}--}}
+                        <?php if($family->physical) echo "X"; else echo "-";?>
                     </div>
                     <div class="col-sm-2">
-                        {{$family->emotional}}
+                        {{--{{$family->emotional}}--}}
+                        <?php if($family->emotional) echo "X"; else echo "-";?>
                     </div>
                     <div class="col-sm-2">
-                        {{$family->sexual}}
+                        {{--{{$family->sexual}}--}}
+                        <?php if($family->sexual) echo "X"; else echo "-";?>
                     </div>
                     <div class="col-sm-2">
-                        {{$family->neglect}}
+                        {{--{{$family->neglect}}--}}
+                        <?php if($family->neglect) echo "X"; else echo "-";?>
                     </div>
                     <div class="col-sm-2">
-                        {{$family->high_risk}}
+                        {{--{{$family->high_risk}}--}}
+                        <?php if($family->high_risk) echo "X"; else echo "-";?>
                     </div>
                 </div>
             </h5>
@@ -78,7 +83,9 @@
             </h5>
 
         </div>
-    @endforeach
+        @empty
+        <h3 align="center">No families found</h3>
+    @endforelse
 {{--</table>--}}
 </div>
 @endsection

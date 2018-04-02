@@ -151,7 +151,7 @@
             <label>Date of INA</label><br>
             {{--@include('partials.date_needed', ['name' => 'ina_date'])--}}
             <input type="text" name="ina_date" value="{{$family->year}}-{{$family->month}}-{{$family->day}}">
-            <button type="submit">submit</button>
+            <button type="submit"  class="btn-primary btn-lg">submit</button>
 
         </form>
 
@@ -164,7 +164,7 @@
             {{ csrf_field() }}
             <h1 align="center">Delete Family</h1>
             <h2>Click button below to permanently delete this family!!</h2>
-            <button type="submit">Delete Family</button>
+            <button type="submit"  class="btn-primary btn-lg">Delete Family</button>
     </div>
     @include('partials.return')
 

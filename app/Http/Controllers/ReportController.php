@@ -87,7 +87,7 @@ class ReportController extends Controller
         ->get();
 //        $sql = $families->getSqlQuery();
 //        dd($families);
-        return view('report.list')->with(compact('families','parent_aide'));
+        return view('report.show')->with(compact('families','parent_aide'));
 
     }
 

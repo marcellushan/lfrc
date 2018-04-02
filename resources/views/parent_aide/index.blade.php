@@ -23,7 +23,7 @@
     @foreach($parent_aides as $parent_aide)
         <div class="row">
             <h3 class="col-sm-4 col-sm-offset-2 not_bold">
-                <a href="{{URL::to('/')}}/parent_aide/{{$parent_aide->id}}">{{$parent_aide->last_name}}</a>
+                {{$parent_aide->last_name}}
             </h3>
             <h3 class="col-sm-4 not_bold">
                 {{$parent_aide->first_name}}
